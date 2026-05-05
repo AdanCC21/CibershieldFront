@@ -20,7 +20,7 @@ export default function Header({ curPage, setPage }: Prompts) {
       <nav className="flex gap-4">
         <HeaderItem title="Inicio" active={curPage === E_Pages.HOME} page={E_Pages.HOME} setPage={setPage} href="/" goTo={goTo} />
         <HeaderItem title="Practicas" active={curPage === E_Pages.TESTING} page={E_Pages.TESTING} setPage={setPage} href="/testing" goTo={goTo} />
-        <HeaderItem title="Sobre nosotros" active={curPage === E_Pages.US} page={E_Pages.US} setPage={setPage} href="/us" goTo={goTo} />
+        <HeaderItem title="Info" active={curPage === E_Pages.INFO} page={E_Pages.INFO} setPage={setPage} href="/info" goTo={goTo} />
       </nav>
 
       <div className="flex gap-4">

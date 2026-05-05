@@ -3,7 +3,7 @@ import ServiceCard from '@/components/cards/ServiceCard'
 
 export default function Home() {
   return (
-    <div className='flex flex-col gap-20 page-margin my-[2vh]'>
+    <div className='flex flex-col gap-20 my-[2vh]'>
       <section className="flex w-full h-[85vh] justify-between items-center ">
         <div className="flex flex-col w-fit gap-4">
           <h1 className="text-8xl text-(--primary-color) font-bold">Cibershield</h1>

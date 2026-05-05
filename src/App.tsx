@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { E_Pages } from './entities/enums'
 import Home from './pages/Home'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import { useState } from 'react'
-import { E_Pages } from './entities/enums'
+import Training from './pages/Training'
+import Info from './pages/Info'
 
 export default function App() {
   const [curPage, setPage] = useState<E_Pages>(E_Pages.HOME);
@@ -11,11 +13,13 @@ export default function App() {
   return (
     <div>
       <Header curPage={curPage} setPage={setPage} />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/testing' element={<Home />} />
-        <Route path='/us' element={<Home />} />
-      </Routes>
+      <div className='page-margin'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/testing' element={<Training />} />
+          <Route path='/info' element={<Info />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   )
