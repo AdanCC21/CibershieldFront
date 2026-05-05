@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #1A56AD;
+  --secundary-color: #7C4DFF;
+  --tertiary-color: #00E5FF;
+
+  --text-gray: #888;
+  --text-disabled: #ccc;
+}
+
+html {
+  margin: 0px;
+  overflow-x: hidden;
+
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  font-size: 16px;
+}
+
+.page-margin {
+  margin-right: 8vw;
+  margin-left: 8vw;
+}
+
+.card-shadow {
+  box-shadow:
+    0 -2px 0px var(--secundary-color),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+}
