@@ -1,29 +1,31 @@
 import Stepper, { type Step } from "@/components/Steps";
 import { useState, } from "react";
-import type { UserType } from "@/entities/form.entity";
+import type { TrainingForm } from "@/entities/form.entity";
 import { Icons } from "@/constants/icons";
 import Button from "@/components/Button";
 import StUserType from "./formSteps/StUserType";
 import StUserReg from "./formSteps/StUserReg";
-
-interface TrainingForm {
-  userType: UserType | null
-}
+import StCateg from "./formSteps/StCateg";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
 
   const [curStep, setCurStep] = useState<number>(0)
-  const [form, setForm] = useState<TrainingForm>({ userType: null })
+  const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '' })
+
+  const handleForm = (e: any) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }))
+  }
 
   const handleScreen = () => {
     switch (curStep) {
       case 0:
         return (<StUserType form={form} setForm={setForm} />)
       case 1:
-        return (<StUserReg form={form} setForm={setForm} />)
+        return (<StUserReg form={form} handleForm={handleForm} />)
       case 2:
-        return (<StUserType form={form} setForm={setForm} />)
+        return (<StCateg form={form} setForm={setForm} />)
     }
     return (
       <div></div>
