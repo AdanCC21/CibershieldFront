@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer'
 import Training from './pages/Training/Training'
 import Info from './pages/Info'
 import { Toaster } from 'react-hot-toast'
+import Exercises from './pages/Training/Exercises'
 
 export default function App() {
   const [curPage, setPage] = useState<E_Pages>(E_Pages.HOME);
@@ -20,6 +21,7 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/testing' element={<Training />} />
           <Route path='/info' element={<Info />} />
+          <Route path='/testing/exercises' element={<Exercises />} />
         </Routes>
       </div>
       <Footer />

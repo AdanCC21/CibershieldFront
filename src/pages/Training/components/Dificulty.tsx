@@ -4,23 +4,31 @@ import type { DificultyType, TrainingForm } from "@/entities/form.entity"
 import type { Dispatch, SetStateAction } from "react"
 
 interface Prompts {
-    title: string
     level: DificultyType
 
-    active: boolean
+    form: TrainingForm
     setForm: Dispatch<SetStateAction<TrainingForm>>
 }
-export default function Dificulty({ title, level, active, setForm }: Prompts) {
-    const starts = () => {
+export default function Dificulty({ level, form, setForm }: Prompts) {
+    const stars = () => {
+        const starsRes = []
         let count = 1;
-        if (level === 'medium') count += 1;
-        if (level === 'hard') count += 1;
+        level === 'medium' ? count += 1 : level === 'hard' ? count += 1 : count;
+        for (let i = 0; i < 3; i++) {
+            starsRes.push(
+                <img src={i < count ? Icons.star : Icons.startEmpty} alt="star" className="h-4" />
+            )
+        }
+        return starsRes;
     }
-    return (
-        <button className={`flex flex-col items-center justify-center w-full h-fit p-4 border ${active ? 'bg-(--primary-color) border-[#fff0]' : 'border-black hover:bg-(--primary-color)/20 hover:border-black/40'}  rounded-lg cursor-pointer ${tailwindcssDuration}`} onClick={() => setForm(prev => ({ ...prev, dificulty: level }))}>
-            <span className={`text-lg ${active && 'text-white'} font-semibold`}>{title}</span>
 
-            <img src={Icons.star} alt="invitado" className={`${active && 'invert'} h-10`} />
+    return (
+        <button className={`flex flex-col items-center justify-center w-full h-fit p-4 border ${form.dificulty === level ? 'bg-(--primary-color) border-[#fff0]' : 'border-black hover:bg-(--primary-color)/20 hover:border-black/40'}  rounded-lg cursor-pointer ${tailwindcssDuration}`} onClick={() => setForm(prev => ({ ...prev, dificulty: level }))}>
+            <span className={`text-lg ${form.dificulty === level && 'text-white'} font-semibold`}>{level}</span>
+
+            <ul className={`flex gap-2 ${form.dificulty === level && 'invert'}`}>
+                {stars()}
+            </ul>
         </button>
     )
 }

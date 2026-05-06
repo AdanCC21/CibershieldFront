@@ -7,10 +7,13 @@ import StUserType from "./formSteps/StUserType";
 import StUserReg from "./formSteps/StUserReg";
 import StCateg from "./formSteps/StCateg";
 import toast from "react-hot-toast";
+import StDificulty from "./formSteps/StDificulty";
+import { useNavigate } from "react-router-dom";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
 
+  const navigate = useNavigate();
   const [curStep, setCurStep] = useState<number>(0)
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
 
@@ -27,6 +30,8 @@ export default function Training() {
         return (<StUserReg form={form} handleForm={handleForm} />)
       case 2:
         return (<StCateg form={form} setForm={setForm} />)
+      case 3:
+        return (<StDificulty form={form} setForm={setForm} />)
     }
     return (
       <div></div>
@@ -58,6 +63,11 @@ export default function Training() {
     }
   }
 
+  const initTest = () => {
+    console.log("Iniciamos")
+    navigate('exercises')
+  }
+
   return (
     <div className="flex w-full h-full gap-4">
       <div className="flex flex-col flex-1 p-4">
@@ -70,7 +80,7 @@ export default function Training() {
           {curStep > 0 &&
             <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
           }
-          <Button title="Continuar" icon={Icons.arrowRight} iconRight onClick={() => { nextStep() }} btnStyle="fill" iconInvert />
+          <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
         </div>
       </div>
 
