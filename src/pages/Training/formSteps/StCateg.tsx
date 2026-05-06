@@ -16,8 +16,8 @@ export default function StCateg({ form, setForm }: Prompts) {
             </div>
 
             <div className="flex gap-4">
-                <UserCard title="SMS" active={form.userType === 'guest'} icon={Icons.sms} setForm={setForm} value="guest" />
-                <UserCard title="Email" active={form.userType === 'account'} icon={Icons.email} setForm={setForm} value="account" />
+                <UserCard title="SMS" active={form.category === 'sms'} icon={Icons.sms} setForm={setForm} atribute='category' value="sms" />
+                <UserCard title="Email" active={form.category === 'email'} icon={Icons.email} setForm={setForm} atribute='category' value="email" />
             </div>
         </>
     )

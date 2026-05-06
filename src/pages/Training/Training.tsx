@@ -6,12 +6,13 @@ import Button from "@/components/Button";
 import StUserType from "./formSteps/StUserType";
 import StUserReg from "./formSteps/StUserReg";
 import StCateg from "./formSteps/StCateg";
+import toast from "react-hot-toast";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
 
   const [curStep, setCurStep] = useState<number>(0)
-  const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '' })
+  const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
 
   const handleForm = (e: any) => {
     const { name, value } = e.target;
@@ -32,8 +33,33 @@ export default function Training() {
     )
   }
 
+  const nextStep = () => {
+    switch (curStep) {
+      case 0:
+        form.userType ?
+          setCurStep(prev => prev + 1) :
+          toast.error("Seleccione el tipo de usuario con el que quiere entrar.")
+        break;
+      case 1:
+        form.name.trim() && form.email.trim() ?
+          setCurStep(prev => prev + 1) :
+          toast.error(`Especifique el ${form.name ? 'nombre' : 'correo'} de su usario`)
+        break;
+      case 2:
+        form.category ?
+          setCurStep(prev => prev + 1) :
+          toast.error("Seleccione la categoria con el que quiere entrar.");
+        break;
+      case 3:
+        form.dificulty ?
+          setCurStep(prev => prev + 1) :
+          toast.error("Seleccione la dificultad con el que quiere entrar.");
+        break;
+    }
+  }
+
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full h-full gap-4">
       <div className="flex flex-col flex-1 p-4">
         <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
       </div>
@@ -44,15 +70,33 @@ export default function Training() {
           {curStep > 0 &&
             <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
           }
-          <Button title="Continuar" icon={Icons.arrowRight} iconRight onClick={() => { setCurStep(prev => prev + 1) }} btnStyle="fill" iconInvert />
+          <Button title="Continuar" icon={Icons.arrowRight} iconRight onClick={() => { nextStep() }} btnStyle="fill" iconInvert />
         </div>
       </div>
 
       <div className="flex flex-col flex-1 p-4">
-        <h2 className="text-4xl">Resumen</h2>
+        <h2 className="text-2xl mb-2">Resumen</h2>
+        <ul className="flex flex-col gap-2">
+          <SummaryTest title="Tipo de usuario" desc="invitado" />
+          <SummaryTest title="Usuario" desc="Antonio Ramos" />
+          <SummaryTest title="Categoria" desc="SMS" />
+          <SummaryTest title="Dificultad" desc="" />
+        </ul>
       </div>
 
     </div>
   )
 }
 
+interface SumPrompts {
+  title: string
+  desc: string | null
+}
+function SummaryTest({ title, desc }: SumPrompts) {
+  return (
+    <li className="flex flex-col gap-2">
+      <h5 className="text-lg">{title}</h5>
+      <span className="text-sm text-(--text-gray)">{desc?.trim() ? desc : '...'}</span>
+    </li>
+  )
+}

@@ -29,7 +29,7 @@ export default function Stepper({ steps, curStep, setCurStep }: Prompts) {
 
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${tailwindcssDuration} cursor-pointer ${isActive ? "bg-(--primary-color) border-(--primary-color) text-white shadow-md shadow-indigo-200" : isCompleted ? "bg-(--primary-color) border-(--primary-color) text-(--primary-color)" : "bg-white border-(--primary-color)/20 text-(--text-gray)"}`}
                                 onClick={() => setCurStep(step.id)}>
-                                <span className={`${isCompleted && 'text-white'} text-sm font-semibold`}>{step.id}</span>
+                                <span className={`${isCompleted && 'text-white'} text-sm font-semibold`}>{step.id + 1}</span>
                             </div>
                         </div>
 

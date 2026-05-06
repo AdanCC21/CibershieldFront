@@ -17,8 +17,8 @@ export default function StUserType({ form, setForm }: Prompts) {
             </div>
 
             <div className="flex gap-4">
-                <UserCard title="Entrar como invitado" active={form.userType === 'guest'} icon={invitado} setForm={setForm} value="guest" />
-                <UserCard title="Entrar con cuenta" active={form.userType === 'account'} icon={invitado} setForm={setForm} value="account" />
+                <UserCard title="Entrar como invitado" active={form.userType === 'guest'} icon={invitado} atribute='userType' setForm={setForm} value="guest" />
+                <UserCard title="Entrar con cuenta" active={form.userType === 'account'} icon={invitado} atribute='userType' setForm={setForm} value="account" />
             </div>
         </>
     )
