@@ -16,7 +16,7 @@ export default function App() {
     <div className='flex flex-col w-screen min-h-screen'>
       <Toaster position='top-right' toastOptions={{ style: { background: 'var(--primary-color)', color:"white" } }} />
       <Header curPage={curPage} setPage={setPage} />
-      <div className='flex flex-col flex-1 page-margin'>
+      <div className='flex flex-col flex-1 h-full page-margin '>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/testing' element={<Training />} />
