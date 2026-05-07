@@ -4,6 +4,7 @@ import PhoneCard from "./components/PhoneCard"
 import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
+import Loader from "@/components/Loader"
 
 
 export default function Exercises() {
@@ -12,6 +13,7 @@ export default function Exercises() {
 
     useEffect(() => {
         const loadLocalData = async () => {
+            if (loading) return;
             setLoading(true);
 
             try {
@@ -30,11 +32,13 @@ export default function Exercises() {
             setLoading(false);
         }
         loadLocalData()
-    })
+        return (() => { setLoading(false) })
+    },[])
 
     if (loading) return (
         <div className="flex flex-col items-center justify-center flex-1">
-            <h3 className="text-xl">Cargando...</h3>
+            <Loader/>
+            <span className="text-sm mt-2">Cargando</span>
         </div>
     )
 
@@ -47,7 +51,7 @@ export default function Exercises() {
         <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1'>
             <h2 className='text-2xl font-bold'>Ejercicio #1</h2>
 
-            <div className={`flex ${formInfo.category === 'email' ? 'flex-col size-full flex-1 gap-4' : 'justify-center items-center size-fit mx-auto'} `}>
+            <div className={`flex ${formInfo.category === 'email' ? 'flex-col size-full flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                 {formInfo.category === 'email' ?
                     <EmailCard id={1} ex={{}} />
                     :
