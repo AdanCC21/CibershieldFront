@@ -5,7 +5,7 @@ interface Prompts {
     ex: any
 }
 
-export default function ExCard({ id, ex }: Prompts) {
+export default function EmailCard({ id, ex }: Prompts) {
     console.log(id);
     return (
         <div className="flex flex-col flex-1 bg-[#fefefe] shadow-lg border border-[#0002] rounded-lg">

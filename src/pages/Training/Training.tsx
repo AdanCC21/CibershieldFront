@@ -64,7 +64,7 @@ export default function Training() {
   }
 
   const initTest = () => {
-    console.log("Iniciamos")
+    localStorage.setItem('formInfo', JSON.stringify(form));
     navigate('exercises')
   }
 
@@ -87,10 +87,10 @@ export default function Training() {
       <div className="flex flex-col flex-1 p-4">
         <h2 className="text-2xl mb-2">Resumen</h2>
         <ul className="flex flex-col gap-2">
-          <SummaryTest title="Tipo de usuario" desc="invitado" />
-          <SummaryTest title="Usuario" desc="Antonio Ramos" />
-          <SummaryTest title="Categoria" desc="SMS" />
-          <SummaryTest title="Dificultad" desc="" />
+          <SummaryTest title="Tipo de usuario" desc={form.userType ? form.userType === 'guest' ? 'invitado' : 'cuenta' : null} />
+          <SummaryTest title="Usuario" desc={form.name} />
+          <SummaryTest title="Categoria" desc={form.category} />
+          <SummaryTest title="Dificultad" desc={form.dificulty} />
         </ul>
       </div>
 

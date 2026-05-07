@@ -15,9 +15,9 @@ export default function StDificulty({form, setForm}: Prompts) {
             </div>
 
             <div className="flex gap-4">
-                <Dificulty level="easy" form={form} setForm={setForm} />
-                <Dificulty level="medium" form={form} setForm={setForm} />
-                <Dificulty level="hard" form={form} setForm={setForm} />
+                <Dificulty level="facil" form={form} setForm={setForm} />
+                <Dificulty level="medio" form={form} setForm={setForm} />
+                <Dificulty level="dificil" form={form} setForm={setForm} />
             </div>
         </>
     )
