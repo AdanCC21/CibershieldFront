@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Training from './pages/Training/Training'
-import Info from './pages/Info'
+import Info from './pages/Info/Info'
 import { Toaster } from 'react-hot-toast'
 import Exercises from './pages/Training/Exercises'
 
