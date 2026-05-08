@@ -8,12 +8,14 @@ import Loader from "@/components/Loader"
 import { emailExamples } from "@/constants/example"
 import { tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
-import type { HeadColor, ModalType } from "@/entities/modal"
+import { useNavigate } from "react-router-dom"
 
 
 export default function Exercises() {
+    const navigate = useNavigate();
     const [formInfo, setFormInfo] = useState<TrainingForm | null>(null)
     const [loading, setLoading] = useState(false);
+
     const [modalState, setModalState] = useState(false);
     const [modalData, setModalData] = useState<ModalPrompts>({ title: "", message: "", modalType: null });
 
@@ -50,6 +52,7 @@ export default function Exercises() {
                 results: newResults
             })
             setModalState(true);
+            localStorage.removeItem('formInfo')
         } else {
             setEx(prev => prev + 1);
         }
@@ -95,7 +98,10 @@ export default function Exercises() {
         <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1 my-[2vh]'>
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
-            <button className={`group absolute top-2 left-2 flex items-center gap-2 size-fit hover:bg-red-400 shadow-md hover:shadow-[#0004] hover:scale-110 p-2 rounded-full cursor-pointer ${tailwindcssDuration}`}>
+            <button className={`group absolute top-2 left-2 flex items-center gap-2 size-fit hover:bg-red-400 shadow-md hover:shadow-[#0004] hover:scale-110 p-2 rounded-full cursor-pointer ${tailwindcssDuration}`} onClick={() => {
+                localStorage.removeItem('formInfo')
+                navigate('/')
+            }}>
                 <img src={Icons.arrowRight} className={`group-hover:invert rotate-180 h-2 ${tailwindcssDuration}`} />
                 <span className={`group-hover:text-white text-xs ${tailwindcssDuration}`}>Salir</span>
             </button>

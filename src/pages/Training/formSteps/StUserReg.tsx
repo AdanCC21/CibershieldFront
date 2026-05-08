@@ -1,3 +1,4 @@
+import InputLabel from "@/components/form/InputLabel"
 import { Icons } from "@/constants/icons"
 import type { TrainingForm } from "@/entities/form.entity"
 
@@ -15,14 +16,12 @@ export default function StUserReg({ form, handleForm }: Prompts) {
                     <span className="text-2xl">Usuario</span>
                 </div>
 
-                <div className="flex flex-col gap-2 w-3/4">
-                    <label htmlFor="name" className="text-base">Nombre</label>
-                    <input id="name" name="name" value={form.name} onChange={handleForm} type="text" className="p-2 border border-(--primary-color)/20 focus:border-(--primary-color)/80 outline-none rounded-lg" placeholder="Antonio Ramos Gonzalez" />
+                <div className="w-3/4">
+                    <InputLabel label="Nombre" value={form.name} atribute="name" handleForm={handleForm} />
                 </div>
 
-                <div className="flex flex-col gap-2 w-3/4">
-                    <label htmlFor="email" className="text-base">Correo</label>
-                    <input id="email" name="email" value={form.email} onChange={handleForm} type="mail" className="p-2 border border-(--primary-color)/20 focus:border-(--primary-color)/80 outline-none rounded-lg" placeholder="adandevp@gmail.com" />
+                <div className="w-3/4">
+                    <InputLabel label="Correo" value={form.email} atribute="email" handleForm={handleForm} inpType="email" />
                 </div>
             </div>
         )

@@ -5,13 +5,19 @@ import Info from './pages/Info/Info'
 import { Toaster } from 'react-hot-toast'
 import Exercises from './pages/Training/Exercises'
 import Layout from './pages/Layout'
+import Auth from './pages/Auth/Auth'
 
 export default function App() {
 
   return (
-    <div className='flex flex-col w-screen min-h-screen'>
+    <>
       <Toaster position='top-right' toastOptions={{ style: { background: 'var(--primary-color)', color: "white" } }} />
       <Routes>
+        <Route path='/auth' element={
+          <Layout padding={false}>
+            <Auth />
+          </Layout>
+        } />
         <Route path='/' element={
           <Layout header footer>
             <Home />
@@ -33,6 +39,6 @@ export default function App() {
           </Layout>
         } />
       </Routes>
-    </div>
+    </>
   )
 }

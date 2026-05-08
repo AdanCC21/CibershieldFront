@@ -27,6 +27,6 @@ html {
 
 .card-shadow {
   box-shadow:
-    0 -2px 0px var(--secundary-color),
-    0 2px 4px rgba(0, 0, 0, 0.08);
+    0 -4px 0px var(--secundary-color),
+    0 2px 4px rgba(0, 0, 0, 0.1);
 }
