@@ -14,6 +14,7 @@ export default function Info() {
             <SideBar virusActive={curVirus} setVirus={setVirus} />
             <main className='flex-5 max-w-5/6 flex flex-col p-2 gap-2'>
                 <h1 className='text-4xl font-medium'>{curVirus.title}</h1>
+                
 
                 <div className="h-px bg-[#0002] my-2 mx-4"></div>
 

@@ -13,7 +13,7 @@ export default function Dificulty({ level, form, setForm }: Prompts) {
     const stars = () => {
         const starsRes = []
         let count = 1;
-        level === 'medium' ? count += 1 : level === 'hard' ? count += 1 : count;
+        level === 'medio' ? count += 1 : level === 'dificil' ? count += 1 : count;
         for (let i = 0; i < 3; i++) {
             starsRes.push(
                 <img src={i < count ? Icons.star : Icons.startEmpty} alt="star" className="h-4" />

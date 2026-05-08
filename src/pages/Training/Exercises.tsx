@@ -6,11 +6,16 @@ import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
 import Loader from "@/components/Loader"
 import { emailExamples } from "@/constants/example"
+import { tailwindcssDuration } from "@/constants/animations"
+import Modal, { type ModalPrompts } from "@/components/modal/Modal"
+import type { HeadColor, ModalType } from "@/entities/modal"
 
 
 export default function Exercises() {
     const [formInfo, setFormInfo] = useState<TrainingForm | null>(null)
     const [loading, setLoading] = useState(false);
+    const [modalState, setModalState] = useState(false);
+    const [modalData, setModalData] = useState<ModalPrompts>({ title: "", message: "", modalType: null });
 
     const [curEx, setEx] = useState<number>(0);
     const [results, setResult] = useState({ correct: 0, incorrect: 0 });
@@ -22,17 +27,32 @@ export default function Exercises() {
             toast.success("Correcto mamuu 🐈");
             newResults.correct += 1;
         } else {
-            toast.error("Incorrecto papuut 😿");
-            if (emailExamples[curEx].whyIsAnError)
-                toast(`${emailExamples[curEx].whyIsAnError}`, { duration: 3000 });
-
+            if (curEx < emailExamples.length - 1) {
+                if (emailExamples[curEx].whyIsAnError) {
+                    const msg = emailExamples[curEx].whyIsAnError;
+                    setModalData({
+                        message: msg,
+                        modalType: 'error',
+                    })
+                    setModalState(true);
+                }
+            }
             newResults.incorrect += 1;
         }
         setResult(newResults);
 
-        curEx === emailExamples.length - 1 ?
-            toast.success(`Acabaste todos los ejercicios. Resultados : Correctos : ${newResults.correct}, Incorrectos : ${newResults.incorrect}`) :
+        if (curEx === emailExamples.length - 1) {
+            const msg = emailExamples[curEx].whyIsAnError ?? "";
+            setModalData({
+                title: "Fin de las pruebas",
+                message: `${msg}`,
+                modalType: 'finish',
+                results: newResults
+            })
+            setModalState(true);
+        } else {
             setEx(prev => prev + 1);
+        }
     }
 
     useEffect(() => {
@@ -72,8 +92,17 @@ export default function Exercises() {
         </div>
     )
     return (
-        <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1'>
-            <h2 className='text-2xl font-bold'>Ejercicio #1</h2>
+        <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1 my-[2vh]'>
+            <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
+
+            <button className={`group absolute top-2 left-2 flex items-center gap-2 size-fit hover:bg-red-400 shadow-md hover:shadow-[#0004] hover:scale-110 p-2 rounded-full cursor-pointer ${tailwindcssDuration}`}>
+                <img src={Icons.arrowRight} className={`group-hover:invert rotate-180 h-2 ${tailwindcssDuration}`} />
+                <span className={`group-hover:text-white text-xs ${tailwindcssDuration}`}>Salir</span>
+            </button>
+
+            <div className="mt-[-4vh] size-fit bg-(--primary-color) text-white py-2 px-4 rounded-b-lg rounded-x-lg">
+                <h2 className=' text-2xl font-bold'>Ejercicio #{curEx + 1}</h2>
+            </div>
 
             <div className={`flex ${formInfo.category === 'email' ? 'flex-col size-full flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                 {formInfo.category === 'email' ?

@@ -1,5 +1,5 @@
 import Stepper, { type Step } from "@/components/Steps";
-import { useState, } from "react";
+import { useEffect, useState, } from "react";
 import type { TrainingForm } from "@/entities/form.entity";
 import { Icons } from "@/constants/icons";
 import Button from "@/components/Button";
@@ -17,10 +17,49 @@ export default function Training() {
   const [curStep, setCurStep] = useState<number>(0)
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
 
+  useEffect(() => {
+    const loadLocalData = async () => {
+      const localForm = await JSON.parse(localStorage.getItem("formInfo") || '') as TrainingForm;
+      if (!localForm) return;
+
+      let formLoaded: TrainingForm = { ...form };
+      formLoaded.userType = localForm.userType ?? null;
+      formLoaded.name = localForm.name ?? "";
+      formLoaded.email = localForm.email ?? "";
+      formLoaded.category = localForm.category ?? null;
+      formLoaded.dificulty = localForm.dificulty ?? null;
+
+      if (formLoaded.userType) {
+        if (formLoaded.name && formLoaded.email) {
+          if (formLoaded.category) {
+            if (formLoaded.dificulty) {
+              setCurStep(3);
+            } else {
+              setCurStep(3);
+            }
+          } else {
+            setCurStep(2);
+          }
+        } else {
+          setCurStep(1);
+        }
+      }
+
+      setForm(formLoaded);
+    }
+
+    loadLocalData();
+  }, [])
+
   const handleForm = (e: any) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }))
   }
+
+  useEffect(() => {
+    if (form.category || form.dificulty)
+      localStorage.setItem('formInfo', JSON.stringify(form));
+  }, [form.category, form.dificulty])
 
   const handleScreen = () => {
     switch (curStep) {
@@ -32,10 +71,13 @@ export default function Training() {
         return (<StCateg form={form} setForm={setForm} />)
       case 3:
         return (<StDificulty form={form} setForm={setForm} />)
+      default:
+        return (<div>
+          <span className="text-xl">
+            Seccion no valida
+          </span>
+        </div>)
     }
-    return (
-      <div></div>
-    )
   }
 
   const nextStep = () => {
