@@ -7,6 +7,7 @@ import StarEmpty from '@/assets/icons/star_empty.svg'
 import Star from '@/assets/icons/star.svg'
 import Close from '@/assets/icons/close.svg'
 import Check from '@/assets/icons/check.svg'
+import Incorrect from '@/assets/icons/close-red.svg'
 
 export const Icons = {
     person: Person,
@@ -22,4 +23,6 @@ export const Icons = {
 
     close: Close,
     check: Check,
+
+    incorrect: Incorrect
 }

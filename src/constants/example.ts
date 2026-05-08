@@ -1,6 +1,6 @@
 import type { UserEntity } from "@/entities/user"
 
-interface EmailExercises {
+export interface EmailExercises {
     id: number
 
     title: string
@@ -10,13 +10,14 @@ interface EmailExercises {
     hour: string
 
     content: string
+    whyIsAnError?: string
     isReal: boolean
 }
 
 export const emailExamples: EmailExercises[] = [
     {
         id: 0,
-        title: "⚠️ Suspensión inmediata de cuenta bancaria",
+        title: "Suspensión inmediata de cuenta bancaria",
         owner: {
             name: "BBVA Seguridad",
             email: "soporte-bbva@secure-alerts-login.com"
@@ -24,6 +25,7 @@ export const emailExamples: EmailExercises[] = [
         date: new Date(),
         hour: "9:00pm",
         content: "Estimado cliente, detectamos actividad sospechosa en su cuenta. Para evitar el bloqueo permanente, verifique su identidad inmediatamente ingresando al siguiente enlace.",
+        whyIsAnError: "Los bancos no mandan correos jaja",
         isReal: false
     },
     {
@@ -36,6 +38,7 @@ export const emailExamples: EmailExercises[] = [
         date: new Date(),
         hour: "9:00pm",
         content: "Felicidades, su correo fue seleccionado como ganador de un iPhone 17 Pro completamente gratis. Confirme sus datos personales y método de envío antes de 24 horas.",
+        whyIsAnError: "No mames como no carnal",
         isReal: false
     },
     {
