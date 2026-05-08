@@ -34,7 +34,7 @@ export default function App() {
           </Layout>
         } />
         <Route path='/testing/exercises' element={
-          <Layout>
+          <Layout padding={false}>
             <Exercises />
           </Layout>
         } />

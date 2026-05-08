@@ -1,13 +1,29 @@
 import InputLabel from "@/components/form/InputLabel"
 import { Icons } from "@/constants/icons"
 import type { TrainingForm } from "@/entities/form.entity"
+import type { UserEntity } from "@/entities/user"
+import { GetUser } from "@/scripts/user"
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react"
+import toast from "react-hot-toast"
 
 interface Prompts {
     form: TrainingForm
     handleForm: (e: any) => void
+    setForm: Dispatch<SetStateAction<TrainingForm>>
 }
 
-export default function StUserReg({ form, handleForm }: Prompts) {
+export default function StUserReg({ form, handleForm, setForm }: Prompts) {
+    const [us, setUs] = useState<UserEntity | null>(null)
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await GetUser()
+            if (!user) return toast.error("No pudimos cargar los datos de su sesion");
+            setUs(user);
+            setForm(prev => ({ ...prev, name: user.name, email: user.email }))
+        }
+        fetchUser();
+    }, [])
+
     const guest = () => {
         return (
             <div className="flex flex-col gap-4 items-center justify-center w-full">
@@ -26,6 +42,7 @@ export default function StUserReg({ form, handleForm }: Prompts) {
             </div>
         )
     }
+
     return (
         <>
             <div className="flex flex-col gap-4">
@@ -36,9 +53,10 @@ export default function StUserReg({ form, handleForm }: Prompts) {
                         {guest()}
                     </>
                     :
-                    <>
-                        <span className="text-base">Usuario registrado</span>
-                    </>
+                    <div className="flex flex-col gap-4 w-full items-center">
+                        <img src={Icons.person} alt="person" className="h-28 w-fit" />
+                        <span className="text-2xl">{us?.name}</span>
+                    </div>
                 }
             </div>
         </>

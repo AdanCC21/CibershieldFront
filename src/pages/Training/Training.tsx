@@ -66,7 +66,7 @@ export default function Training() {
       case 0:
         return (<StUserType form={form} setForm={setForm} />)
       case 1:
-        return (<StUserReg form={form} handleForm={handleForm} />)
+        return (<StUserReg form={form} handleForm={handleForm} setForm={setForm} />)
       case 2:
         return (<StCateg form={form} setForm={setForm} />)
       case 3:

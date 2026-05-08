@@ -95,7 +95,7 @@ export default function Exercises() {
         </div>
     )
     return (
-        <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1 my-[2vh]'>
+        <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin'>
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
             <button className={`group absolute top-2 left-2 flex items-center gap-2 size-fit hover:bg-red-400 shadow-md hover:shadow-[#0004] hover:scale-110 p-2 rounded-full cursor-pointer ${tailwindcssDuration}`} onClick={() => {
@@ -110,7 +110,7 @@ export default function Exercises() {
                 <h2 className=' text-2xl font-bold'>Ejercicio #{curEx + 1}</h2>
             </div>
 
-            <div className={`flex ${formInfo.category === 'email' ? 'flex-col size-full flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+            <div className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                 {formInfo.category === 'email' ?
                     <EmailCard id={1} ex={emailExamples[curEx]} />
                     :
