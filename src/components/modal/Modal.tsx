@@ -64,13 +64,13 @@ export default function Modal({ active, setActive, title, message, color, modalT
         }}>
             <div className="relative flex flex-col gap-4 justify-center items-center m-auto bg-white rounded-xl max-w-3/5 min-w-2/5 min-h-80" onClick={(e) => {
                 e.stopPropagation(); if (modalType === 'finish')
-                    navigator("/training");
+                    navigator("/testing");
             }}>
                 <button className="absolute top-2 right-2 flex size-fit cursor-pointer">
                     <img className="h-8" src={Icons.close} alt="close" onClick={() => {
                         setActive(false)
                         if (modalType === 'finish')
-                            navigator("/training");
+                            navigator("/testing");
                     }} />
                 </button>
                 {color &&

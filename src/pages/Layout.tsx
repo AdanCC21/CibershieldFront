@@ -15,7 +15,7 @@ export default function Layout({ children, header, footer, padding = true }: Pro
     return (
         <div className='flex flex-col min-h-screen min-w-screen'>
             {header && <Header curPage={curPage} setPage={setPage} />}
-            <div className={`flex flex-col flex-1 size-full ${padding && 'page-margin'} `}>
+            <div className={`flex flex-col flex-1 ${padding && 'page-margin'} `}>
                 {children}
             </div>
             {footer && <Footer />}

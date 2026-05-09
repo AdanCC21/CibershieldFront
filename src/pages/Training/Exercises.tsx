@@ -120,7 +120,7 @@ export default function Exercises() {
                 <div className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
                     <button className="flex items-center gap-2 px-3 py-1 bg-red-600 rounded-lg cursor-pointer"
                         onClick={() => { handleResult(false) }}>
-                        <span className="text-base text-white">Plagio</span>
+                        <span className="text-base text-white">Falso</span>
                         <img src={Icons.close} alt="wrong" className="h-5 invert" />
                     </button>
                     <button className="flex items-center gap-2 px-3 py-1 border-2 border-[#059669] rounded-lg cursor-pointer"
