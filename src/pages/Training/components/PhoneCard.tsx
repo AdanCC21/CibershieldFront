@@ -1,9 +1,7 @@
-import React from 'react'
-
 export default function PhoneCard() {
     return (
         <div className="flex items-center justify-center p-6 h-full flex-1">
-            <div className="relative w-[280px] aspect-[9/16] rounded-[2.5rem] border-[10px] border-black bg-white shadow-2xl overflow-hidden">
+            <div className="relative w-70 aspect-9/16 rounded-[2.5rem] border-10 border-black bg-white shadow-2xl overflow-hidden">
 
                 {/* Notch */}
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-20" />

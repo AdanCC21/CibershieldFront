@@ -7,7 +7,7 @@ interface Prompts {
     ex: EmailExercises
 }
 
-export default function EmailCard({ id, ex }: Prompts) {
+export default function EmailCard({ ex }: Prompts) {
     return (
         <div className="flex flex-col flex-1 bg-[#fefefe] shadow-lg border border-[#0002] rounded-lg">
             <div className="w-full h-10 bg-(--primary-color) rounded-t-lg"></div>

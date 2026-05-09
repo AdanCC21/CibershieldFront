@@ -11,7 +11,7 @@ interface Prompts {
     curStep: number
     setCurStep: Dispatch<SetStateAction<number>>
 }
-export default function Stepper({ steps, curStep, setCurStep }: Prompts) {
+export default function Stepper({ steps, curStep }: Prompts) {
     return (
         <ul className="flex flex-col w-fit">
             {steps.map((step, index) => {

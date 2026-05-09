@@ -1,7 +1,6 @@
 import { Icons } from "@/constants/icons";
 import type { Dispatch, SetStateAction } from "react";
 import { PieChart } from "@mui/x-charts-pro";
-import Button from "../Button";
 import type { HeadColor, ModalType } from "@/entities/modal";
 import { useNavigate } from "react-router-dom";
 
