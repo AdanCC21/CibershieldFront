@@ -1,14 +1,24 @@
 import UserCard from '../components/UserCard'
 import type { TrainingForm } from '@/entities/form.entity'
 import invitado from '@/assets/icons/person.svg';
-import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
+import type { UserEntity } from '@/entities/user';
+import { GetUser } from '@/scripts/user';
 
 interface Prompts {
     form: TrainingForm
     setForm: Dispatch<SetStateAction<TrainingForm>>
 }
+const guestExplain = "El entrar como invitado debera de ingresar datos ficticios en el proximo paso. Es decir, un nombre y correo inventado para las practicas.";
+const accountExplain = "Al entrar con cuenta entraras con el nombre y correo con el que iniciaste sesion.";
 
 export default function StUserType({ form, setForm }: Prompts) {
+    const [userD, setUsData] = useState<UserEntity | null>(null)
+
+    useEffect(() => {
+        const us = GetUser();
+        if (us) setUsData(us);
+    }, [])
     return (
         <>
             <div className="flex flex-col gap-4">
@@ -20,6 +30,10 @@ export default function StUserType({ form, setForm }: Prompts) {
                 <UserCard title="Entrar como invitado" active={form.userType === 'guest'} icon={invitado} atribute='userType' setForm={setForm} value="guest" />
                 <UserCard title="Entrar con cuenta" active={form.userType === 'account'} icon={invitado} atribute='userType' setForm={setForm} value="account" />
             </div>
+
+            {form.userType &&
+                <span className='text-base'>{form.userType === 'guest' ? guestExplain : accountExplain}</span>
+            }
         </>
     )
 }

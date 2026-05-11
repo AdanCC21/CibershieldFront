@@ -3,7 +3,6 @@ import { Icons } from "@/constants/icons";
 import { showDate } from "@/scripts/date";
 
 interface Prompts {
-    id: number
     ex: EmailExercises
 }
 

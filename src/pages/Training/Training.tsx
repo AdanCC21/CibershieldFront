@@ -9,6 +9,7 @@ import StCateg from "./formSteps/StCateg";
 import toast from "react-hot-toast";
 import StDificulty from "./formSteps/StDificulty";
 import { useNavigate } from "react-router-dom";
+import { GetUser } from "@/scripts/user";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
@@ -19,7 +20,9 @@ export default function Training() {
 
   useEffect(() => {
     const loadLocalData = async () => {
-      const localForm = await JSON.parse(localStorage.getItem("formInfo") || '') as TrainingForm;
+      const formRaw = localStorage.getItem('formInfo');
+      if(!formRaw) return;
+      const localForm = await JSON.parse(formRaw) as TrainingForm;
       if (!localForm) return;
 
       let formLoaded: TrainingForm = { ...form };
@@ -83,9 +86,15 @@ export default function Training() {
   const nextStep = () => {
     switch (curStep) {
       case 0:
-        form.userType ?
-          setCurStep(prev => prev + 1) :
+        if (form.userType) {
+          if (form.userType === 'account') {
+            if (!GetUser())
+              return toast.error("Usted seleccionó entrar con su cuenta, pero no ha iniciado sesión. Por favor entra como invitado o inicia sesión")
+          }
+          setCurStep(prev => prev + 1)
+        } else {
           toast.error("Seleccione el tipo de usuario con el que quiere entrar.")
+        }
         break;
       case 1:
         form.name.trim() && form.email.trim() ?
@@ -122,7 +131,7 @@ export default function Training() {
           {curStep > 0 &&
             <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
           }
-          <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
+          <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty || curStep < 3 ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
         </div>
       </div>
 

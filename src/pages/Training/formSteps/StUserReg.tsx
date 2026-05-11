@@ -15,13 +15,14 @@ interface Prompts {
 export default function StUserReg({ form, handleForm, setForm }: Prompts) {
     const [us, setUs] = useState<UserEntity | null>(null)
     useEffect(() => {
-        const fetchUser = async () => {
-            const user = await GetUser()
-            if (!user) return toast.error("No pudimos cargar los datos de su sesion");
-            setUs(user);
-            setForm(prev => ({ ...prev, name: user.name, email: user.email }))
+        if(form.userType === 'guest') return
+        const user = GetUser()
+        if (!user) {
+            toast.error("No pudimos cargar los datos de su s`esion");
+            return
         }
-        fetchUser();
+        setUs(user);
+        setForm(prev => ({ ...prev, name: user.name, email: user.email }))
     }, [])
 
     const guest = () => {

@@ -5,16 +5,18 @@ import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
 import Loader from "@/components/Loader"
-import { emailExamples } from "@/constants/example"
+import { emailExamples, smsExamples, type EmailExercises } from "@/constants/example"
 import { tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
+import { getExamples } from "@/scripts/examples"
 
 
 export default function Exercises() {
     const navigate = useNavigate();
     const [formInfo, setFormInfo] = useState<TrainingForm | null>(null)
     const [loading, setLoading] = useState(false);
+    const [exercises, setExercises] = useState<EmailExercises[]>([])
 
     const [modalState, setModalState] = useState(false);
     const [modalData, setModalData] = useState<ModalPrompts>({ title: "", message: "", modalType: null });
@@ -23,15 +25,17 @@ export default function Exercises() {
     const [results, setResult] = useState({ correct: 0, incorrect: 0 });
 
     const handleResult = (isReal: boolean) => {
-        // Si es correcto
         const newResults = { ...results }
-        if (emailExamples[curEx].isReal === isReal) {
+        if (exercises[curEx].isReal === isReal) {
             toast.success("Correcto mamuu 🐈");
             newResults.correct += 1;
+            if (curEx > 1) {
+                localStorage.removeItem('formInfo');
+            }
         } else {
-            if (curEx < emailExamples.length - 1) {
-                if (emailExamples[curEx].whyIsAnError) {
-                    const msg = emailExamples[curEx].whyIsAnError;
+            if (curEx < exercises.length - 1) {
+                if (exercises[curEx].whyIsAnError) {
+                    const msg = exercises[curEx].whyIsAnError;
                     setModalData({
                         message: msg,
                         modalType: 'error',
@@ -43,8 +47,8 @@ export default function Exercises() {
         }
         setResult(newResults);
 
-        if (curEx === emailExamples.length - 1) {
-            const msg = emailExamples[curEx].whyIsAnError ?? "";
+        if (curEx === exercises.length - 1) {
+            const msg = exercises[curEx].whyIsAnError ?? "";
             setModalData({
                 title: "Fin de las pruebas",
                 message: `${msg}`,
@@ -52,33 +56,35 @@ export default function Exercises() {
                 results: newResults
             })
             setModalState(true);
-            localStorage.removeItem('formInfo')
         } else {
             setEx(prev => prev + 1);
         }
     }
 
     useEffect(() => {
-        const loadLocalData = async () => {
-            if (loading) return;
-            setLoading(true);
+        if (loading) return;
+        setLoading(true);
 
-            try {
-                const localForm = await JSON.parse(localStorage.getItem('formInfo') || '');
-                if (!localForm) {
-                    toast.error("No pudimos cargar los datos necesarios para los ejercicios");
-                    setFormInfo(null);
-                } else {
-                    setFormInfo(localForm);
-                }
-            } catch (e) {
-                console.error(e);
+        try {
+            const raw = localStorage.getItem('formInfo');
+            if (!raw) return;
+
+            const localForm = JSON.parse(raw);
+            if (!localForm) {
+                toast.error("No pudimos cargar los datos necesarios para los ejercicios");
                 setFormInfo(null);
+            } else {
+                setFormInfo(localForm);
             }
-
-            setLoading(false);
+        } catch (e) {
+            console.error(e);
+            setFormInfo(null);
         }
-        loadLocalData()
+
+        setExercises([...getExamples(5, formInfo?.category === 'email' ? emailExamples : smsExamples)]);
+
+        setLoading(false);
+
         return (() => { setLoading(false) })
     }, [])
 
@@ -94,42 +100,76 @@ export default function Exercises() {
             <h3 className="text-xl">Lo sentimos, hubo un error. Intentalo mas tarde</h3>
         </div>
     )
+
     return (
-        <div className='flex flex-col justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin'>
+        <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin'>
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
-            <button className={`group absolute top-2 left-2 flex items-center gap-2 size-fit hover:bg-red-400 shadow-md hover:shadow-[#0004] hover:scale-110 p-2 rounded-full cursor-pointer ${tailwindcssDuration}`} onClick={() => {
-                localStorage.removeItem('formInfo')
-                navigate('/')
-            }}>
-                <img src={Icons.arrowRight} className={`group-hover:invert rotate-180 h-2 ${tailwindcssDuration}`} />
-                <span className={`group-hover:text-white text-xs ${tailwindcssDuration}`}>Salir</span>
-            </button>
+            <section className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
 
-            <div className="mt-[-4vh] size-fit bg-(--primary-color) text-white py-2 px-4 rounded-b-lg rounded-x-lg">
-                <h2 className=' text-2xl font-bold'>Ejercicio #{curEx + 1}</h2>
-            </div>
+                <article className="flex flex-col items-center gap-4 card-shadow rounded-lg p-4">
+                    <img src={Icons.person} alt="person" className="h-12" />
+                    <span className="text-base">Usuario</span>
+                    <span className="text-xs">usuario@gmail.com</span>
+                </article>
 
-            <div className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                <article className="flex flex-col gap-4 p-4 w-full flex-1 card-shadow rounded-lg overflow-y-auto">
+                    <ul className="flex flex-col gap-4 w-full">
+                        {exercises.map((ex, ind) => (<ExerciseItem title={ex.title} owner={ex.owner.email} active={curEx === ind} />))}
+                    </ul>
+                </article>
+
+                <button className={`flex items-center justify-center gap-2 p-2 rounded-lg border-t-4 border-(--primary-color) shadow-md hover:border-red-800 hover:bg-red-400 hover:text-white ${tailwindcssDuration} cursor-pointer`} onClick={() => {
+                    localStorage.removeItem('formInfo')
+                    navigate('/')
+                }}>
+                    <span className="text-base">Salir</span>
+                </button>
+            </section>
+
+            <div className="max-w-px flex-1 bg-[#0002]"></div>
+
+            <section className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                 {formInfo.category === 'email' ?
-                    <EmailCard id={1} ex={emailExamples[curEx]} />
+                    <EmailCard key={curEx} ex={exercises[curEx]} />
                     :
-                    <PhoneCard />
+                    <PhoneCard ex={exercises[curEx]} />
                 }
 
-                <div className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
-                    <button className="flex items-center gap-2 px-3 py-1 bg-red-600 rounded-lg cursor-pointer"
+                <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
+                    <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:red-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
                         onClick={() => { handleResult(false) }}>
-                        <span className="text-base text-white">Falso</span>
-                        <img src={Icons.close} alt="wrong" className="h-5 invert" />
+                        <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Falso</span>
+                        <img src={Icons.close} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                     </button>
-                    <button className="flex items-center gap-2 px-3 py-1 border-2 border-[#059669] rounded-lg cursor-pointer"
+
+                    <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
                         onClick={() => { handleResult(true) }}>
-                        <span className="text-base text-[#059669]">Verdadero</span>
-                        <img src={Icons.check} alt="wrong" className="h-5" />
+                        <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Verdadero</span>
+                        <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                     </button>
-                </div>
-            </div>
+                </article>
+            </section>
         </div>
+    )
+}
+
+interface ExPrompts {
+    title: string
+    owner: string
+    active: boolean
+}
+function ExerciseItem({ title, owner, active }: ExPrompts) {
+    return (
+        <li className={`flex gap-2 items-center overflow-hidden`}>
+            <div className={`flex flex-col w-full `}>
+                <span className={`text-base truncate ${active && 'font-bold'}`}>
+                    {active && '- '}
+                    {title}
+                </span>
+                <span className={`text-xs text-(--text-gray) truncate`}>{owner}</span>
+            </div>
+
+        </li>
     )
 }

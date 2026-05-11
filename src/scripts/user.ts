@@ -1,7 +1,11 @@
 import type { UserEntity } from "@/entities/user";
+export function GetUser(): UserEntity | null {
+    const raw = sessionStorage.getItem('user');
+    if (!raw) return null;
 
-export async function GetUser(): Promise<UserEntity | null> {
-    const us = await JSON.parse(sessionStorage.getItem('user') || '');
-    if (!us) return null
-    return us as UserEntity
+    try {
+        return JSON.parse(raw) as UserEntity;
+    } catch {
+        return null;
+    }
 }

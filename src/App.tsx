@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast'
 import Exercises from './pages/Training/Exercises'
 import Layout from './pages/Layout'
 import Auth from './pages/Auth/Auth'
+import { E_Pages } from './entities/enums'
 
 export default function App() {
 
@@ -24,17 +25,17 @@ export default function App() {
           </Layout>
         } />
         <Route path='/testing' element={
-          <Layout header footer>
+          <Layout header footer headerPage={E_Pages.TESTING}>
             <Training />
           </Layout>
         } />
-        <Route path='/info' element={
-          <Layout header footer>
+        <Route path='/info/:vir' element={
+          <Layout header footer headerPage={E_Pages.INFO}>
             <Info />
           </Layout>
         } />
         <Route path='/testing/exercises' element={
-          <Layout padding={false}>
+          <Layout header footer padding={false} headerPage={E_Pages.TESTING}>
             <Exercises />
           </Layout>
         } />

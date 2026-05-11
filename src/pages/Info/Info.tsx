@@ -1,13 +1,23 @@
 
 import SideBar from "./components/SideBar";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { VirusSection } from "@/entities/virus";
 import TitleDescription from "./components/TitleDesc";
 import { Phishing } from "@/constants/pishing";
+import { useLocation } from "react-router-dom";
+import { Malware } from "@/constants/malware";
 
 export default function Info() {
     const [curVirus, setVirus] = useState<VirusSection>(Phishing);
+    const location = useLocation();
+    useEffect(()=>{
+        if(location.pathname.includes('malware')){
+            setVirus(Malware);
+        }else{
+            setVirus(Phishing);
+        }
+    },[])
 
     return (
         <div className='flex w-full'>

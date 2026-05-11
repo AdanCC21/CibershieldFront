@@ -1,5 +1,5 @@
 export enum E_Pages  {
-    HOME,
-    TESTING,
-    INFO
+    HOME="Inicio",
+    TESTING="Practicas",
+    INFO="Virus Información"
 }
