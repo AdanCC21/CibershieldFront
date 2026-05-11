@@ -4,12 +4,12 @@ import PhoneCard from "./components/PhoneCard"
 import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
-import Loader from "@/components/Loader"
 import { emailExamples, smsExamples, type EmailExercises } from "@/constants/example"
 import { tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
 import { getExamples } from "@/scripts/examples"
+import TipsCarrusel from "./components/TipsCarrusel"
 
 
 export default function Exercises() {
@@ -82,17 +82,17 @@ export default function Exercises() {
         }
 
         setExercises([...getExamples(5, formInfo?.category === 'email' ? emailExamples : smsExamples)]);
+        
+        setTimeout(() => {
+            setLoading(false);
+        }, 5000)
 
-        setLoading(false);
 
         return (() => { setLoading(false) })
     }, [])
 
     if (loading) return (
-        <div className="flex flex-col items-center justify-center flex-1">
-            <Loader />
-            <span className="text-sm mt-2">Cargando</span>
-        </div>
+        <TipsCarrusel tipType={formInfo?.category ?? 'email'}/>
     )
 
     if (!formInfo) return (

@@ -1,5 +1,7 @@
 import arrowRight from '@/assets/icons/arrow_right_prcol.svg'
 import ServiceCard from '@/components/cards/ServiceCard'
+import { showDown, showUpContainer, showUpLarge } from '@/constants/animations';
+import { motion } from 'framer-motion';
 import { useRef } from 'react'
 
 export default function Home() {
@@ -8,12 +10,12 @@ export default function Home() {
     <>
       <div className='flex flex-col w-full h-full gap-20 my-[2vh]'>
         <section className="flex w-full h-[85vh] justify-between items-center ">
-          <div className="flex flex-col w-fit gap-4">
-            <h1 className="text-8xl text-(--primary-color) font-bold">Cibershield</h1>
+          <motion.div variants={showUpContainer} initial="hidden" animate="show" className="flex flex-col w-fit gap-4">
+            <motion.h1 variants={showDown} className="text-8xl text-(--primary-color) font-bold">Cibershield</motion.h1>
 
-            <p className="text-2xl text-(--text-gray)">Tu escudo contra las amenazas digitales</p>
+            <motion.p variants={showDown} className="text-2xl text-(--text-gray)">Tu escudo contra las amenazas digitales</motion.p>
 
-            <button className="relative group flex gap-2 items-center justify-center w-fit border-(--primary-color) cursor-pointer"
+            <motion.button variants={showDown} className="relative group flex gap-2 items-center justify-center w-fit border-(--primary-color) cursor-pointer"
               onClick={() => { console.log("desc") }}>
               <span className="text-base text-(--primary-color)" onClick={() => {
                 if (servicesRef.current) {
@@ -23,11 +25,11 @@ export default function Home() {
               }>Descubre mas</span>
               <img src={arrowRight} alt='arrow' className='h-4' />
               <div className='absolute bottom-0 h-px bg-(--primary-color) w-3/4 group-hover:w-full transition-all ease-in-out duration-125'></div>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-          <img src='/armadillo.webp' className='h-7/10' alt="logo" />
-          <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-8/10 -z-1 opacity-20 -rotate-20' alt="logo" />
+          <motion.img variants={showUpLarge} initial="hidden" animate="show"  src='/armadillo.webp' className='h-7/10' alt="logo" />
+          <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-8/10 -z-1 opacity-20 -rotate-20' alt="logo fondo" />
         </section>
 
         <section ref={servicesRef} className='flex flex-col gap-4 h-[60vh]'>
