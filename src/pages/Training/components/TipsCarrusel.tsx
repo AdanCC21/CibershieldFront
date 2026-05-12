@@ -5,6 +5,7 @@ import type { TipEntity } from '@/entities/tip'
 import type { CategoryType } from '@/entities/form.entity'
 import { TipsList } from '@/constants/tips'
 import { GetRandomTip } from '@/scripts/tips'
+import { AnimatePresence } from 'framer-motion'
 
 interface Prompts {
     tipType: CategoryType
@@ -29,10 +30,12 @@ export default function TipsCarrusel({ tipType }: Prompts) {
 
     return (
         <div className="flex flex-col items-center justify-center flex-1">
-            {curTip &&
-                <TipCard key={curTip.id} tip={curTip} changeTip={nextTip} />
-            }
-            <span className="absolute bottom-[20vh] text-sm mt-2 animate-pulse ">Cargando...</span>
+            <AnimatePresence mode='wait'>
+                {curTip &&
+                    <TipCard key={curTip.id} tip={curTip} changeTip={nextTip} />
+                }
+                <span className="absolute bottom-[20vh] text-sm mt-2 animate-pulse ">Cargando...</span>
+            </AnimatePresence>
         </div>
     )
 }

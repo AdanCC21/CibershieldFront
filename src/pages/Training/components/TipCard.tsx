@@ -1,5 +1,6 @@
-import { tailwindcssDuration } from "@/constants/animations"
+import { showUp, tailwindcssDuration } from "@/constants/animations"
 import type { TipEntity } from "@/entities/tip"
+import { motion } from "framer-motion"
 
 interface Prompts {
     tip: TipEntity
@@ -7,7 +8,7 @@ interface Prompts {
 }
 export default function TipCard({ tip, changeTip }: Prompts) {
     return (
-        <div className="flex flex-col w-100 max-h-80 h-fit overflow-y-auto p-4 gap-4 border-t-4 border-yellow-400 bg-white shadow-md rounded-lg animate-fade-in">
+        <motion.div variants={showUp} initial="hidden" animate="show" exit="exit"  className="flex flex-col w-100 max-h-80 h-fit overflow-y-auto p-4 gap-4 border-t-4 border-yellow-400 bg-white shadow-md rounded-lg animate-fade-in">
             <h5 className="text-lg">{tip.title}</h5>
             <p className="text-base">{tip.desc}</p>
             <div className="flex justify-end w-full mt-auto">
@@ -15,6 +16,6 @@ export default function TipCard({ tip, changeTip }: Prompts) {
                     <span className={`text-sm border-b border-b-black/0 group-hover:border-b-(--primary-color) ${tailwindcssDuration} `}>Siguiente</span>
                 </button>
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -1,4 +1,5 @@
-import { tailwindcssDuration } from "@/constants/animations";
+import { showUp, showUpContainer, tailwindcssDuration } from "@/constants/animations";
+import { motion } from "framer-motion";
 import { type Dispatch, type SetStateAction } from "react";
 
 export type Step = {
@@ -13,14 +14,14 @@ interface Prompts {
 }
 export default function Stepper({ steps, curStep }: Prompts) {
     return (
-        <ul className="flex flex-col w-fit">
+        <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col w-fit">
             {steps.map((step, index) => {
                 const isActive = step.id === curStep;
                 const isCompleted = step.id < curStep;
                 const isLast = index === steps.length - 1;
 
                 return (
-                    <li key={step.id} className="flex flex-col items-end">
+                    <motion.li variants={showUp} key={step.id} className="flex flex-col items-end">
                         <div className="flex items-center gap-4">
                             <button className={` px-5 py-2 rounded-lg border text-sm font-medium ${tailwindcssDuration}
                             ${isActive ? "border-(--primary-color) text-(--primary-color) bg-(--primary-color)/3 shadow-sm" : isCompleted ? "border-(--primary-color) text-(--primary-color) bg-white" : "border-gray-200 text-gray-400 bg-white"}`} onClick={() => {}}>
@@ -36,9 +37,9 @@ export default function Stepper({ steps, curStep }: Prompts) {
                         {!isLast && (
                             <div className="self-end mr-4.5 w-0.5 h-10 bg-indigo-200" />
                         )}
-                    </li>
+                    </motion.li>
                 );
             })}
-        </ul>
+        </motion.ul>
     );
 }

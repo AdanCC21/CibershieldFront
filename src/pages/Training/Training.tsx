@@ -11,6 +11,8 @@ import StDificulty from "./formSteps/StDificulty";
 import { useNavigate } from "react-router-dom";
 import { GetUser } from "@/scripts/user";
 import { LoadFormFromLocal } from "@/scripts/form";
+import { AnimatePresence, motion } from "framer-motion";
+import { showUp, showUpContainer } from "@/constants/animations";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
@@ -18,10 +20,13 @@ export default function Training() {
   const navigate = useNavigate();
   const [curStep, setCurStep] = useState<number>(0)
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
+  const [formFinish, setFinishForm] = useState(false);
 
   useEffect(() => {
     const localForm = LoadFormFromLocal(form, setCurStep);
     setForm(localForm);
+    if (formFinish)
+      setFinishForm(false);
   }, [])
 
   const handleForm = (e: any) => {
@@ -86,37 +91,50 @@ export default function Training() {
 
   const initTest = () => {
     localStorage.setItem('formInfo', JSON.stringify(form));
-    navigate('exercises')
+    setFinishForm(true);
+    setTimeout(() => {
+      navigate('exercises')
+    }, 400)
   }
 
   return (
-    <div className="flex w-full h-full gap-4">
-      <div className="flex flex-col flex-1 p-4 gap-4">
-        <Button title="" btnStyle="outline" onClick={()=>{toast("Modal con tutorial*")}} btnClass="w-fit self-center" icon={Icons.info} />
-        <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
-      </div>
+    <AnimatePresence mode="wait">
+      {!formFinish &&
+        <motion.div className="flex w-full h-full gap-4">
+          <section className="flex flex-col flex-1 p-4 gap-4">
+            <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
+          </section>
 
-      <div className="flex flex-col flex-3 p-4 gap-4">
-        {handleScreen()}
-        <div className="flex justify-end gap-4 mt-auto">
-          {curStep > 0 &&
-            <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
-          }
-          <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty || curStep < 3 ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
-        </div>
-      </div>
+          <motion.section key={curStep} variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-3 p-4 gap-4">
+            <motion.section variants={showUp}>
+              {handleScreen()}
+            </motion.section>
+            <div className="flex justify-end gap-4 mt-auto">
+              {curStep > 0 &&
+                <motion.div variants={showUp}>
+                  <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
+                </motion.div>
+              }
+              <motion.div variants={showUp}>
+                <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty || curStep < 3 ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
+              </motion.div>
+            </div>
+          </motion.section>
 
-      <div className="flex flex-col flex-1 p-4">
-        <h2 className="text-2xl mb-2">Resumen</h2>
-        <ul className="flex flex-col gap-2">
-          <SummaryTest title="Tipo de usuario" desc={form.userType ? form.userType === 'guest' ? 'invitado' : 'cuenta' : null} />
-          <SummaryTest title="Usuario" desc={form.name} />
-          <SummaryTest title="Categoria" desc={form.category} />
-          <SummaryTest title="Dificultad" desc={form.dificulty} />
-        </ul>
-      </div>
 
-    </div>
+          <section className="flex flex-col flex-1 p-4">
+            <motion.h2 variants={showUp} initial="hidden" animate="show" exit="exit" className="text-2xl mb-2">Resumen</motion.h2>
+            <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-2">
+              <SummaryTest title="Tipo de usuario" desc={form.userType ? form.userType === 'guest' ? 'invitado' : 'cuenta' : null} />
+              <SummaryTest title="Usuario" desc={form.name} />
+              <SummaryTest title="Categoria" desc={form.category} />
+              <SummaryTest title="Dificultad" desc={form.dificulty} />
+            </motion.ul>
+          </section>
+
+        </motion.div>
+      }
+    </AnimatePresence>
   )
 }
 
@@ -126,9 +144,9 @@ interface SumPrompts {
 }
 function SummaryTest({ title, desc }: SumPrompts) {
   return (
-    <li className="flex flex-col gap-2">
+    <motion.li variants={showUp} className="flex flex-col gap-2">
       <h5 className="text-lg">{title}</h5>
       <span className="text-sm text-(--text-gray)">{desc?.trim() ? desc : '...'}</span>
-    </li>
+    </motion.li>
   )
 }
