@@ -302,8 +302,6 @@ export const emailExamples: EmailExercises[] = [
 ]
 
 export const smsExamples: EmailExercises[] = [
-    // ─── FALSOS (smishing) ───────────────────────────────────────────────────
-
     {
         id: 0,
         title: "Tu paquete está retenido en aduana",

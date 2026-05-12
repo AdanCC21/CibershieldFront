@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import StDificulty from "./formSteps/StDificulty";
 import { useNavigate } from "react-router-dom";
 import { GetUser } from "@/scripts/user";
+import { LoadFormFromLocal } from "@/scripts/form";
 
 export default function Training() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
@@ -19,39 +20,8 @@ export default function Training() {
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
 
   useEffect(() => {
-    const loadLocalData = async () => {
-      const formRaw = localStorage.getItem('formInfo');
-      if(!formRaw) return;
-      const localForm = await JSON.parse(formRaw) as TrainingForm;
-      if (!localForm) return;
-
-      let formLoaded: TrainingForm = { ...form };
-      formLoaded.userType = localForm.userType ?? null;
-      formLoaded.name = localForm.name ?? "";
-      formLoaded.email = localForm.email ?? "";
-      formLoaded.category = localForm.category ?? null;
-      formLoaded.dificulty = localForm.dificulty ?? null;
-
-      if (formLoaded.userType) {
-        if (formLoaded.name && formLoaded.email) {
-          if (formLoaded.category) {
-            if (formLoaded.dificulty) {
-              setCurStep(3);
-            } else {
-              setCurStep(3);
-            }
-          } else {
-            setCurStep(2);
-          }
-        } else {
-          setCurStep(1);
-        }
-      }
-
-      setForm(formLoaded);
-    }
-
-    loadLocalData();
+    const localForm = LoadFormFromLocal(form, setCurStep);
+    setForm(localForm);
   }, [])
 
   const handleForm = (e: any) => {
@@ -121,7 +91,8 @@ export default function Training() {
 
   return (
     <div className="flex w-full h-full gap-4">
-      <div className="flex flex-col flex-1 p-4">
+      <div className="flex flex-col flex-1 p-4 gap-4">
+        <Button title="" btnStyle="outline" onClick={()=>{toast("Modal con tutorial*")}} btnClass="w-fit self-center" icon={Icons.info} />
         <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
       </div>
 

@@ -14,8 +14,10 @@ import TipsCarrusel from "./components/TipsCarrusel"
 
 export default function Exercises() {
     const navigate = useNavigate();
+
     const [formInfo, setFormInfo] = useState<TrainingForm | null>(null)
     const [loading, setLoading] = useState(false);
+
     const [exercises, setExercises] = useState<EmailExercises[]>([])
 
     const [modalState, setModalState] = useState(false);
@@ -41,6 +43,8 @@ export default function Exercises() {
                         modalType: 'error',
                     })
                     setModalState(true);
+                } else {
+                    toast.error("Incorrecto");
                 }
             }
             newResults.incorrect += 1;
@@ -82,7 +86,7 @@ export default function Exercises() {
         }
 
         setExercises([...getExamples(5, formInfo?.category === 'email' ? emailExamples : smsExamples)]);
-        
+
         setTimeout(() => {
             setLoading(false);
         }, 5000)
@@ -92,7 +96,7 @@ export default function Exercises() {
     }, [])
 
     if (loading) return (
-        <TipsCarrusel tipType={formInfo?.category ?? 'email'}/>
+        <TipsCarrusel tipType={formInfo?.category ?? 'email'} />
     )
 
     if (!formInfo) return (
@@ -106,7 +110,6 @@ export default function Exercises() {
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
             <section className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
-
                 <article className="flex flex-col items-center gap-4 card-shadow rounded-lg p-4">
                     <img src={Icons.person} alt="person" className="h-12" />
                     <span className="text-base">Usuario</span>

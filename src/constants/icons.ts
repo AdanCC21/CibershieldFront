@@ -10,6 +10,7 @@ import Check from '@/assets/icons/check.svg'
 import Incorrect from '@/assets/icons/close-red.svg'
 import LogIn from '@/assets/icons/login.svg'
 import LogOut from '@/assets/icons/logout.svg'
+import Info from '@/assets/icons/info.svg'
 
 export const Icons = {
     person: Person,
@@ -27,6 +28,8 @@ export const Icons = {
     check: Check,
 
     incorrect: Incorrect,
+    info:Info,
+    
     logIn: LogIn,
     logOut: LogOut,
 }

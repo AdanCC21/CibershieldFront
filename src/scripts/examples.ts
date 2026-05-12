@@ -5,7 +5,7 @@ export function getExamples(max: number, list:EmailExercises[]) {
     const examples = new Set<EmailExercises>()
 
     do {
-        const indx = Math.floor(Math.random() * max);
+        const indx = Math.floor(Math.random() * list.length);
         if (!examples.has(list[indx]))
             examples.add(list[indx]);
     } while (examples.size < max)
