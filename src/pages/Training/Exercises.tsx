@@ -122,10 +122,11 @@ export default function Exercises() {
                     </ul>
                 </article>
 
-                <button className={`flex items-center justify-center gap-2 p-2 rounded-lg border-t-4 border-(--primary-color) shadow-md hover:border-red-800 hover:bg-red-400 hover:text-white ${tailwindcssDuration} cursor-pointer`} onClick={() => {
+                <button className={`group flex items-center justify-center gap-2 p-2 rounded-lg border-t-4 border-(--primary-color) shadow-md hover:border-red-800 hover:bg-red-400 hover:text-white ${tailwindcssDuration} cursor-pointer`} onClick={() => {
                     localStorage.removeItem('formInfo')
                     navigate('/')
                 }}>
+                    <img src={Icons.close} className={`group-hover:invert h-4 ${tailwindcssDuration}`} alt="exit" />
                     <span className="text-base">Salir</span>
                 </button>
             </section>

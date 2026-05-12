@@ -10,26 +10,30 @@ interface Prompts {
 export default function SideBar({ virusActive, setVirus }: Prompts) {
     return (
         <nav className='flex-1 flex flex-col border-r border-[#fff2]'>
-            <h3 className="text-2xl my-2 font-medium">{virusActive.title}</h3>
-
-            <div className="h-px bg-[#0002] my-2 mx-4"></div>
-
-            <ul className="flex flex-col gap-2 list-disc list-inside">
-                {virusActive.sections.map((sec => (
-                    <li className="text-sm font-medium cursor-pointer">
-                        {sec.navTitle}
-                    </li>
-                )))}
-            </ul>
-            <div className="h-px bg-[#0002] my-2 mx-4"></div>
-            <ul className="flex flex-col gap-2">
-                {virusList.map((vir) => (
-                    <li>
-                        <button className={`${vir.title === virusActive.title ? 'text-(--primary-color) font-bold text-lg' : 'text-base '} cursor-pointer`} onClick={() => { setVirus(vir) }}>
-                            {vir.title}
-                        </button>
-                    </li>
-                ))}
+            <ul className="flex flex-col gap-4">
+                {virusList.map((virus, indx) => {
+                    if (virus.title === virusActive.title) {
+                        return (
+                            <li key={indx} className="flex flex-col gap-2">
+                                <span className="text-xl font-bold">{virus.title}</span>
+                                <ul className="flex flex-col gap-1">
+                                    {virus.sections.map((sec) => (
+                                        <li key={sec.navTitle}>
+                                            <span className="text-sm text-(--text-gray)">{sec.navTitle}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        )
+                    }
+                    return (
+                        <li key={indx}>
+                            <button className={`${virus.title === virusActive.title ? 'text-(--primary-color) font-bold text-xl' : 'text-base '} cursor-pointer`} onClick={() => { setVirus(virus) }}>
+                                {virus.title}
+                            </button>
+                        </li>
+                    )
+                })}
             </ul>
         </nav>
     )
