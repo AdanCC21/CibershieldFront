@@ -109,16 +109,12 @@ export default function Training() {
             <motion.section variants={showUp}>
               {handleScreen()}
             </motion.section>
-            <div className="flex justify-end gap-4 mt-auto">
+            <motion.div variants={showUp} className="flex justify-end gap-4 mt-auto">
               {curStep > 0 &&
-                <motion.div variants={showUp}>
-                  <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
-                </motion.div>
+                <Button title="Anterior" icon={Icons.arrowRight} iconClass="rotate-180" onClick={() => { setCurStep(prev => prev - 1) }} btnStyle="outline" />
               }
-              <motion.div variants={showUp}>
-                <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty || curStep < 3 ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
-              </motion.div>
-            </div>
+              <Button title={`${curStep === 3 ? 'Iniciar' : 'Continuar'}`} icon={Icons.arrowRight} iconRight onClick={() => { !form.dificulty || curStep < 3 ? nextStep() : initTest() }} btnStyle="fill" iconInvert />
+            </motion.div>
           </motion.section>
 
 
