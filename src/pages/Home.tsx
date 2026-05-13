@@ -21,8 +21,7 @@ export default function Home() {
                 if (servicesRef.current) {
                   window.scrollTo({ top: servicesRef.current.offsetTop * .8, behavior: 'smooth' })
                 }
-              }
-              }>Descubre mas</span>
+              }}>Descubre mas</span>
               <img src={arrowRight} alt='arrow' className='h-4' />
               <div className='absolute bottom-0 h-px bg-(--primary-color) w-3/4 group-hover:w-full transition-all ease-in-out duration-125'></div>
             </motion.button>

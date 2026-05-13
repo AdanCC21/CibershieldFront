@@ -34,8 +34,8 @@ export default function TipsCarrusel({ tipType }: Prompts) {
                 {curTip &&
                     <TipCard key={curTip.id} tip={curTip} changeTip={nextTip} />
                 }
-                <span className="absolute bottom-[20vh] text-sm mt-2 animate-pulse ">Cargando...</span>
             </AnimatePresence>
+            <span className="absolute bottom-[20vh] text-sm mt-2 animate-pulse ">Cargando...</span>
         </div>
     )
 }

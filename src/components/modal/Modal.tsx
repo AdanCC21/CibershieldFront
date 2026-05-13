@@ -22,7 +22,10 @@ export interface ModalPrompts {
 
 export default function Modal({ active, setActive, title, message, color, modalType, results }: Prompts) {
     if (!active) return
-    const bg = color === 'red' ? 'bg-red-500' : 'bg-(--primary-color)'
+    let bg = "";
+    if (color) {
+        bg = color === 'red' ? 'bg-red-400' : 'bg-(--primary-color)'
+    }
     const navigator = useNavigate();
 
     const handleContent = () => {
@@ -30,9 +33,9 @@ export default function Modal({ active, setActive, title, message, color, modalT
         switch (modalType) {
             case 'error':
                 return (
-                    <div className="flex flex-col p-2">
-                        <img src={Icons.incorrect} alt="incorrect" className="h-18" />
-                        <h3 className="text-center text-lg font-semibold">Incorrecto</h3>
+                    <div className="flex flex-col">
+                        <img src={Icons.incorrect} alt="incorrect" className="h-24" />
+                        <h3 className="text-center text-xl font-semibold">Incorrecto</h3>
                     </div>
                 )
             case 'finish':
@@ -62,28 +65,24 @@ export default function Modal({ active, setActive, title, message, color, modalT
             setActive(false); e.stopPropagation(); if (modalType === 'finish')
                 navigator("/");
         }}>
-            <div className="relative flex flex-col gap-4 justify-center items-center m-auto bg-white rounded-xl max-w-3/5 min-w-2/5 min-h-80" onClick={(e) => {
-                e.stopPropagation(); if (modalType === 'finish')
-                    navigator("/testing");
+            <div className="relative flex flex-col m-auto bg-white rounded-xl max-w-2/5 min-w-2/5 min-h-120" onClick={(e) => {
+                e.stopPropagation();
             }}>
-                <button className="absolute top-2 right-2 flex size-fit cursor-pointer">
-                    <img className="h-8" src={Icons.close} alt="close" onClick={() => {
-                        setActive(false)
-                        if (modalType === 'finish')
-                            navigator("/testing");
-                    }} />
-                </button>
-                {color &&
-                    <header className={`w-full py-4 ${bg} rounded-t-xl`}></header>
-                }
-                <main className='flex flex-col items-center justify-center h-full flex-1 p-4'>
-                    <h3 className="text-xl">{title}</h3>
+                <header className={`absolute top-0 left-0 flex w-full py-1 justify-end ${bg} rounded-t-xl px-4`}>
+                    <button className="flex size-fit cursor-pointer">
+                        <img className={`h-8 ${color && 'invert'}`} src={Icons.close} alt="close" onClick={() => {
+                            setActive(false)
+                            if (modalType === 'finish')
+                                navigator("/testing");
+                        }} />
+                    </button>
+                </header>
+
+                <main className='flex flex-col flex-1 px-8 items-center justify-center'>
+                    <h3 className="text-2xl">{title}</h3>
                     {handleContent()}
-                    <p className={`text-base ${modalType === 'error' && 'text-center'}`}>{message}</p>
+                    <p className={`text-base ${modalType === 'error' && 'text-center'} my-2`}>{message}</p>
                 </main>
-                {/* <footer className="flex w-full p-2 justify-end mt-auto">
-                    <Button title={btnLabel ?? 'Cerrar'} onClick={() => setActive(false)} btnStyle="outline" />
-                </footer> */}
             </div>
         </div>
     )

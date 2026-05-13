@@ -23,9 +23,9 @@ export default function Info() {
 
     return (
         <AnimatePresence mode="wait">
-            <div className='flex w-full'>
+            <div className='flex w-full gap-4'>
                 <SideBar virusActive={curVirus} setVirus={setVirus} />
-                <main className='flex-5 max-w-5/6 flex flex-col p-2 gap-2'>
+                <main key={curVirus.title} className='flex-1 max-w-5/6 flex flex-col p-2 gap-2'>
                     <motion.h1 variants={showUp} initial="hidden" animate="showShort" exit="exit" className='text-4xl font-medium'>{curVirus.title}</motion.h1>
                     <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="h-px bg-[#0002] my-2 mx-4"></motion.div>
                     <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit">

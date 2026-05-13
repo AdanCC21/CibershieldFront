@@ -5,11 +5,12 @@ import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
 import { emailExamples, smsExamples, type EmailExercises } from "@/constants/example"
-import { tailwindcssDuration } from "@/constants/animations"
+import { showUp, showUpDown, tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
 import { getExamples } from "@/scripts/examples"
 import TipsCarrusel from "./components/TipsCarrusel"
+import { AnimatePresence, motion } from "framer-motion"
 
 
 export default function Exercises() {
@@ -29,7 +30,7 @@ export default function Exercises() {
     const handleResult = (isReal: boolean) => {
         const newResults = { ...results }
         if (exercises[curEx].isReal === isReal) {
-            toast.success("Correcto mamuu 🐈");
+            toast.success("Correcto");
             newResults.correct += 1;
             if (curEx > 1) {
                 localStorage.removeItem('formInfo');
@@ -41,6 +42,7 @@ export default function Exercises() {
                     setModalData({
                         message: msg,
                         modalType: 'error',
+                        color:'red'
                     })
                     setModalState(true);
                 } else {
@@ -57,6 +59,7 @@ export default function Exercises() {
                 title: "Fin de las pruebas",
                 message: `${msg}`,
                 modalType: 'finish',
+                color:'primary',
                 results: newResults
             })
             setModalState(true);
@@ -85,7 +88,9 @@ export default function Exercises() {
             setFormInfo(null);
         }
 
-        setExercises([...getExamples(5, formInfo?.category === 'email' ? emailExamples : smsExamples)]);
+        const maxEx = formInfo?.dificulty === 'facil' ? 3 : formInfo?.dificulty === 'medio' ? 5 : 8;
+        const typeEx = formInfo?.category === 'email' ? emailExamples : smsExamples
+        setExercises([...getExamples(maxEx, typeEx)]);
 
         setTimeout(() => {
             setLoading(false);
@@ -109,7 +114,7 @@ export default function Exercises() {
         <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin'>
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
-            <section className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
+            <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
                 <article className="flex flex-col items-center gap-4 card-shadow rounded-lg p-4">
                     <img src={Icons.person} alt="person" className="h-12" />
                     <span className="text-base">Usuario</span>
@@ -129,31 +134,33 @@ export default function Exercises() {
                     <img src={Icons.close} className={`group-hover:invert h-4 ${tailwindcssDuration}`} alt="exit" />
                     <span className="text-base">Salir</span>
                 </button>
-            </section>
+            </motion.section>
 
             <div className="max-w-px flex-1 bg-[#0002]"></div>
 
-            <section className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
-                {formInfo.category === 'email' ?
-                    <EmailCard key={curEx} ex={exercises[curEx]} />
-                    :
-                    <PhoneCard ex={exercises[curEx]} />
-                }
+            <AnimatePresence mode="wait">
+                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                    {formInfo.category === 'email' ?
+                        <EmailCard key={curEx} ex={exercises[curEx]} />
+                        :
+                        <PhoneCard ex={exercises[curEx]} />
+                    }
 
-                <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
-                    <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:red-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
-                        onClick={() => { handleResult(false) }}>
-                        <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Falso</span>
-                        <img src={Icons.close} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
-                    </button>
+                    <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
+                        <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:red-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
+                            onClick={() => { handleResult(false) }}>
+                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Falso</span>
+                            <img src={Icons.close} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
+                        </button>
 
-                    <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
-                        onClick={() => { handleResult(true) }}>
-                        <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Verdadero</span>
-                        <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
-                    </button>
-                </article>
-            </section>
+                        <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
+                            onClick={() => { handleResult(true) }}>
+                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Verdadero</span>
+                            <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
+                        </button>
+                    </article>
+                </motion.section>
+            </AnimatePresence>
         </div>
     )
 }

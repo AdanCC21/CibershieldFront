@@ -68,3 +68,9 @@ export const showUpLarge: Variants = {
     },
     exit: { opacity: 0, translate: -10 }
 }
+
+export const showUpDown: Variants = {
+    hidden: { opacity: 0, translateY: -10 },
+    show: showDefalt,
+    exit: { opacity: 0, translate: 10 }
+}
