@@ -4,13 +4,13 @@ import PhoneCard from "./components/PhoneCard"
 import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
-import { emailExamples, smsExamples, type EmailExercises } from "@/constants/example"
 import { showUp, showUpDown, tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
 import { getExamples } from "@/scripts/examples"
 import TipsCarrusel from "./components/TipsCarrusel"
 import { AnimatePresence, motion } from "framer-motion"
+import type { EmailExercises } from "@/entities/email"
 
 
 export default function Exercises() {
@@ -42,7 +42,7 @@ export default function Exercises() {
                     setModalData({
                         message: msg,
                         modalType: 'error',
-                        color:'red'
+                        color: 'red'
                     })
                     setModalState(true);
                 } else {
@@ -59,7 +59,7 @@ export default function Exercises() {
                 title: "Fin de las pruebas",
                 message: `${msg}`,
                 modalType: 'finish',
-                color:'primary',
+                color: 'primary',
                 results: newResults
             })
             setModalState(true);
@@ -80,17 +80,18 @@ export default function Exercises() {
             if (!localForm) {
                 toast.error("No pudimos cargar los datos necesarios para los ejercicios");
                 setFormInfo(null);
-            } else {
-                setFormInfo(localForm);
+                setLoading(false);
+                return;
             }
+            setFormInfo(localForm);
+            if (!localForm.dificulty || !localForm.category) {
+                throw new Error("La categoria y/o dificultad son invalidas para estos ejercicios.");
+            }
+            setExercises([...getExamples(localForm.dificulty, localForm.category)]);
         } catch (e) {
             console.error(e);
             setFormInfo(null);
         }
-
-        const maxEx = formInfo?.dificulty === 'facil' ? 3 : formInfo?.dificulty === 'medio' ? 5 : 8;
-        const typeEx = formInfo?.category === 'email' ? emailExamples : smsExamples
-        setExercises([...getExamples(maxEx, typeEx)]);
 
         setTimeout(() => {
             setLoading(false);
@@ -117,8 +118,8 @@ export default function Exercises() {
             <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
                 <article className="flex flex-col items-center gap-4 card-shadow rounded-lg p-4">
                     <img src={Icons.person} alt="person" className="h-12" />
-                    <span className="text-base">Usuario</span>
-                    <span className="text-xs">usuario@gmail.com</span>
+                    <span className="text-base">{formInfo.name}</span>
+                    <span className="text-xs">{formInfo.email}</span>
                 </article>
 
                 <article className="flex flex-col gap-4 p-4 w-full flex-1 card-shadow rounded-lg overflow-y-auto">
@@ -139,7 +140,7 @@ export default function Exercises() {
             <div className="max-w-px flex-1 bg-[#0002]"></div>
 
             <AnimatePresence mode="wait">
-                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex max-h-[60vh] ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                     {formInfo.category === 'email' ?
                         <EmailCard key={curEx} ex={exercises[curEx]} />
                         :

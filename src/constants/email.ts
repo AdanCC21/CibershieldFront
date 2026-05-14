@@ -1,17 +1,123 @@
-import type { UserEntity } from "@/entities/user"
+import type { EmailExercises } from "@/entities/email"
 
-export interface EmailExercises {
-    id: number
-    title: string
-    owner: UserEntity
-    date: Date | string
-    hour: string
-    content: string
-    whyIsAnError?: string
-    isReal: boolean
-}
+export const emailExamplesEasy: EmailExercises[] = [
+    // ─── FALSOS (fáciles de detectar) ─────────────────────────────────────
 
-export const emailExamples: EmailExercises[] = [
+    {
+        id: 0,
+        title: "Tu cuenta de Facebook será eliminada",
+        owner: {
+            name: "Facebook Security",
+            email: "alert-facebook@security-check-now.xyz"
+        },
+        date: new Date(),
+        hour: "8:14pm",
+        content:
+            "Detectamos actividad sospechosa en tu cuenta. Si no verificas tu identidad en las próximas 2 horas, tu perfil será eliminado permanentemente.",
+        whyIsAnError:
+            "El dominio no pertenece a Facebook. Los dominios '.xyz' y mensajes con amenazas inmediatas son señales comunes de phishing.",
+        isReal: false
+    },
+    {
+        id: 1,
+        title: "Ganaste una tarjeta regalo de Walmart",
+        owner: {
+            name: "Walmart Rewards",
+            email: "premios@walmart-giftcards-free.net"
+        },
+        date: new Date(),
+        hour: "1:02pm",
+        content:
+            "¡Felicidades! Fuiste seleccionado para recibir una tarjeta regalo de $10,000 MXN. Solo confirma tus datos y tu tarjeta bancaria.",
+        whyIsAnError:
+            "Walmart no regala tarjetas al azar por correo y jamás pediría información bancaria para entregar un premio.",
+        isReal: false
+    },
+    {
+        id: 2,
+        title: "Tu cuenta de Steam fue suspendida",
+        owner: {
+            name: "Steam Support",
+            email: "support@steam-account-alerts.ru"
+        },
+        date: new Date(),
+        hour: "5:41pm",
+        content:
+            "Tu cuenta fue reportada por actividad ilegal. Para evitar el baneo permanente inicia sesión aquí inmediatamente.",
+        whyIsAnError:
+            "Steam utiliza dominios oficiales como steampowered.com. El dominio '.ru' y el tono alarmante son sospechosos.",
+        isReal: false
+    },
+    {
+        id: 3,
+        title: "Pago pendiente de CFE",
+        owner: {
+            name: "CFE México",
+            email: "facturacion@cfe-pagos-online.com"
+        },
+        date: new Date(),
+        hour: "10:55am",
+        content:
+            "Tu servicio eléctrico será suspendido hoy por falta de pago. Realiza tu pago aquí para evitar el corte.",
+        whyIsAnError:
+            "La CFE no utiliza dominios externos ni amenaza con cortes inmediatos por correo electrónico.",
+        isReal: false
+    },
+    {
+        id: 4,
+        title: "Código de acceso de Discord",
+        owner: {
+            name: "Discord",
+            email: "noreply@discord.com"
+        },
+        date: new Date(),
+        hour: "7:20pm",
+        content:
+            "Tu código de verificación es 552991. Si no intentaste iniciar sesión, puedes ignorar este mensaje.",
+        isReal: true
+    },
+    {
+        id: 5,
+        title: "Confirmación de compra en Amazon",
+        owner: {
+            name: "Amazon México",
+            email: "auto-confirm@amazon.com.mx"
+        },
+        date: new Date(),
+        hour: "4:10pm",
+        content:
+            "Tu pedido de 'Logitech G305 Mouse Inalámbrico' fue enviado correctamente. Fecha estimada de entrega: mañana antes de las 9 PM.",
+        isReal: true
+    },
+    {
+        id: 6,
+        title: "Reunión de proyecto mañana",
+        owner: {
+            name: "Carlos Hernández",
+            email: "carlos.hernandez@empresa.com"
+        },
+        date: new Date(),
+        hour: "9:40am",
+        content:
+            "Hola equipo, les recuerdo que mañana tendremos reunión a las 10 AM para revisar avances del proyecto final.",
+        isReal: true
+    },
+    {
+        id: 7,
+        title: "Tu recibo de Uber",
+        owner: {
+            name: "Uber",
+            email: "noreply@uber.com"
+        },
+        date: new Date(),
+        hour: "11:15pm",
+        content:
+            "Gracias por viajar con Uber. Tu viaje del día de hoy tuvo un costo total de $132.50 MXN.",
+        isReal: true
+    }
+]
+
+export const emailExamplesMedium: EmailExercises[] = [
     // ─── FALSOS (phishing) ───────────────────────────────────────────────────
 
     {
@@ -301,290 +407,122 @@ export const emailExamples: EmailExercises[] = [
     }
 ]
 
-export const smsExamples: EmailExercises[] = [
+export const emailExamplesHard: EmailExercises[] = [
+    // ─── FALSOS (difíciles de detectar) ───────────────────────────────────
+
     {
         id: 0,
-        title: "Tu paquete está retenido en aduana",
+        title: "Actividad sospechosa detectada en Microsoft 365",
         owner: {
-            name: "CORREOS DE MEXICO",
-            email: "+52 55 1234 5678"
+            name: "Microsoft",
+            email: "security@micr0soft-support.com"
         },
         date: new Date(),
-        hour: "10:14am",
+        hour: "6:52am",
         content:
-            "Tu paquete #MX49281 fue retenido en aduana. Paga $85 MXN de liberación antes de 24hrs o será devuelto: bit.ly/correos-libera",
+            "Detectamos múltiples intentos fallidos de inicio de sesión en tu cuenta corporativa. Por seguridad, recomendamos validar tu identidad desde el portal de recuperación.",
         whyIsAnError:
-            "Correos de México no cobra liberaciones por SMS ni manda links acortados. Es una estafa para robar datos de tarjeta.",
+            "El dominio parece legítimo, pero usa un '0' en lugar de la letra 'o' en 'microsoft'. Este tipo de sustitución visual es común en phishing avanzado.",
         isReal: false
     },
     {
         id: 1,
-        title: "BBVA: Cargo no reconocido",
+        title: "Actualización de políticas – Banco Santander",
         owner: {
-            name: "BBVA",
-            email: "+52 800 000 1234"
+            name: "Santander México",
+            email: "notificaciones@santander-clientes.com"
         },
         date: new Date(),
-        hour: "3:02pm",
+        hour: "2:48pm",
         content:
-            "BBVA: Detectamos un cargo de $4,200 en tu cuenta. Si no lo reconoces, cancélalo aquí: bbva-cancel-cargo.com/mx",
+            "Estimado cliente, actualizamos nuestros términos de seguridad digital. Le recomendamos revisar los cambios y validar sus datos para mantener acceso completo a la banca en línea.",
         whyIsAnError:
-            "BBVA nunca manda links externos por SMS para cancelar cargos. El dominio no pertenece a BBVA. Para disputas reales, llama al número en tu tarjeta.",
+            "El correo evita amenazas obvias y parece profesional, pero el dominio no pertenece a Santander. Los bancos reales usan dominios oficiales.",
         isReal: false
     },
     {
         id: 2,
-        title: "Premio OXXO: $5,000 en efectivo",
+        title: "Documento compartido contigo",
         owner: {
-            name: "OXXO Premios",
-            email: "+52 55 9876 5432"
+            name: "Google Drive",
+            email: "drive@googledrive-share.com"
         },
         date: new Date(),
-        hour: "6:45pm",
+        hour: "9:11am",
         content:
-            "¡Felicidades! Tu número fue seleccionado para ganar $5,000 MXN en efectivo. Reclama tu premio antes de que expire: oxxo-premios.net/reclamar",
+            "Mariana Torres compartió contigo el archivo 'Nómina_Abril_2026.xlsx'. Puedes revisarlo iniciando sesión con tu cuenta de Google.",
         whyIsAnError:
-            "OXXO no realiza sorteos por SMS. El link lleva a un sitio falso que roba datos personales. Los números ganadores se publican en tienda, no se notifican por mensaje.",
+            "El mensaje parece normal y sin urgencia, pero el dominio no es oficial de Google. Es un phishing diseñado para robar credenciales.",
         isReal: false
     },
     {
         id: 3,
-        title: "Alerta SAT: Devolución disponible",
+        title: "Verificación de cuenta de LinkedIn",
         owner: {
-            name: "SAT",
-            email: "+52 55 6274 3000"
+            name: "LinkedIn",
+            email: "security@linkedinverify.com"
         },
         date: new Date(),
-        hour: "9:30am",
+        hour: "12:35pm",
         content:
-            "SAT: Tienes una devolución de $2,340 MXN pendiente. Ingresa tu CLABE para recibirla hoy: sat-devolucion.org/cobrar",
+            "Como parte de nuestras medidas de seguridad, solicitamos confirmar tu información profesional para evitar restricciones temporales en tu perfil.",
         whyIsAnError:
-            "El SAT nunca solicita CLABE por SMS. Las devoluciones fiscales se gestionan exclusivamente en el portal sat.gob.mx. El dominio '.org' no pertenece al gobierno.",
+            "Aunque el mensaje parece corporativo y tranquilo, LinkedIn no usa dominios como 'linkedinverify.com'.",
         isReal: false
     },
+
+    // ─── REALES (más ambiguos) ────────────────────────────────────────────
+
     {
         id: 4,
-        title: "Telcel: Tu línea será suspendida",
+        title: "Nuevo inicio de sesión en tu cuenta",
         owner: {
-            name: "Telcel",
-            email: "+52 55 5050 1234"
+            name: "Apple",
+            email: "appleid@id.apple.com"
         },
         date: new Date(),
-        hour: "12:58pm",
+        hour: "3:04am",
         content:
-            "TELCEL: Tu línea será suspendida por falta de pago. Realiza tu pago ahora en: telcel-pago-linea.com/urgente o perderás tu número.",
-        whyIsAnError:
-            "Telcel notifica suspensiones desde números oficiales y su app, nunca con links externos de terceros. El dominio es falso; el sitio real es telcel.com.",
-        isReal: false
+            "Tu Apple ID fue utilizado para iniciar sesión en un iPhone 15 Pro en Guadalajara, Jalisco. Si reconoces esta actividad, no es necesario realizar ninguna acción.",
+        isReal: true
     },
     {
         id: 5,
-        title: "Transferencia recibida – requiere confirmación",
+        title: "Acción requerida en tu cuenta de Netflix",
         owner: {
-            name: "SPEI Banamex",
-            email: "+52 55 1111 2222"
+            name: "Netflix",
+            email: "info@mailer.netflix.com"
         },
         date: new Date(),
-        hour: "4:17pm",
+        hour: "8:21pm",
         content:
-            "Banamex: Recibiste una transferencia SPEI de $12,000. Para acreditarla confirma tu NIP en: banamex-spei-confirma.com",
-        whyIsAnError:
-            "Las transferencias SPEI se acreditan automáticamente, no requieren confirmación de NIP. Ningún banco pide tu NIP por SMS. El dominio es falso.",
-        isReal: false
+            "Tuvimos problemas al procesar el último pago de tu membresía. Puedes actualizar tu método de pago desde la configuración de tu cuenta.",
+        isReal: true
     },
     {
         id: 6,
-        title: "WhatsApp: Tu cuenta expira hoy",
+        title: "Alerta de seguridad de Google",
         owner: {
-            name: "WhatsApp",
-            email: "+1 650 543 4800"
+            name: "Google",
+            email: "no-reply@accounts.google.com"
         },
         date: new Date(),
-        hour: "7:00pm",
+        hour: "7:58am",
         content:
-            "Tu cuenta de WhatsApp expirará hoy. Para renovarla gratis por un año, reenvía este mensaje a 10 contactos o paga $29 aquí: whatsapp-renovar.com",
-        whyIsAnError:
-            "WhatsApp es gratuito y no expira. Nunca pide reenviar mensajes ni pagar por SMS. Esta es una de las cadenas de smishing más antiguas y comunes.",
-        isReal: false
+            "Detectamos un nuevo inicio de sesión desde un dispositivo Windows. Si fuiste tú, no necesitas hacer nada.",
+        isReal: true
     },
     {
         id: 7,
-        title: "CFE: Corte de luz programado",
-        owner: {
-            name: "CFE",
-            email: "+52 55 0708 0000"
-        },
-        date: new Date(),
-        hour: "11:20am",
-        content:
-            "CFE: Tiene un adeudo de $1,780. Si no realiza su pago hoy se procederá al corte de su servicio. Pague aquí: cfe-pagos-mx.com/urgente",
-        whyIsAnError:
-            "La CFE notifica adeudos en tu recibo mensual y en su app oficial. Nunca manda links de pago por SMS. El sitio real es cfe.mx.",
-        isReal: false
-    },
-    {
-        id: 8,
-        title: "Ganaste un viaje a Cancún",
-        owner: {
-            name: "Aeromexico Rewards",
-            email: "+52 800 021 4010"
-        },
-        date: new Date(),
-        hour: "2:33pm",
-        content:
-            "¡Tu número fue el ganador del sorteo Aeromexico! Ganaste 2 vuelos a Cancún. Reclama antes de 48hrs: aeromexico-sorteo.net/premio",
-        whyIsAnError:
-            "Aeromexico no realiza sorteos por SMS. El dominio no es oficial. Este tipo de mensajes buscan que ingreses datos personales o de tarjeta en sitios falsos.",
-        isReal: false
-    },
-    {
-        id: 9,
-        title: "Verificación de cuenta – Banco Azteca",
-        owner: {
-            name: "Banco Azteca",
-            email: "+52 55 3000 0000"
-        },
-        date: new Date(),
-        hour: "8:50am",
-        content:
-            "Banco Azteca: Tu cuenta fue bloqueada por seguridad. Desbloquéala ingresando tu número de tarjeta y NIP en: azteca-desbloqueo.com/verificar",
-        whyIsAnError:
-            "Ningún banco desbloquea cuentas por SMS con links externos. Nunca compartas NIP o número de tarjeta por ningún canal que no sea físicamente en sucursal.",
-        isReal: false
-    },
-    {
-        id: 10,
-        title: "DiDi: Problema con tu pago",
-        owner: {
-            name: "DiDi",
-            email: "+52 55 4444 5555"
-        },
-        date: new Date(),
-        hour: "9:05pm",
-        content:
-            "DiDi: Detectamos un problema con tu método de pago. Actualiza tu tarjeta en: didi-pago-update.com o no podrás solicitar viajes.",
-        whyIsAnError:
-            "DiDi gestiona métodos de pago exclusivamente dentro de su app oficial. Nunca manda links externos por SMS. El dominio es falso.",
-        isReal: false
-    },
-
-    // ─── REALES ──────────────────────────────────────────────────────────────
-
-    {
-        id: 11,
-        title: "Código de verificación de WhatsApp",
-        owner: {
-            name: "WhatsApp",
-            email: "+1 (631) 253-0036"
-        },
-        date: new Date(),
-        hour: "10:01am",
-        content:
-            "Tu código de WhatsApp es 847-293. No lo compartas con nadie.",
-        isReal: true
-    },
-    {
-        id: 12,
-        title: "Confirmación de retiro en cajero",
-        owner: {
-            name: "BBVA",
-            email: "+52 55 5226 2663"
-        },
-        date: new Date(),
-        hour: "1:45pm",
-        content:
-            "BBVA: Retiro en cajero por $500.00 MXN el día de hoy. Saldo disponible: $8,240.50. Si no lo realizaste llama al 800 111 0134.",
-        isReal: true
-    },
-    {
-        id: 13,
-        title: "Tu pedido va en camino",
+        title: "Tu pedido fue retrasado",
         owner: {
             name: "Mercado Libre",
-            email: "+52 55 5169 6009"
+            email: "notificaciones@mercadolibre.com"
         },
         date: new Date(),
-        hour: "11:30am",
+        hour: "6:30pm",
         content:
-            "Tu pedido salió para entrega hoy. Rastréalo en la app de Mercado Libre o en mercadolibre.com.mx/envios con tu número de orden #98472610.",
-        isReal: true
-    },
-    {
-        id: 14,
-        title: "Código de acceso – Google",
-        owner: {
-            name: "Google",
-            email: "+1 (650) 253-0000"
-        },
-        date: new Date(),
-        hour: "3:10pm",
-        content:
-            "G-591847 es tu código de verificación de Google. No lo compartas con nadie.",
-        isReal: true
-    },
-    {
-        id: 15,
-        title: "Recordatorio de cita médica",
-        owner: {
-            name: "cliente",
-            email: "+52 55 1234 0000"
-        },
-        date: new Date(),
-        hour: "8:00am",
-        content:
-            "Recordatorio: tienes cita con el Dr. Ramírez mañana a las 10:00 AM en Consultorio 3. Si no puedes asistir, avisa con anticipación al 55 1234 0000.",
-        isReal: true
-    },
-    {
-        id: 16,
-        title: "Pago de Telmex confirmado",
-        owner: {
-            name: "Telmex",
-            email: "+52 55 1111 8888"
-        },
-        date: new Date(),
-        hour: "5:20pm",
-        content:
-            "Telmex: Recibimos tu pago de $429.00 MXN. Gracias por pagar a tiempo. Tu próxima fecha límite es el 10 del siguiente mes.",
-        isReal: true
-    },
-    {
-        id: 17,
-        title: "Tu Uber ya llegó",
-        owner: {
-            name: "Uber",
-            email: "+52 55 9000 0000"
-        },
-        date: new Date(),
-        hour: "7:48pm",
-        content:
-            "Tu conductor Carlos en un Nissan Versa gris (placas ABC-123) ha llegado a tu ubicación. Tienes 5 minutos antes de que se aplique cargo por espera.",
-        isReal: true
-    },
-    {
-        id: 18,
-        title: "Alerta de inicio de sesión – Mercado Pago",
-        owner: {
-            name: "Mercado Pago",
-            email: "+52 55 5169 6009"
-        },
-        date: new Date(),
-        hour: "6:02pm",
-        content:
-            "Mercado Pago: Nuevo inicio de sesión desde iPhone en Ciudad de México. Si fuiste tú, ignora este mensaje. Si no, cambia tu contraseña en la app.",
-        isReal: true
-    },
-    {
-        id: 19,
-        title: "Confirmación de reserva – hotel",
-        owner: {
-            name: "cliente",
-            email: "+52 664 123 4567"
-        },
-        date: new Date(),
-        hour: "2:00pm",
-        content:
-            "Reserva confirmada para 2 noches del 15 al 17 de junio. Check-in a las 3:00 PM. Para cualquier cambio comunícate al 664 123 4567. ¡Te esperamos!",
+            "Tu paquete sufrió un retraso logístico y llegará 1 día después de la fecha estimada originalmente.",
         isReal: true
     }
 ]
