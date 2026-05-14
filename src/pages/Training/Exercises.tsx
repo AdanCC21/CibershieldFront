@@ -42,7 +42,7 @@ export default function Exercises() {
                     setModalData({
                         message: msg,
                         modalType: 'error',
-                        color:'red'
+                        color: 'red'
                     })
                     setModalState(true);
                 } else {
@@ -59,7 +59,7 @@ export default function Exercises() {
                 title: "Fin de las pruebas",
                 message: `${msg}`,
                 modalType: 'finish',
-                color:'primary',
+                color: 'primary',
                 results: newResults
             })
             setModalState(true);
@@ -80,22 +80,20 @@ export default function Exercises() {
             if (!localForm) {
                 toast.error("No pudimos cargar los datos necesarios para los ejercicios");
                 setFormInfo(null);
-            } else {
-                setFormInfo(localForm);
             }
+            setFormInfo(localForm);
+            const maxEx = localForm?.dificulty === 'facil' ? 3 : formInfo?.dificulty === 'medio' ? 5 : 8;
+            const typeEx = localForm?.category === 'email' ? emailExamples : smsExamples
+            setExercises([...getExamples(maxEx, typeEx)]);
+            
         } catch (e) {
             console.error(e);
             setFormInfo(null);
         }
 
-        const maxEx = formInfo?.dificulty === 'facil' ? 3 : formInfo?.dificulty === 'medio' ? 5 : 8;
-        const typeEx = formInfo?.category === 'email' ? emailExamples : smsExamples
-        setExercises([...getExamples(maxEx, typeEx)]);
-
         setTimeout(() => {
             setLoading(false);
         }, 5000)
-
 
         return (() => { setLoading(false) })
     }, [])
