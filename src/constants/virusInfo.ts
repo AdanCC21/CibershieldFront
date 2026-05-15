@@ -1,5 +1,6 @@
 import type { VirusSection } from "@/entities/virus"
 import { Malware } from "./malware";
-import { Phishing } from "./pishing";
+import { Phishing } from "./phishing";
+
 
 export const virusList: VirusSection[] = [Phishing, Malware];

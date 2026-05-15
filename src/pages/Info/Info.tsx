@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
 import type { VirusSection } from "@/entities/virus";
 import TitleDescription from "./components/TitleDesc";
-import { Phishing } from "@/constants/pishing";
+import { Phishing } from "@/constants/phishing";
 import { useLocation } from "react-router-dom";
 import { Malware } from "@/constants/malware";
 import { AnimatePresence, motion } from "framer-motion";

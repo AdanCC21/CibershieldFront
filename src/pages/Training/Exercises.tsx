@@ -4,13 +4,13 @@ import PhoneCard from "./components/PhoneCard"
 import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
-import { emailExamples, smsExamples, type EmailExercises } from "@/constants/example"
 import { showUp, showUpDown, tailwindcssDuration } from "@/constants/animations"
 import Modal, { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
 import { getExamples } from "@/scripts/examples"
 import TipsCarrusel from "./components/TipsCarrusel"
 import { AnimatePresence, motion } from "framer-motion"
+import type { EmailExercises } from "@/entities/email"
 
 
 export default function Exercises() {
@@ -80,12 +80,14 @@ export default function Exercises() {
             if (!localForm) {
                 toast.error("No pudimos cargar los datos necesarios para los ejercicios");
                 setFormInfo(null);
+                setLoading(false);
+                return;
             }
             setFormInfo(localForm);
-            const maxEx = localForm?.dificulty === 'facil' ? 3 : formInfo?.dificulty === 'medio' ? 5 : 8;
-            const typeEx = localForm?.category === 'email' ? emailExamples : smsExamples
-            setExercises([...getExamples(maxEx, typeEx)]);
-            
+            if (!localForm.dificulty || !localForm.category) {
+                throw new Error("La categoria y/o dificultad son invalidas para estos ejercicios.");
+            }
+            setExercises([...getExamples(localForm.dificulty, localForm.category)]);
         } catch (e) {
             console.error(e);
             setFormInfo(null);
@@ -115,8 +117,8 @@ export default function Exercises() {
             <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">
                 <article className="flex flex-col items-center gap-4 card-shadow rounded-lg p-4">
                     <img src={Icons.person} alt="person" className="h-12" />
-                    <span className="text-base">Usuario</span>
-                    <span className="text-xs">usuario@gmail.com</span>
+                    <span className="text-base">{formInfo.name}</span>
+                    <span className="text-xs">{formInfo.email}</span>
                 </article>
 
                 <article className="flex flex-col gap-4 p-4 w-full flex-1 card-shadow rounded-lg overflow-y-auto">
@@ -137,7 +139,7 @@ export default function Exercises() {
             <div className="max-w-px flex-1 bg-[#0002]"></div>
 
             <AnimatePresence mode="wait">
-                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex max-h-[60vh] ${formInfo.category === 'email' ? 'flex-col flex-1 gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                     {formInfo.category === 'email' ?
                         <EmailCard key={curEx} ex={exercises[curEx]} />
                         :
@@ -145,17 +147,22 @@ export default function Exercises() {
                     }
 
                     <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
-                        <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:red-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
+                        <button title="Es phishing"  className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
                             onClick={() => { handleResult(false) }}>
-                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Falso</span>
+                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>No es phishing</span>
                             <img src={Icons.close} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                         </button>
 
-                        <button className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
+                        <button title="No es phishing" className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:red-800 bg-red-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
                             onClick={() => { handleResult(true) }}>
-                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Verdadero</span>
+                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Es phishing</span>
                             <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                         </button>
+                        {/* <button title="No es phishing" className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
+                            onClick={() => { handleResult(true) }}>
+                            <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>No es phishing</span>
+                            <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
+                        </button> */}
                     </article>
                 </motion.section>
             </AnimatePresence>

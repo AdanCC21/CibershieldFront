@@ -39,9 +39,9 @@ export default function Home() {
           <ul className='flex gap-4 h-60'>
             <ServiceCard title='Malwares' desc='Descubre qué es el malware, cómo infecta tus dispositivos y cuáles son los tipos más peligrosos que existen hoy.' icon='/malware.webp' navigateTo='info/malware' />
 
-            <ServiceCard title='Ingenieria Social' desc='Descubre cómo los atacantes manipulan emociones y confianza para obtener acceso a información confidencial. Aprende sus técnicas más usadas.' icon='/IngSocial.webp' navigateTo='info/pishing' />
+            <ServiceCard title='Ingenieria Social' desc='Descubre cómo los atacantes manipulan emociones y confianza para obtener acceso a información confidencial. Aprende sus técnicas más usadas.' icon='/IngSocial.webp' navigateTo='info/phishing' />
 
-            <ServiceCard title='Practicas' desc='Pon a prueba tus conocimientos con ejercicios interactivos que simulan situaciones reales. Aprende haciendo y fortalece tu defensa digital' icon='/pishing.webp' navigateTo='testing' />
+            <ServiceCard title='Practicas' desc='Pon a prueba tus conocimientos con ejercicios interactivos que simulan situaciones reales. Aprende haciendo y fortalece tu defensa digital' icon='/phishing.webp' navigateTo='testing' />
           </ul>
         </section>
 

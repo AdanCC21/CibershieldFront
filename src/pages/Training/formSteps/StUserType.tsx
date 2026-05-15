@@ -19,7 +19,7 @@ export default function StUserType({ form, setForm }: Prompts) {
         <motion.div variants={showUpContainer} initial='hidden' animate='showShort'>
             <motion.div variants={showUp} className="flex flex-col gap-4">
                 <h1 className="text-4xl">Tipo de usuario</h1>
-                <span className="text-base">Selecciona la forma en la cual vas a simular una practica de pishing</span>
+                <span className="text-base">Selecciona la forma en la cual vas a simular una practica de phishing</span>
             </motion.div>
 
             <motion.div variants={showUp} className="flex gap-4 my-4">
