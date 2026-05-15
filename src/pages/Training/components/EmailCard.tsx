@@ -1,5 +1,5 @@
-import type { EmailExercises } from "@/constants/example";
 import { Icons } from "@/constants/icons";
+import type { EmailExercises } from "@/entities/email";
 import { showDate } from "@/scripts/date";
 
 interface Prompts {
