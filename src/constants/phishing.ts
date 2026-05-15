@@ -4,7 +4,8 @@ const WhatIs: InfoArticle = {
     id: 0,
     title: "¿Qué es el phishing?",
     content:
-        "El phishing es una técnica de fraude utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial como contraseñas, números de tarjetas de crédito o credenciales bancarias. Este tipo de ataque se realiza haciéndose pasar por entidades legítimas a través de correos electrónicos, mensajes SMS o incluso llamadas telefónicas.\nEs uno de los métodos más comunes de ingeniería social, y su éxito depende en gran medida de la capacidad del atacante para ganarse la confianza de la víctima."
+        "El phishing es una técnica de fraude utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial como contraseñas, números de tarjetas de crédito o credenciales bancarias. Este tipo de ataque se realiza haciéndose pasar por entidades legítimas a través de correos electrónicos, mensajes SMS o incluso llamadas telefónicas.\nEs uno de los métodos más comunes de ingeniería social, y su éxito depende en gran medida de la capacidad del atacante para ganarse la confianza de la víctima.",
+    img:'/phishing/intr.webp'
 }
 
 

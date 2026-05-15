@@ -7,4 +7,5 @@ export interface InfoArticle {
     id: number
     title: string
     content: string | string[]
+    img?:string
 }

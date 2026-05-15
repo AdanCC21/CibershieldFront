@@ -48,9 +48,9 @@ export default function Home() {
         <section className='flex flex-col gap-4 h-[60vh]'>
           <h2 className='text-4xl'>Sobre nosotros</h2>
           <section className='grid grid-cols-2 grid-rows-2 gap-4 h-8/10'>
-            <ServiceCard cardClass='row-span-2 justify-center' title='Nosotros somos' desc='Somos un grupo de desarrolladores a punto de egresar de la Universidad Autónoma de Baja California. Nos especializamos en desarrollo web con tecnologías modernas como React, Vue y Angular.' />
+            <ServiceCard cardClass=' justify-center' title='Nosotros somos' desc='Somos un grupo de desarrolladores a punto de egresar de la Universidad Autónoma de Baja California. Nos especializamos en desarrollo web con tecnologías modernas como React, Vue y Angular.' />
 
-            <ServiceCard cardClass='justify-center' title='Propósito' desc='Esta página busca proporcionar información clara e importante sobre los posibles ataques que cualquier persona en internet puede sufrir, incluyendo ejercicios prácticos para reconocer phishing en correos y mensajes SMS.' />
+            <ServiceCard cardClass='row-span-2 justify-center' title='Propósito' desc='Esta página busca proporcionar información clara e importante sobre los posibles ataques que cualquier persona en internet puede sufrir, incluyendo ejercicios prácticos para reconocer phishing en correos y mensajes SMS.' />
 
             <ServiceCard cardClass='justify-center' title='¿Cómo hicimos esta página?' desc='Este proyecto es un rediseño completo, a cargo de Adán González, del proyecto original de Antonio Ramos. Antonio concibió la idea hace algunos años y para nuestro último proyecto escolar decidimos rediseñarlo como entregable final para dos materias.' />
           </section>
