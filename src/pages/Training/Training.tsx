@@ -24,9 +24,18 @@ export default function Training() {
 
   useEffect(() => {
     const localForm = LoadFormFromLocal(form, setCurStep);
-    setForm(localForm);
+  
     if (formFinish)
       setFinishForm(false);
+    
+    const us = GetUser()
+    if(us){
+      localForm.userType = 'account'
+      localForm.name = us.name
+      localForm.email = us.email
+      setCurStep(2);
+    }
+    setForm(localForm);
   }, [])
 
   const handleForm = (e: any) => {

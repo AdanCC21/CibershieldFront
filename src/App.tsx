@@ -29,7 +29,7 @@ export default function App() {
             <Training />
           </Layout>
         } />
-        <Route path='/info/:vir' element={
+        <Route path='/info/*' element={
           <Layout header footer headerPage={E_Pages.INFO}>
             <Info />
           </Layout>

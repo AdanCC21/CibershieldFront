@@ -42,8 +42,8 @@ export default function Header({ curPage, setPage }: Prompts) {
 
       <nav className="absolute bottom-1/2 right-1/2 translate-1/2 flex gap-4">
         <HeaderItem title={E_Pages.HOME} active={curPage === E_Pages.HOME} page={E_Pages.HOME} setPage={setPage} href="/" goTo={goTo} />
+        <HeaderItem title={E_Pages.INFO} active={curPage === E_Pages.INFO} page={E_Pages.INFO} setPage={setPage} href="/info/phishing" goTo={goTo} />
         <HeaderItem title={E_Pages.TESTING} active={curPage === E_Pages.TESTING} page={E_Pages.TESTING} setPage={setPage} href="/testing" goTo={goTo} />
-        <HeaderItem title={E_Pages.INFO} active={curPage === E_Pages.INFO} page={E_Pages.INFO} setPage={setPage} href="/info/malware" goTo={goTo} />
       </nav>
 
       <div className="flex gap-4 items-center">

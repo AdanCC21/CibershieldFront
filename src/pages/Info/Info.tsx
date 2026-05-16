@@ -19,7 +19,8 @@ export default function Info() {
         } else {
             setVirus(Phishing);
         }
-    }, [])
+        window.scrollTo(0,0)
+    }, [location.pathname])
 
     return (
         <AnimatePresence mode="wait">
