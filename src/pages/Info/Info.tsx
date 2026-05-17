@@ -27,13 +27,13 @@ export default function Info() {
             <div className='flex w-full gap-4'>
                 <SideBar virusActive={curVirus} setVirus={setVirus} />
                 <main key={curVirus.title} className='flex-1 max-w-5/6 flex flex-col p-2 gap-2'>
-                    <motion.h1 variants={showUp} initial="hidden" animate="showShort" exit="exit" className='text-4xl font-medium'>{curVirus.title}</motion.h1>
+                    <motion.h1 variants={showUp} initial="hidden" animate="showShort" exit="exit" className='text-6xl font-medium text-(--secundary-color)'>{curVirus.title}</motion.h1>
                     <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="h-px bg-[#0002] my-2 mx-4"></motion.div>
                     <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4">
                         {curVirus.sections.map((sec, ind: number) => {
                             return (
                                 <AnimatePresence mode="wait">
-                                    <TitleDescription key={sec.content.id} title={sec.content.title} desc={sec.content.content} img={sec.content.img} />
+                                    <TitleDescription key={sec.content.id} title={sec.content.title} desc={sec.content.content} img={sec.content.img} child={sec.content.child} />
                                     {ind < curVirus.sections.length - 1 &&
                                         <div className="h-px bg-[#0002] my-2 mx-4"></div>
                                     }

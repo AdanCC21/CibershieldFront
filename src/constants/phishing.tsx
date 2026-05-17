@@ -1,5 +1,6 @@
 import type { InfoArticle, VirusSection } from "@/entities/virus"
 import { Icons } from "./icons"
+import Link from "@/components/Link"
 
 const WhatIs: InfoArticle = {
     id: 0,
@@ -8,7 +9,6 @@ const WhatIs: InfoArticle = {
         "El phishing es una técnica de fraude utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial como contraseñas, números de tarjetas de crédito o credenciales bancarias. Este tipo de ataque se realiza haciéndose pasar por entidades legítimas a través de correos electrónicos, mensajes SMS o incluso llamadas telefónicas.\nEs uno de los métodos más comunes de ingeniería social, y su éxito depende en gran medida de la capacidad del atacante para ganarse la confianza de la víctima.",
     img: '/phishing/intr.webp'
 }
-
 
 const HowItWorks: InfoArticle = {
     id: 1,
@@ -53,6 +53,12 @@ const Prevention: InfoArticle = {
     content: "La mejor defensa contra el phishing es la educación. Aprende a detectar estos ataques y mantente alerta ante cualquier intento sospechoso de obtener tus datos."
 }
 
+const LetsPractice: InfoArticle = {
+    id: 6,
+    title: "¿Reconoces bien el phishing?",
+    content: "Vamos a poner a prueba tus habilidades para reconocer el phishing, vamos a practicar",
+    child: <Link label="Practicar" href="/testing" />
+}
 
 const PhishingTypes: InfoArticle = {
     id: 5,
@@ -68,6 +74,7 @@ const PhishingTypes: InfoArticle = {
         },
         {
             id: 1,
+            icon: Icons.sms,
             title: "Smishing (SMS)",
             content: "El smishing es una variante del phishing que utiliza mensajes de texto (SMS) para engañar a los usuarios y hacer que revelen información personal o realicen acciones perjudiciales. Los atacantes envían mensajes que parecen provenir de fuentes legítimas, como bancos o servicios de mensajería, solicitando que el usuario haga clic en un enlace o proporcione información sensible. Al igual que el phishing tradicional, el objetivo del smishing es robar datos personales o financieros.",
             summary: "Ataques mediante mensajes de texto falsos.",
@@ -75,6 +82,7 @@ const PhishingTypes: InfoArticle = {
         },
         {
             id: 2,
+            icon: Icons.call,
             title: "Vishing (SMS)",
             content: "El vishing, o phishing por voz, es una técnica de fraude que utiliza llamadas telefónicas para engañar a los usuarios y hacer que revelen información personal o financiera. Los atacantes suelen hacerse pasar por representantes de empresas legítimas, como bancos o servicios gubernamentales, y solicitan información sensible bajo pretextos falsos. El vishing puede ser muy convincente, ya que los atacantes pueden utilizar técnicas de ingeniería social para ganar la confianza del usuario.",
             summary: "Fraudes a través de llamadas telefónicas.",
@@ -82,6 +90,7 @@ const PhishingTypes: InfoArticle = {
         },
         {
             id: 3,
+            icon: Icons.target,
             title: "Spear phishing",
             content: "El spear phishing es una forma más sofisticada de phishing que se dirige a individuos o grupos específicos, a menudo utilizando información personal para hacer que el ataque sea más convincente. A diferencia del phishing masivo, que envía correos electrónicos genéricos a muchas personas, el spear phishing investiga al objetivo para personalizar el mensaje y aumentar las posibilidades de éxito. Los atacantes pueden utilizar redes sociales y otras fuentes de información para recopilar datos sobre la víctima antes de lanzar el ataque.",
             summary: "Ataques dirigidos a una persona específica o grupo reducido.",
@@ -89,6 +98,7 @@ const PhishingTypes: InfoArticle = {
         },
         {
             id: 4,
+            icon: Icons.web,
             title: "Pharming",
             content: "El pharming es una técnica de ataque que redirige a los usuarios de un sitio web legítimo a un sitio web falso sin su conocimiento. Esto se logra manipulando el sistema de nombres de dominio (DNS) o mediante malware que modifica la configuración del navegador. Una vez en el sitio falso, los usuarios pueden ser engañados para que ingresen información personal o financiera, creyendo que están interactuando con un sitio legítimo. El pharming es particularmente peligroso porque puede afectar a muchos usuarios al mismo tiempo y no requiere que el usuario haga clic en un enlace malicioso.",
             summary: "Redirige a usuarios a sitios web falsos.",
@@ -96,6 +106,7 @@ const PhishingTypes: InfoArticle = {
         },
         {
             id: 5,
+            icon: Icons.mood,
             title: "Phishing en redes sociales",
             content: "El phishing en redes sociales es una técnica que utiliza plataformas de redes sociales para engañar a los usuarios y hacer que revelen información personal o hagan clic en enlaces maliciosos. Los atacantes pueden crear perfiles falsos o enviar mensajes directos que parecen provenir de amigos o contactos legítimos. Estos mensajes a menudo contienen enlaces a sitios web falsos o solicitudes de información personal. Dado que las redes sociales son ampliamente utilizadas, el phishing en estas plataformas puede alcanzar a un gran número de personas rápidamente.",
             summary: "Utiliza perfiles o mensajes engañosos en redes sociales.",
@@ -112,6 +123,7 @@ export const Phishing: VirusSection = {
         { navTitle: "Tipos", content: PhishingTypes },
         { navTitle: "¿Cómo identificarlo?", content: HowToIdentify },
         { navTitle: "¿Cómo protegerse?", content: Protection },
-        { navTitle: "Prevención", content: Prevention }
+        { navTitle: "Prevención", content: Prevention },
+        { navTitle: "Ejercicios", content: LetsPractice }
     ]
 }

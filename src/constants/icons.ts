@@ -11,6 +11,10 @@ import Incorrect from '@/assets/icons/close-red.svg'
 import LogIn from '@/assets/icons/login.svg'
 import LogOut from '@/assets/icons/logout.svg'
 import Info from '@/assets/icons/info.svg'
+import Call from '@/assets/icons/call.svg'
+import Mood from '@/assets/icons/mood.svg'
+import Target from '@/assets/icons/target.svg'
+import Web from '@/assets/icons/web.svg'
 
 export const Icons = {
     person: Person,
@@ -20,6 +24,7 @@ export const Icons = {
 
     email: Mail,
     sms: SMS,
+    call:Call,
 
     startEmpty: StarEmpty,
     star: Star,
@@ -32,4 +37,8 @@ export const Icons = {
     
     logIn: LogIn,
     logOut: LogOut,
+    
+    mood: Mood,
+    web: Web,
+    target: Target,
 }
