@@ -49,7 +49,7 @@ export default function Header({ curPage, setPage }: Prompts) {
       <div className="flex gap-4 items-center">
         {!user ?
           <>
-            <button className="text-base cursor-pointer" onClick={() => { navigator('/auth') }}>Iniciar sesion</button>
+            <button className="text-base cursor-pointer" onClick={() => { navigator('/auth') }}>Iniciar sesión</button>
           </>
           :
           <div className="relative">
@@ -87,7 +87,7 @@ function UserDropDown({ user, active, setActive, logOut }: UsPrompts) {
 
       <footer className="flex justify-end items-center bg-(--secundary-color) px-2 py-1 rounded-b-lg">
         <button className="flex gap-2 items-center cursor-pointer w-fit h-fit" onClick={() => { logOut(); setActive(false) }}>
-          <span className="text-white text-sm">Cerrar sesion</span>
+          <span className="text-white text-sm">Cerrar sesión</span>
           <img src={Icons.logOut} className="h-4 invert" alt="logout" />
         </button>
       </footer>

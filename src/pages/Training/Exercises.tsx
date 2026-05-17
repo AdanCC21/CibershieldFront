@@ -85,7 +85,7 @@ export default function Exercises() {
             }
             setFormInfo(localForm);
             if (!localForm.dificulty || !localForm.category) {
-                throw new Error("La categoria y/o dificultad son invalidas para estos ejercicios.");
+                throw new Error("La categoría y/o dificultad son inválidas para estos ejercicios.");
             }
             setExercises([...getExamples(localForm.dificulty, localForm.category)]);
         } catch (e) {
@@ -106,7 +106,7 @@ export default function Exercises() {
 
     if (!formInfo) return (
         <div className="flex flex-col items-center justify-center flex-1">
-            <h3 className="text-xl">Lo sentimos, hubo un error. Intentalo mas tarde</h3>
+            <h3 className="text-xl">Lo sentimos, hubo un error. Intentalo más tarde</h3>
         </div>
     )
 

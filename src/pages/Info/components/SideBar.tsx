@@ -1,6 +1,7 @@
 import { virusList } from "@/constants/virusInfo"
 import type { VirusSection } from "@/entities/virus"
 import type { Dispatch, SetStateAction } from "react"
+import toast from "react-hot-toast"
 
 interface Prompts {
     virusActive: VirusSection
@@ -14,7 +15,7 @@ export default function SideBar({ virusActive, setVirus }: Prompts) {
                 {virusList.map((virus, indx) => {
                     return (
                         <li key={indx}>
-                            <button className={`${virus.title === virusActive.title ? 'text-(--secundary-color) font-semibold text-xl border-b border-(--primary-color)' : 'text-base '} cursor-pointer`} onClick={() => { setVirus(virus) }}>
+                            <button className={`${virus.title === virusActive.title ? 'text-(--secundary-color) font-semibold text-xl border-b border-(--primary-color)' : 'text-base '} ${virus.title.toLowerCase() === 'malware' ? 'cursor-not-allowed' : 'cursor-pointer'}`} onClick={() => { virus.title.toLowerCase() === 'malware' ? toast("Próximamente...") : setVirus(virus); }}>
                                 {virus.title}
                             </button>
                         </li>

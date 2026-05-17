@@ -14,15 +14,23 @@ interface Prompts {
 
 export default function StUserReg({ form, handleForm, setForm }: Prompts) {
     const [us, setUs] = useState<UserEntity | null>(null)
+
     useEffect(() => {
-        if(form.userType === 'guest') return
+        if (form.userType === 'guest') return
+
         const user = GetUser()
+
         if (!user) {
-            toast.error("No pudimos cargar los datos de su s`esion");
+            toast.error("No pudimos cargar los datos de su sesión.")
             return
         }
-        setUs(user);
-        setForm(prev => ({ ...prev, name: user.name, email: user.email }))
+
+        setUs(user)
+        setForm(prev => ({
+            ...prev,
+            name: user.name,
+            email: user.email
+        }))
     }, [])
 
     const guest = () => {
@@ -34,11 +42,22 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
                 </div>
 
                 <div className="w-3/4">
-                    <InputLabel label="Nombre" value={form.name} atribute="name" handleForm={handleForm} />
+                    <InputLabel
+                        label="Nombre"
+                        value={form.name}
+                        atribute="name"
+                        handleForm={handleForm}
+                    />
                 </div>
 
                 <div className="w-3/4">
-                    <InputLabel label="Correo" value={form.email} atribute="email" handleForm={handleForm} inpType="email" />
+                    <InputLabel
+                        label="Correo"
+                        value={form.email}
+                        atribute="email"
+                        handleForm={handleForm}
+                        inpType="email"
+                    />
                 </div>
             </div>
         )
@@ -48,17 +67,21 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
         <>
             <div className="flex flex-col gap-4">
                 <h2 className="text-4xl">Usuario</h2>
-                <span className="text-lg">Este sera el usuario con el que entraras</span>
-                {form.userType === 'guest' ?
+
+                <span className="text-lg">
+                    Este será el usuario con el que entrarás.
+                </span>
+
+                {form.userType === 'guest' ? (
                     <>
                         {guest()}
                     </>
-                    :
+                ) : (
                     <div className="flex flex-col gap-4 w-full items-center">
                         <img src={Icons.person} alt="person" className="h-28 w-fit" />
                         <span className="text-2xl">{us?.name}</span>
                     </div>
-                }
+                )}
             </div>
         </>
     )

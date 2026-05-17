@@ -13,7 +13,7 @@ export default function Register({ form, handleForm }: Prompts) {
       <InputLabel label='Correo' value={form.email} atribute='email' inpType="email"  handleForm={handleForm}  placeHolder="antonio@gmail.com"/>
       
       <InputLabel label='Contraseña' value={form.password} atribute='password' inpType="password" handleForm={handleForm} placeHolder="PasSec#_2$"/>
-      <InputLabel label='Confirmar Contraseña' value={form.confirmPassword} inpType="password" atribute='confirmPassword' handleForm={handleForm} placeHolder="PasSec#_2$" />
+      <InputLabel label='Confirmar contraseña' value={form.confirmPassword} inpType="password" atribute='confirmPassword' handleForm={handleForm} placeHolder="PasSec#_2$" />
     </form>
   )
 }

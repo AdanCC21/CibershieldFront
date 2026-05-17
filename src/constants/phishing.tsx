@@ -55,7 +55,7 @@ const Prevention: InfoArticle = {
 
 
 const PhishingTypes: InfoArticle = {
-    id: 0,
+    id: 5,
     title: "Phishing types",
     content: [
         {

@@ -1,8 +1,6 @@
 import type { EmailExercises } from "@/entities/email"
 
 export const smsExamplesEasy: EmailExercises[] = [
-    // ─── FALSOS (fáciles) ────────────────────────────────────────────────
-
     {
         id: 0,
         title: "Paquete retenido",

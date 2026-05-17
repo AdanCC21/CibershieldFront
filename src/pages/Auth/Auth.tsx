@@ -19,16 +19,25 @@ export default function Auth() {
     }
 
     const start = () => {
-        if (!form.email.trim()) return toast.error("Es necesario especificar el correo.");
-        if (!form.password.trim()) return toast.error("Contraseña invalida.");
+        if (!form.email.trim())
+            return toast.error("Es necesario especificar el correo.")
+
+        if (!form.password.trim())
+            return toast.error("Contraseña inválida.")
 
         if (form.typeAuth === 'register') {
-            if (!form.name?.trim()) return toast.error("Nombre invalido.");
-            if (form.confirmPassword !== form.password) return toast.error("La contraseña no coincide con la confirmacion de contraseña");
-        }
-        sessionStorage.setItem('user', JSON.stringify(form));
+            if (!form.name?.trim())
+                return toast.error("Nombre inválido.")
 
-        toast.success("Bienvenido");
+            if (form.confirmPassword !== form.password)
+                return toast.error(
+                    "La contraseña no coincide con la confirmación de contraseña."
+                )
+        }
+
+        sessionStorage.setItem('user', JSON.stringify(form))
+
+        toast.success("Bienvenido.")
         navigator('/')
     }
 
@@ -56,7 +65,7 @@ export default function Auth() {
                             navigator('/');
                         }} btnStyle="outline" />
 
-                        <Button title={curAction === 'login' ? 'Iniciar Sesion' : 'Registrarse'} onClick={() => {
+                        <Button title={curAction === 'login' ? 'Iniciar Sesión' : 'Registrarse'} onClick={() => {
                             start();
                         }} btnStyle="fill" />
                     </div>
@@ -71,15 +80,29 @@ interface TogPrompts {
     setAction: Dispatch<SetStateAction<AuthAction>>
 }
 function ToggleAction({ authAction, setAction }: TogPrompts) {
-    const spMsg = authAction !== 'login' ? '¿Ya tienes cuenta con nosotros?' : '¿No tienes cuenta?';
-    const btnMsg = authAction !== 'login' ? 'Inicia Sesion' : 'Registrate';
+    const spMsg =
+        authAction !== 'login'
+            ? '¿Ya tienes una cuenta con nosotros?'
+            : '¿No tienes cuenta?'
+
+    const btnMsg =
+        authAction !== 'login'
+            ? 'Inicia sesión'
+            : 'Regístrate'
 
     return (
         <div className="flex gap-2 items-center justify-center text-sm">
             <span>{spMsg}</span>
+
             <button
                 className={`border-b border-b-[#0000] hover:text-(--secundary-color) hover:border-b-(--secundary-color) ${tailwindcssDuration} cursor-pointer`}
-                onClick={() => { setAction(prev => prev === 'login' ? 'register' : 'login') }}>{btnMsg}
+                onClick={() => {
+                    setAction(prev =>
+                        prev === 'login' ? 'register' : 'login'
+                    )
+                }}
+            >
+                {btnMsg}
             </button>
         </div>
     )

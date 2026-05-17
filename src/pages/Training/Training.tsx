@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { showUp, showUpContainer } from "@/constants/animations";
 
 export default function Training() {
-  const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoria", id: 2 }, { label: "Dificultad", id: 3 }]
+  const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoría", id: 2 }, { label: "Dificultad", id: 3 }]
 
   const navigate = useNavigate();
   const [curStep, setCurStep] = useState<number>(0)
@@ -24,12 +24,12 @@ export default function Training() {
 
   useEffect(() => {
     const localForm = LoadFormFromLocal(form, setCurStep);
-  
+
     if (formFinish)
       setFinishForm(false);
-    
+
     const us = GetUser()
-    if(us){
+    if (us) {
       localForm.userType = 'account'
       localForm.name = us.name
       localForm.email = us.email
@@ -73,27 +73,38 @@ export default function Training() {
         if (form.userType) {
           if (form.userType === 'account') {
             if (!GetUser())
-              return toast.error("Usted seleccionó entrar con su cuenta, pero no ha iniciado sesión. Por favor entra como invitado o inicia sesión")
+              return toast.error(
+                "Usted seleccionó entrar con su cuenta, pero no ha iniciado sesión. Por favor, entre como invitado o inicie sesión."
+              )
           }
           setCurStep(prev => prev + 1)
         } else {
           toast.error("Seleccione el tipo de usuario con el que quiere entrar.")
         }
         break;
+
       case 1:
-        form.name.trim() && form.email.trim() ?
-          setCurStep(prev => prev + 1) :
-          toast.error(`Especifique el ${form.name ? 'nombre' : 'correo'} de su usario`)
+        form.name.trim() && form.email.trim()
+          ? setCurStep(prev => prev + 1)
+          : toast.error(
+            `Especifique el ${form.name ? 'correo' : 'nombre'} de su usuario`
+          )
         break;
+
       case 2:
-        form.category ?
-          setCurStep(prev => prev + 1) :
-          toast.error("Seleccione la categoria con el que quiere entrar.");
+        form.category
+          ? setCurStep(prev => prev + 1)
+          : toast.error(
+            "Seleccione la categoría con la que quiere entrar."
+          )
         break;
+
       case 3:
-        form.dificulty ?
-          setCurStep(prev => prev + 1) :
-          toast.error("Seleccione la dificultad con el que quiere entrar.");
+        form.dificulty
+          ? setCurStep(prev => prev + 1)
+          : toast.error(
+            "Seleccione la dificultad con la que quiere entrar."
+          )
         break;
     }
   }
