@@ -1,7 +1,7 @@
 import GenModal from "@/components/modal/GenModal"
 import { showUp, tailwindcssDuration } from "@/constants/animations"
 import type { InfoArticle } from "@/entities/virus"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useState, type ReactNode } from "react"
 
 interface Prompts {
@@ -11,7 +11,7 @@ interface Prompts {
 }
 export default function TitleDescription({ title, desc, img }: Prompts) {
     const [modalActive, showModal] = useState(false);
-    const [curModalChild, setModChild] = useState<{ title?: string, children: string | ReactNode }>({ title: "", children: "" });
+    const [curModalChild, setModChild] = useState<{ id: number, title?: string, children: string | ReactNode }>({ id: 0, title: "", children: "" });
 
     const switchItem = () => {
         if (typeof desc === 'string') {
@@ -36,7 +36,8 @@ export default function TitleDescription({ title, desc, img }: Prompts) {
                                 showModal(true);
                                 if (typeof article.content === 'string') {
                                     setModChild({
-                                        title:article.title,
+                                        id: article.id,
+                                        title: article.title,
                                         children: article.content
                                     })
                                     console.log(curModalChild);
@@ -60,23 +61,25 @@ export default function TitleDescription({ title, desc, img }: Prompts) {
     }
 
     return (
-        <motion.div variants={showUp} className='flex gap-2 h-fit w-full'>
-            <div className="flex flex-col gap-2 flex-2 ">
-                <h3 className='text-xl'>{title}</h3>
-                {switchItem()}
-            </div>
-            {img &&
-                <div className='flex flex-1 overflow-hidden'>
-                    <img src={img} alt='img' className='m-auto max-h-100' />
+        <AnimatePresence mode='wait'>
+            <motion.div variants={showUp} className='flex gap-2 h-fit w-full'>
+                <div className="flex flex-col gap-2 flex-2 ">
+                    <h3 className='text-xl'>{title}</h3>
+                    {switchItem()}
                 </div>
-            }
-            {curModalChild.children &&
-                <GenModal active={modalActive} setActive={showModal} title={curModalChild.title}>
-                    <>
-                        {curModalChild.children}
-                    </>
-                </GenModal>
-            }
-        </motion.div>
+                {img &&
+                    <div className='flex flex-1 overflow-hidden'>
+                        <img src={img} alt='img' className='m-auto max-h-100' />
+                    </div>
+                }
+                {curModalChild.children &&
+                    <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} title={curModalChild.title}>
+                        <>
+                            {curModalChild.children}
+                        </>
+                    </GenModal>
+                }
+            </motion.div>
+        </AnimatePresence>
     )
 }

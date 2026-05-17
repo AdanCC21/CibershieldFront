@@ -32,12 +32,12 @@ export default function Info() {
                     <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4">
                         {curVirus.sections.map((sec, ind: number) => {
                             return (
-                                <>
+                                <AnimatePresence mode="wait">
                                     <TitleDescription key={sec.content.id} title={sec.content.title} desc={sec.content.content} img={sec.content.img} />
                                     {ind < curVirus.sections.length - 1 &&
                                         <div className="h-px bg-[#0002] my-2 mx-4"></div>
                                     }
-                                </>
+                                </AnimatePresence>
                             )
                         })}
                     </motion.ul>

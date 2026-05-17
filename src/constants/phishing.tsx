@@ -98,6 +98,7 @@ const PhishingTypes: InfoArticle = {
             id: 5,
             title: "Phishing en redes sociales",
             content: "El phishing en redes sociales es una técnica que utiliza plataformas de redes sociales para engañar a los usuarios y hacer que revelen información personal o hagan clic en enlaces maliciosos. Los atacantes pueden crear perfiles falsos o enviar mensajes directos que parecen provenir de amigos o contactos legítimos. Estos mensajes a menudo contienen enlaces a sitios web falsos o solicitudes de información personal. Dado que las redes sociales son ampliamente utilizadas, el phishing en estas plataformas puede alcanzar a un gran número de personas rápidamente.",
+            summary: "Utiliza perfiles o mensajes engañosos en redes sociales.",
             child: <h1></h1>
         }
     ]

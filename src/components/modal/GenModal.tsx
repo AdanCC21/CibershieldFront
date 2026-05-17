@@ -1,5 +1,7 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react"
 import { Icons } from "@/constants/icons"
+import { motion } from "framer-motion"
+import { showUp } from "@/constants/animations"
 
 interface Prompts {
     active: boolean
@@ -13,7 +15,7 @@ export default function GenModal({ active, setActive, children, title }: Prompts
 
     return (
         <div className="fixed top-0 left-0 flex w-screen h-screen bg-black/40" onClick={(e) => { setActive(false); e.stopPropagation(); }}>
-            <div className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto p-4 overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
+            <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto p-4 overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
                 <header className="flex items-center justify-between bg-(--primary-secundary) py-2">
                     {title &&
                         <span className="text-2xl font-medium">
@@ -31,7 +33,7 @@ export default function GenModal({ active, setActive, children, title }: Prompts
                         children
                     }
                 </main>
-            </div>
+            </motion.div>
         </div>
     )
 }
