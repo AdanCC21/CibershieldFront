@@ -14,7 +14,7 @@ import { LoadFormFromLocal } from "@/scripts/form";
 import { AnimatePresence, motion } from "framer-motion";
 import { showUp, showUpContainer } from "@/constants/animations";
 
-export default function Training() {
+export default function Form() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoría", id: 2 }, { label: "Dificultad", id: 3 }]
 
   const navigate = useNavigate();

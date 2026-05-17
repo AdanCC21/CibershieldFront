@@ -33,7 +33,7 @@ export default function Home() {
           <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-8/10 -z-1 opacity-20 -rotate-20' alt="logo fondo" />
         </section>
 
-        <section ref={servicesRef} className='flex flex-col gap-4 h-[60vh]'>
+        <section ref={servicesRef} className='flex flex-col gap-4 h-[60vh])'>
           <div className='flex flex-col gap-2'>
             <h2 className='text-4xl text-(--primary-color) font-medium'>Nuestros servicios</h2>
             <p className='text-base'>Tu escudo ante las amenazas digitales.</p>

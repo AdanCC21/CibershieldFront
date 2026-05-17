@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Training from './pages/Training/Training'
 import Info from './pages/Info/Info'
 import { Toaster } from 'react-hot-toast'
 import Exercises from './pages/Training/Exercises'
 import Layout from './pages/Layout'
 import Auth from './pages/Auth/Auth'
 import { E_Pages } from './entities/enums'
+import Form from './pages/Training/Form'
 
 export default function App() {
 
@@ -26,7 +26,7 @@ export default function App() {
         } />
         <Route path='/testing' element={
           <Layout header footer headerPage={E_Pages.TESTING}>
-            <Training />
+            <Form />
           </Layout>
         } />
         <Route path='/info/*' element={

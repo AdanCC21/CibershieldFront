@@ -12,8 +12,9 @@ interface Prompts {
 
     footer?: boolean
     padding?: boolean
+    center?: boolean
 }
-export default function Layout({ children, header, footer, padding = true, headerPage = E_Pages.HOME }: Prompts) {
+export default function Layout({ children, header, footer, padding = true, headerPage = E_Pages.HOME, center }: Prompts) {
     const [curPage, setPage] = useState<E_Pages>(headerPage);
     const location = useLocation();
 
@@ -32,7 +33,7 @@ export default function Layout({ children, header, footer, padding = true, heade
     return (
         <div className='flex flex-col min-h-screen min-w-screen'>
             {header && <Header curPage={curPage} setPage={setPage} />}
-            <div className={`flex flex-col flex-1 ${padding && 'page-margin'} `}>
+            <div className={`flex flex-col flex-1 ${padding && 'page-margin'} ${center && 'items-center justify-center'}`}>
                 {children}
             </div>
             {footer && <Footer />}
