@@ -6,6 +6,7 @@ import type { CategoryType } from '@/entities/form.entity'
 import { TipsList } from '@/constants/tips'
 import { GetRandomTip } from '@/scripts/tips'
 import { AnimatePresence } from 'framer-motion'
+import Loader from '@/components/Loader'
 
 interface Prompts {
     tipType: CategoryType
@@ -35,7 +36,9 @@ export default function TipsCarrusel({ tipType }: Prompts) {
                     <TipCard key={curTip.id} tip={curTip} changeTip={nextTip} />
                 }
             </AnimatePresence>
-            <span className="absolute bottom-[20vh] text-sm mt-2 animate-pulse ">Cargando...</span>
+            <span className="absolute right-[5vw] bottom-[10vh] text-sm mt-2 ">
+                <Loader />
+            </span>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, type Dispatch, type ReactNode, type SetStateAction } from "react"
+import { useEffect, type Dispatch, type ReactNode, type SetStateAction } from "react"
 import { Icons } from "@/constants/icons"
 import { motion } from "framer-motion"
 import { showUp } from "@/constants/animations"
