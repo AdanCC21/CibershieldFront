@@ -9,12 +9,8 @@ interface Prompts {
 
 export default function Link({ label, href, labelSize }: Prompts) {
     return (
-        <NavLink to={href} className={({ isActive }) => [
-            labelSize ?? 'text-base',
-            "border-b border-b-black/0 w-fit, hover:border-b-(--primary-color)",
-            tailwindcssDuration
-        ].join(" ")}>
-                {label}
+        <NavLink to={href} className={` ${labelSize ?? 'text-base'} border-b border-b-black/0 w-fit, hover:border-b-(--primary-color) ${tailwindcssDuration}`}>
+            {label}
         </NavLink>
     )
 }

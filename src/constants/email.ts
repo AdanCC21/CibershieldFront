@@ -1,8 +1,6 @@
 import type { EmailExercises } from "@/entities/email"
 
 export const emailExamplesEasy: EmailExercises[] = [
-    // ─── FALSOS (fáciles de detectar) ─────────────────────────────────────
-
     {
         id: 0,
         title: "Tu cuenta de Facebook será eliminada",
@@ -118,8 +116,6 @@ export const emailExamplesEasy: EmailExercises[] = [
 ]
 
 export const emailExamplesMedium: EmailExercises[] = [
-    // ─── FALSOS (phishing) ───────────────────────────────────────────────────
-
     {
         id: 0,
         title: "Suspensión inmediata de cuenta bancaria",
@@ -285,9 +281,6 @@ export const emailExamplesMedium: EmailExercises[] = [
             "Microsoft envía alertas desde @microsoft.com o @account.microsoft.com. El dominio 'microsoft-account-alerts.com' es falso. El miedo a hackers desde otros países es una táctica común de phishing.",
         isReal: false
     },
-
-    // ─── REALES ─────────────────────────────────────────────────────────────
-
     {
         id: 11,
         title: "Recibo de tu pago en PayPal",
@@ -408,8 +401,6 @@ export const emailExamplesMedium: EmailExercises[] = [
 ]
 
 export const emailExamplesHard: EmailExercises[] = [
-    // ─── FALSOS (difíciles de detectar) ───────────────────────────────────
-
     {
         id: 0,
         title: "Actividad sospechosa detectada en Microsoft 365",
@@ -470,9 +461,6 @@ export const emailExamplesHard: EmailExercises[] = [
             "Aunque el mensaje parece corporativo y tranquilo, LinkedIn no usa dominios como 'linkedinverify.com'.",
         isReal: false
     },
-
-    // ─── REALES (más ambiguos) ────────────────────────────────────────────
-
     {
         id: 4,
         title: "Nuevo inicio de sesión en tu cuenta",
