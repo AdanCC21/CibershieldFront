@@ -2,6 +2,7 @@ import arrowRight from '@/assets/icons/arrow_right_prcol.svg'
 import ServiceCard from '@/components/cards/ServiceCard'
 import Link from '@/components/Link';
 import { showDown, showUpContainer, showUpLarge } from '@/constants/animations';
+import { Icons } from '@/constants/icons';
 import { motion } from 'framer-motion';
 import { useRef } from 'react'
 
@@ -54,7 +55,7 @@ export default function Home() {
             />
 
             <ServiceCard
-              title='Prácticas'
+              title='Ejercicios'
               desc='Pon a prueba tus conocimientos con ejercicios interactivos que simulan situaciones reales. Aprende haciendo y fortalece tu defensa digital.'
               icon='/phishing.webp'
               navigateTo='testing'
@@ -62,7 +63,7 @@ export default function Home() {
           </ul>
 
           <div className='flex justify-end'>
-            <Link label='Aprende más sobre el phishing' href='/info/phishing' />
+            <Link label='Aprende más sobre el phishing' href='/info/phishing' icon={Icons.arrowRight} iconAlt='arrow right' />
           </div>
         </section>
 

@@ -1,4 +1,4 @@
-import type { Dispatch, ReactNode, SetStateAction } from "react"
+import { useEffect, useEffectEvent, type Dispatch, type ReactNode, type SetStateAction } from "react"
 import { Icons } from "@/constants/icons"
 import { motion } from "framer-motion"
 import { showUp } from "@/constants/animations"
@@ -17,6 +17,25 @@ export interface ModalData {
     icon?: string
 }
 export default function GenModal({ active, setActive, item, children }: Prompts) {
+    useEffect(() => {
+        active ?
+            document.documentElement.style.overflowY = "hidden" :
+            document.documentElement.style.overflowY = ""
+
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                setActive(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleEscape);
+
+        return () => {
+            document.documentElement.style.overflowY = "";
+            window.removeEventListener("keydown", handleEscape);
+        };
+    }, [active, setActive]);
+
     if (!active) return <></>
 
     return (

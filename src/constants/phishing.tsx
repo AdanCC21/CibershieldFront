@@ -57,7 +57,7 @@ const LetsPractice: InfoArticle = {
     id: 6,
     title: "¿Reconoces bien el phishing?",
     content: "Vamos a poner a prueba tus habilidades para reconocer el phishing, vamos a practicar",
-    child: <Link label="Practicar" href="/testing" />
+    child: <Link label="Practicar" href="/testing" icon={Icons.arrowRight} />
 }
 
 const PhishingTypes: InfoArticle = {
