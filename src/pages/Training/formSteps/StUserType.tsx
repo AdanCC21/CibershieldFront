@@ -11,7 +11,7 @@ interface Prompts {
     setForm: Dispatch<SetStateAction<TrainingForm>>
 }
 const guestExplain =
-    "Al entrar como invitado, deberá ingresar datos ficticios en el próximo paso. Es decir, un nombre y correo inventados para las prácticas."
+    "Al entrar como invitado, deberá ingresar datos ficticios en el próximo paso. Es decir, un nombre y correo inventado para las prácticas."
 
 const accountExplain =
     "Al entrar con una cuenta, utilizará el nombre y correo con los que inició sesión."
@@ -20,7 +20,7 @@ export default function StUserType({ form, setForm }: Prompts) {
 
     return (
         <motion.div variants={showUpContainer} initial='hidden' animate='showShort'>
-            <motion.div variants={showUp} className="flex flex-col gap-4">
+            <motion.div variants={showUp} className="flex flex-col gap-4 mb-4">
                 <h1 className="text-4xl">Tipo de usuario</h1>
 
                 <span className="text-base">

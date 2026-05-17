@@ -10,7 +10,7 @@ interface Prompts {
 export default function StCateg({ form, setForm }: Prompts) {
     return (
         <>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 mb-4">
                 <h1 className="text-4xl">Categoría</h1>
 
                 <span className="text-lg">

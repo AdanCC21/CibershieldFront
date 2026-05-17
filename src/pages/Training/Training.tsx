@@ -125,7 +125,7 @@ export default function Training() {
             <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
           </section>
 
-          <motion.section key={curStep} variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-3 p-4 gap-4">
+          <motion.section key={curStep} variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-5 p-4 gap-4">
             <motion.section variants={showUp}>
               {handleScreen()}
             </motion.section>
@@ -139,7 +139,7 @@ export default function Training() {
 
 
           <section className="flex flex-col flex-1 p-4">
-            <motion.h2 variants={showUp} initial="hidden" animate="show" exit="exit" className="text-2xl mb-2">Resumen</motion.h2>
+            <motion.h2 variants={showUp} initial="hidden" animate="show" exit="exit" className="text-2xl mb-2 font-semibold">Resumen</motion.h2>
             <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-2">
               <SummaryTest title="Tipo de usuario" desc={form.userType ? form.userType === 'guest' ? 'invitado' : 'cuenta' : null} />
               <SummaryTest title="Usuario" desc={form.name} />
@@ -161,8 +161,8 @@ interface SumPrompts {
 function SummaryTest({ title, desc }: SumPrompts) {
   return (
     <motion.li variants={showUp} className="flex flex-col gap-2">
-      <h5 className="text-lg">{title}</h5>
-      <span className="text-sm text-(--text-gray)">{desc?.trim() ? desc : '...'}</span>
+      <h5 className="text-lg font-medium">{title}</h5>
+      <span className="text-sm text-black/80">{desc?.trim() ? desc : '...'}</span>
     </motion.li>
   )
 }

@@ -79,7 +79,10 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
                 ) : (
                     <div className="flex flex-col gap-4 w-full items-center">
                         <img src={Icons.person} alt="person" className="h-28 w-fit" />
-                        <span className="text-2xl">{us?.name}</span>
+                        <div className="flex flex-col items-center">
+                            <span className="text-2xl">{us?.name}</span>
+                            <span className="text-base">{us?.email}</span>
+                        </div>
                     </div>
                 )}
             </div>

@@ -122,6 +122,8 @@ export default function Exercises() {
                 </article>
 
                 <article className="flex flex-col gap-4 p-4 w-full flex-1 card-shadow rounded-lg overflow-y-auto">
+                    <span className="text-lg font-medium">Bandeja de entrada</span>
+                    
                     <ul className="flex flex-col gap-4 w-full">
                         {exercises.map((ex, ind) => (<ExerciseItem title={ex.title} owner={ex.owner.email} active={curEx === ind} />))}
                     </ul>
@@ -172,7 +174,7 @@ interface ExPrompts {
 }
 function ExerciseItem({ title, owner, active }: ExPrompts) {
     return (
-        <li className={`flex gap-2 items-center overflow-hidden`}>
+        <li className={`flex gap-2 items-center overflow-hidden ${active && 'bg-black/3 shadow-sm rounded-lg p-2'}`}>
             <div className={`flex flex-col w-full `}>
                 <span className={`text-base truncate ${active && 'font-bold'}`}>
                     {active && '- '}
