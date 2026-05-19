@@ -87,6 +87,7 @@ export default function Exercises() {
             if (!localForm.dificulty || !localForm.category) {
                 throw new Error("La categoría y/o dificultad son inválidas para estos ejercicios.");
             }
+            console.log(localForm.category, localForm.dificulty);
             setExercises([...getExamples(localForm.dificulty, localForm.category)]);
         } catch (e) {
             console.error(e);

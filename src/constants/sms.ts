@@ -84,7 +84,91 @@ export const smsExamplesEasy: EmailExercises[] = [
         content:
             "Has recibido una transferencia SPEI por $1,250.00 MXN. Consulta los detalles en tu app bancaria.",
         isReal: true
-    }
+    },
+    {
+        id: 6,
+        title: "Tarjeta bloqueada",
+        owner: {
+            name: "Banamex",
+            email: "+1 305 842 7761"
+        },
+        date: new Date(),
+        hour: "3:47am",
+        content:
+            "BANAMEX: Tu tarjeta fue BLOQUEADA por uso inusual. Llama AHORA al 800-555-0192 para reactivarla.",
+        whyIsAnError:
+            "El horario (madrugada), las mayúsculas para alarmar y el número de EE.UU. son señales muy claras de fraude.",
+        isReal: false
+    },
+    {
+        id: 7,
+        title: "Ganador del sorteo",
+        owner: {
+            name: "Telcel",
+            email: "+52 33 1027 4489"
+        },
+        date: new Date(),
+        hour: "12:30pm",
+        content:
+            "Telcel: ¡Eres el ganador de nuestro sorteo! Reclama tu iPhone 15 enviando tus datos completos a este número.",
+        whyIsAnError:
+            "Pedir datos personales por SMS es una táctica de phishing básica. Telcel anuncia sorteos oficiales por sus canales verificados.",
+        isReal: false
+    },
+    {
+        id: 8,
+        title: "Cobro no reconocido",
+        owner: {
+            name: "Netflix",
+            email: "+44 7911 023456"
+        },
+        date: new Date(),
+        hour: "6:55pm",
+        content:
+            "Netflix: Se realizó un cobro de $349 MXN. Si no lo reconoces, cancela aquí de inmediato para obtener reembolso.",
+        whyIsAnError:
+            "Netflix nunca envía SMS con enlaces de reembolso. El número es de Reino Unido, lo que no corresponde a una empresa con operaciones en México.",
+        isReal: false
+    },
+    {
+        id: 9,
+        title: "Entrega en camino",
+        owner: {
+            name: "Amazon",
+            email: "AMAZON"
+        },
+        date: new Date(),
+        hour: "8:15am",
+        content:
+            "Tu pedido llegará hoy entre 2:00 PM y 6:00 PM. Sigue tu envío en la app de Amazon.",
+        isReal: true
+    },
+    {
+        id: 10,
+        title: "Código de acceso",
+        owner: {
+            name: "BBVA",
+            email: "BBVA"
+        },
+        date: new Date(),
+        hour: "10:22am",
+        content:
+            "Tu token de acceso BBVA es 827364. Válido por 5 minutos. No lo compartas con nadie.",
+        isReal: true
+    },
+    {
+        id: 11,
+        title: "Confirmación de pedido",
+        owner: {
+            name: "Rappi",
+            email: "Rappi"
+        },
+        date: new Date(),
+        hour: "7:48pm",
+        content:
+            "¡Pedido confirmado! Tu orden de Domino's Pizza está siendo preparada. Tiempo estimado: 35 min.",
+        isReal: true
+    },
 ]
 
 export const smsExamples: EmailExercises[] = [
@@ -253,9 +337,6 @@ export const smsExamples: EmailExercises[] = [
             "DiDi gestiona métodos de pago exclusivamente dentro de su app oficial. Nunca manda links externos por SMS. El dominio es falso.",
         isReal: false
     },
-
-    // ─── REALES ──────────────────────────────────────────────────────────────
-
     {
         id: 11,
         title: "Código de verificación de WhatsApp",
@@ -376,8 +457,6 @@ export const smsExamples: EmailExercises[] = [
 ]
 
 export const smsExamplesHard: EmailExercises[] = [
-    // ─── FALSOS (difíciles) ──────────────────────────────────────────────
-
     {
         id: 0,
         title: "Inicio de sesión sospechoso",
@@ -423,9 +502,6 @@ export const smsExamplesHard: EmailExercises[] = [
             "Aunque parece profesional y común, el número extranjero y la falta de detalles son sospechosos.",
         isReal: false
     },
-
-    // ─── REALES (ambiguos) ───────────────────────────────────────────────
-
     {
         id: 3,
         title: "Código de autenticación",
@@ -463,6 +539,90 @@ export const smsExamplesHard: EmailExercises[] = [
         hour: "12:49am",
         content:
             "Tu Apple ID fue usado para iniciar sesión en un nuevo dispositivo. Si no reconoces esta actividad, revisa tu cuenta.",
+        isReal: true
+    },
+    {
+        id: 6,
+        title: "Premio pendiente de reclamar",
+        owner: {
+            name: "Mercado Libre",
+            email: "+1 809 542 3317"
+        },
+        date: new Date(),
+        hour: "10:03am",
+        content:
+            "Mercado Libre: Tienes un premio pendiente de $1,500 MXN. Reclamalo antes de que expire hoy.",
+        whyIsAnError:
+            "Usa urgencia artificial ('expira hoy') y un número de República Dominicana. Mercado Libre nunca notifica premios por SMS.",
+        isReal: false
+    },
+    {
+        id: 7,
+        title: "Paquete retenido en aduana",
+        owner: {
+            name: "DHL Express",
+            email: "+34 612 885 041"
+        },
+        date: new Date(),
+        hour: "2:17pm",
+        content:
+            "DHL: Tu paquete está retenido. Paga $89 MXN de arancel para liberar tu envío hoy.",
+        whyIsAnError:
+            "Los aranceles reales se cobran en oficina o con el repartidor, nunca por enlace SMS. El número es de España.",
+        isReal: false
+    },
+    {
+        id: 8,
+        title: "Acceso no autorizado a tu cuenta",
+        owner: {
+            name: "Banco Santander",
+            email: "+52 55 9182 7704"
+        },
+        date: new Date(),
+        hour: "11:58pm",
+        content:
+            "Santander: Se detectó un acceso no autorizado. Bloquea tu cuenta ahora para evitar pérdidas.",
+        whyIsAnError:
+            "El horario inusual (casi medianoche) y la presión para actuar de inmediato son señales clásicas de smishing. Los bancos reales usan códigos cortos.",
+        isReal: false
+    },
+    {
+        id: 9,
+        title: "Confirmación de cita",
+        owner: {
+            name: "Clínica del IMSS",
+            email: "IMSS"
+        },
+        date: new Date(),
+        hour: "9:00am",
+        content:
+            "IMSS: Tu cita médica está confirmada para el 22/05 a las 10:30 en UMF 28. Presentate 10 min antes con tu CURP.",
+        isReal: true
+    },
+    {
+        id: 10,
+        title: "Código de verificación",
+        owner: {
+            name: "WhatsApp",
+            email: "WhatsApp"
+        },
+        date: new Date(),
+        hour: "4:32pm",
+        content:
+            "Tu código de WhatsApp es 394-712. No lo compartas con nadie. 4sgLq1p5sV6",
+        isReal: true
+    },
+    {
+        id: 11,
+        title: "Pago recibido",
+        owner: {
+            name: "Mercado Pago",
+            email: "MercadoPago"
+        },
+        date: new Date(),
+        hour: "1:05pm",
+        content:
+            "Mercado Pago: Recibiste un pago de $450.00 MXN de Carlos R. Ya está disponible en tu cuenta.",
         isReal: true
     }
 ]
