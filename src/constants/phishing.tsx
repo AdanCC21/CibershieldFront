@@ -23,7 +23,6 @@ const HowItWorks: InfoArticle = {
     ],
     img: '/phishing/ph_how_works.webp',
     imgAlt: 'Cómo funciona el phishing',
-    imgDown: true
 }
 
 const HowToIdentify: InfoArticle = {

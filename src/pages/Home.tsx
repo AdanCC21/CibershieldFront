@@ -1,4 +1,5 @@
 import arrowRight from '@/assets/icons/arrow_right_prcol.svg'
+import Card from '@/components/cards/Card';
 import ServiceCard from '@/components/cards/ServiceCard'
 import Link from '@/components/Link';
 import { showDown, showUpContainer, showUpLarge } from '@/constants/animations';
@@ -40,26 +41,32 @@ export default function Home() {
           </div>
 
           <ul className='flex gap-4 h-60'>
-            <ServiceCard
-              title='Malware'
-              desc='Descubre qué es el malware, cómo infecta tus dispositivos y cuáles son los tipos más peligrosos que existen hoy en día.'
-              icon='/malware.webp'
-              navigateTo='info/malware'
-            />
+            <Card>
+              <ServiceCard
+                title='Malware'
+                desc='Descubre qué es el malware, cómo infecta tus dispositivos y cuáles son los tipos más peligrosos que existen hoy en día.'
+                icon='/malware.webp'
+                navigateTo='info/malware'
+              />
+            </Card>
 
-            <ServiceCard
-              title='Ingeniería social'
-              desc='Descubre cómo los atacantes manipulan emociones y la confianza para obtener acceso a información confidencial. Aprende cuáles son sus técnicas más utilizadas.'
-              icon='/IngSocial.webp'
-              navigateTo='info/phishing'
-            />
+            <Card>
+              <ServiceCard
+                title='Ingeniería social'
+                desc='Descubre cómo los atacantes manipulan emociones y la confianza para obtener acceso a información confidencial. Aprende cuáles son sus técnicas más utilizadas.'
+                icon='/IngSocial.webp'
+                navigateTo='info/phishing'
+              />
+            </Card>
 
-            <ServiceCard
-              title='Ejercicios'
-              desc='Pon a prueba tus conocimientos con ejercicios interactivos que simulan situaciones reales. Aprende haciendo y fortalece tu defensa digital.'
-              icon='/phishing.webp'
-              navigateTo='testing'
-            />
+            <Card>
+              <ServiceCard
+                title='Ejercicios'
+                desc='Pon a prueba tus conocimientos con ejercicios interactivos que simulan situaciones reales. Aprende haciendo y fortalece tu defensa digital.'
+                icon='/phishing.webp'
+                navigateTo='testing'
+              />
+            </Card>
           </ul>
 
           <div className='flex justify-end'>
@@ -70,24 +77,27 @@ export default function Home() {
         <section className='flex flex-col gap-4 h-[60vh]'>
           <h2 className='text-4xl'>Sobre nosotros</h2>
 
-          <section className='grid grid-cols-2 grid-rows-2 gap-4 h-8/10'>
-            <ServiceCard
-              cardClass='justify-center'
-              title='¿Quiénes somos?'
-              desc='Somos un grupo de desarrolladores próximos a egresar de la Universidad Autónoma de Baja California. Nos especializamos en desarrollo web con tecnologías modernas como React, Vue y Angular.'
-            />
+          <section className='flex md:flex-row flex-col gap-4 '>
+            <Card>
+              <ServiceCard
+                title='¿Quiénes somos?'
+                desc='Somos un grupo de desarrolladores próximos a egresar de la Universidad Autónoma de Baja California. Nos especializamos en desarrollo web con tecnologías modernas como React, Vue y Angular.'
+              />
+            </Card>
 
-            <ServiceCard
-              cardClass='row-span-2 justify-center'
-              title='Propósito'
-              desc='Esta página busca proporcionar información clara e importante sobre los posibles ataques que cualquier persona en internet puede sufrir, incluyendo ejercicios prácticos para reconocer phishing en correos electrónicos y mensajes SMS.'
-            />
+            <Card>
+              <ServiceCard
+                title='Propósito'
+                desc='Esta página busca proporcionar información clara e importante sobre los posibles ataques que cualquier persona en internet puede sufrir, incluyendo ejercicios prácticos para reconocer phishing en correos electrónicos y mensajes SMS.'
+              />
+            </Card>
 
-            <ServiceCard
-              cardClass='justify-center'
-              title='¿Cómo hicimos esta página?'
-              desc='Este proyecto es un rediseño completo, realizado por Adán González, del proyecto original de Antonio Ramos. Antonio concibió la idea hace algunos años y, para nuestro último proyecto escolar, decidimos rediseñarlo como entregable final para dos materias.'
-            />
+            <Card>
+              <ServiceCard
+                title='¿Cómo hicimos esta página?'
+                desc='Este proyecto es un rediseño completo, realizado por Adán González, del proyecto original de Antonio Ramos. Antonio concibió la idea hace algunos años y, para nuestro último proyecto escolar, decidimos rediseñarlo como entregable final para dos materias.'
+              />
+            </Card>
           </section>
         </section>
       </div>

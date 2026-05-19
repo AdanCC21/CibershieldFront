@@ -11,7 +11,7 @@ interface Prompts {
 
 export default function ServiceCard({ title, desc, icon, cardClass, textClass }: Prompts) {
     return (
-        <div className={`${cardClass} flex flex-col p-4 gap-4 bg-[#fdfdfd] rounded-lg card-shadow w-full h-full`}>
+        <>
             <div className="flex flex-col md:flex-row w-full justify-between items-center">
                 <h3 className={`${textClass} text-2xl`}>{title}</h3>
                 {icon &&
@@ -19,6 +19,6 @@ export default function ServiceCard({ title, desc, icon, cardClass, textClass }:
                 }
             </div>
             <p className="text-sm">{desc}</p>
-        </div>
+        </>
     )
 }

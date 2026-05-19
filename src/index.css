@@ -9,6 +9,10 @@
   --text-disabled: #ccc;
 }
 
+body{
+  background-color: #fafafa;
+}
+
 html {
   margin: 0px;
   overflow-x: hidden;
@@ -28,5 +32,13 @@ html {
 .card-shadow {
   box-shadow:
     0 -4px 0px var(--secundary-color),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  transition: all 0.2s ease-in-out;
+}
+
+.card-shadow:hover {
+  box-shadow:
+    0 -4px 0px var(--secundary-color),
+    0 4px 4px rgba(0, 0, 0, 0.25);
 }
