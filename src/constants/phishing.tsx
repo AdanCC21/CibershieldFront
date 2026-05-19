@@ -23,6 +23,7 @@ const HowItWorks: InfoArticle = {
     ],
     img: '/phishing/ph_how_works.webp',
     imgAlt: 'Cómo funciona el phishing',
+    imgDown: true
 }
 
 const HowToIdentify: InfoArticle = {
@@ -70,7 +71,7 @@ const LetsPractice: InfoArticle = {
     img: '/phishing/you_identify.webp',
     imgAlt: '¿Reconoces bien el phishing?',
     imgDown: true,
-    child: <Link label="Practicar" href="/testing" icon={Icons.arrowRight} />
+    child: <Link label="Practicar" href="/testing" icon={Icons.arrowRight} labelSize="text-xl" labelClass="font-medium" />
 }
 
 const PhishingTypes: InfoArticle = {

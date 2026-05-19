@@ -36,7 +36,7 @@ export default function Header({ curPage, setPage }: Prompts) {
   }
 
   return (
-    <header className="relative flex justify-between items-center gap-4 p-2 shadow-sm w-screen h-[6vh] px-[10vh] bg-white">
+    <header className="sticky top-0 left-0 flex justify-between items-center gap-4 p-2 shadow-sm w-screen h-[6vh] px-[10vh] bg-white/10 backdrop-blur-xl z-100">
 
       <button className="text-lg text-(--primary-color) font-bold cursor-pointer" onClick={()=>{navigator('/')}}>Cibershield</button>
 

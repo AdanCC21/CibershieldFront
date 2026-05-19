@@ -29,8 +29,8 @@ export default function Home() {
             </motion.button>
           </motion.div>
 
-          <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-7/10' alt="logo" />
-          <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-8/10 -z-1 opacity-20 -rotate-20' alt="logo fondo" />
+          <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-7/10 drop-shadow-xl' alt="logo" />
+          <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-4/10 -z-1 opacity-20 -rotate-20' alt="logo fondo" />
         </section>
 
         <section ref={servicesRef} className='flex flex-col gap-4 h-[60vh])'>
