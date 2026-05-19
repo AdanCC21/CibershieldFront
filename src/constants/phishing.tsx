@@ -7,7 +7,8 @@ const WhatIs: InfoArticle = {
     title: "¿Qué es el phishing?",
     content:
         "El phishing es una técnica de fraude utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial como contraseñas, números de tarjetas de crédito o credenciales bancarias. Este tipo de ataque se realiza haciéndose pasar por entidades legítimas a través de correos electrónicos, mensajes SMS o incluso llamadas telefónicas.\nEs uno de los métodos más comunes de ingeniería social, y su éxito depende en gran medida de la capacidad del atacante para ganarse la confianza de la víctima.",
-    img: '/phishing/intr.webp'
+    img: '/phishing/intr.webp',
+    imgAlt:'Phishing',
 }
 
 const HowItWorks: InfoArticle = {
@@ -19,7 +20,9 @@ const HowItWorks: InfoArticle = {
         "La víctima accede al enlace o descarga el archivo.",
         "Ingresa su información sin sospechar que es un sitio falso.",
         "El atacante roba los datos y puede usarlos o venderlos."
-    ]
+    ],
+    img: '/phishing/ph_how_works.webp',
+    imgAlt: 'Cómo funciona el phishing',
 }
 
 const HowToIdentify: InfoArticle = {
@@ -31,7 +34,9 @@ const HowToIdentify: InfoArticle = {
         "Enlaces que llevan a sitios web sospechosos.",
         "Remitentes desconocidos o direcciones de correo extrañas.",
         "Archivos adjuntos inesperados o no solicitados."
-    ]
+    ],
+    img:'/phishing/how_identify.webp',
+    imgAlt: 'Cómo identificar el phishing'
 }
 
 const Protection: InfoArticle = {
@@ -44,19 +49,27 @@ const Protection: InfoArticle = {
         "Mantén actualizado tu antivirus y sistema operativo.",
         "No compartas información sensible sin verificar la fuente.",
         "Utiliza contraseñas fuertes y únicas."
-    ]
+    ],
+    img: '/phishing/block.webp',
+    imgAlt: 'Cómo protegerse del phishing',
+
 }
 
 const Prevention: InfoArticle = {
     id: 4,
     title: "Prevención",
-    content: "La mejor defensa contra el phishing es la educación. Aprende a detectar estos ataques y mantente alerta ante cualquier intento sospechoso de obtener tus datos."
+    content: "La mejor defensa contra el phishing es la educación. Aprende a detectar estos ataques y mantente alerta ante cualquier intento sospechoso de obtener tus datos.",
+    img: '/phishing/prev.webp',
+    imgAlt: 'Prevención del phishing'
 }
 
 const LetsPractice: InfoArticle = {
     id: 6,
     title: "¿Reconoces bien el phishing?",
     content: "Vamos a poner a prueba tus habilidades para reconocer el phishing, vamos a practicar",
+    img: '/phishing/you_identify.webp',
+    imgAlt: '¿Reconoces bien el phishing?',
+    imgDown: true,
     child: <Link label="Practicar" href="/testing" icon={Icons.arrowRight} />
 }
 

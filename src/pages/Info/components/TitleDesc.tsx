@@ -8,9 +8,11 @@ interface Prompts {
     title: string
     desc: string | string[] | InfoArticle[]
     img?: string
+    imgDown?: boolean
+    imgAlt?: string
     child?: ReactNode
 }
-export default function TitleDescription({ title, desc, img, child }: Prompts) {
+export default function TitleDescription({ title, desc, img, imgDown, imgAlt, child }: Prompts) {
     const [modalActive, showModal] = useState(false);
     const [curModalChild, setModChild] = useState<{ children: ReactNode } & ModalData | null>(null);
 
@@ -66,14 +68,14 @@ export default function TitleDescription({ title, desc, img, child }: Prompts) {
     return (
         <AnimatePresence mode='wait'>
             <motion.div variants={showUp} className='flex flex-col gap-2 h-fit w-full'>
-                <div className="flex gap-2 w-full">
-                    <div className="flex flex-col gap-2 flex-2 ">
+                <div className={`flex ${imgDown ? 'flex-col' : 'flex-row'} gap-2 w-full`}>
+                    <div className={`flex flex-col gap-2 ${!imgDown && 'flex-2'}`}>
                         <h3 className='text-2xl font-semibold'>{title}</h3>
                         {switchItem()}
                     </div>
                     {img &&
-                        <div className='flex flex-1 overflow-hidden'>
-                            <img src={img} alt='img' className='m-auto max-h-100' />
+                        <div className={`flex flex-1 overflow-hidden`}>
+                            <img src={img} alt={imgAlt || 'img'} className={`m-auto ${!imgDown ? ' max-h-50' : ' max-h-80'}`} />
                         </div>
                     }
                 </div>

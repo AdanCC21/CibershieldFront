@@ -13,5 +13,7 @@ export interface InfoArticle {
     summary?: string
 
     img?: string
+    imgAlt?: string
+    imgDown?: boolean
     child?: ReactNode
 }
