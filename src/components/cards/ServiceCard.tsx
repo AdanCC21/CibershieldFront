@@ -9,7 +9,7 @@ interface Prompts {
     textClass?: string
 }
 
-export default function ServiceCard({ title, desc, icon, cardClass, textClass }: Prompts) {
+export default function ServiceCard({ title, desc, icon, textClass }: Prompts) {
     return (
         <>
             <div className="flex flex-col md:flex-row w-full justify-between items-center">
