@@ -85,7 +85,7 @@ export default function TitleDescription({ title, desc, img, imgDown, imgAlt, ch
                     </div>
                 }
                 {curModalChild && curModalChild.children &&
-                    <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} item={curModalChild}>
+                    <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
                         <main>
                             {curModalChild.children}
                         </main>

@@ -3,12 +3,14 @@ import { Icons } from "@/constants/icons"
 import { motion } from "framer-motion"
 import { showUp } from "@/constants/animations"
 
+export type HeaderStyles = 'default' | 'primary';
+
 interface Prompts {
     active: boolean
     setActive: Dispatch<SetStateAction<boolean>>
 
     item?: ModalData
-    headerStyle: 'default' | 'primary'
+    headerStyle: HeaderStyles
     children: ReactNode
 }
 
@@ -21,7 +23,7 @@ export interface ModalData {
     icon?: string
     iconAlt?: string
 }
-export default function GenModal({ active, setActive, item, headerStyle='primary', children }: Prompts) {
+export default function GenModal({ active, setActive, item, headerStyle='default', children }: Prompts) {
     useEffect(() => {
         active ?
             document.documentElement.style.overflowY = "hidden" :
