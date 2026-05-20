@@ -35,7 +35,7 @@ export default function App() {
           </Layout>
         } />
         <Route path='/testing/exercises' element={
-          <Layout header footer padding={false} headerPage={E_Pages.TESTING}>
+          <Layout header padding={false} headerPage={E_Pages.TESTING}>
             <Exercises />
           </Layout>
         } />

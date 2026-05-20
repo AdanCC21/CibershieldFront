@@ -1,0 +1,411 @@
+{
+  "dificil": [
+    {
+      "id": 1,
+      "title": "Novedades en tu comunidad de ConnectNow",
+      "owner": {
+        "name": "ConnectNow Team",
+        "email": "contact@connectnow.com",
+        "image": "https://connectnow.com/assets/logo.png"
+      },
+      "date": "2023-10-01",
+      "hour": "09:15",
+      "content": "<html><body style=\"margin:0;padding:0;font-family: Arial, sans-serif;background-color:#f4f4f4;\"><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse: collapse;background-color:#ffffff;\"><tr><td align=\"center\" style=\"padding: 20px 0;\"><img src=\"https://connectnow.com/assets/logo.png\" alt=\"ConnectNow\" width=\"150\" style=\"display:block;\"/></td></tr><tr><td style=\"padding: 20px; text-align: left; color:#333333; font-size: 16px; line-height: 24px;\">Hola Adan,<br/><br/>Hemos resumido las últimas novedades de tu comunidad en ConnectNow. Revisa tus notificaciones, interactúa con tus contactos y mantente actualizado con actividades recientes en tu red de confianza.<br/><br/><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin-top:20px;\"><tr><td align=\"center\"><a href=\"https://secure.connectnow.com/notifications\" style=\"background-color:#0073e6;color:#ffffff;padding:10px 20px;text-decoration:none;font-weight:bold;border-radius:5px;\">Ver Notificaciones</a></td></tr></table><br/>Gracias por usar ConnectNow.<br/><br/>Saludos cordiales,<br/>Equipo ConnectNow</td></tr><tr><td style=\"background-color:#e9e9e9;padding: 15px; text-align:center; font-size:12px; color:#555555;\">Este correo se envía desde una dirección no monitoreada. Para más información visita nuestro <a href=\"https://connectnow.com/terminos\" style=\"color:#0073e6;text-decoration:underline;\">Sitio Web</a>.</td></tr></table></body></html>",
+      "whyIsAnError": "Este correo ES REAL: el mensaje presenta un diseño profesional y coherente, utiliza un dominio seguro y enlaces legítimos, además del uso adecuado de elementos HTML, sin señales de alerta de phishing.",
+      "isReal": true
+    },
+    {
+      "id": 2,
+      "title": "Alerta de Seguridad: Actividad inusual en tu cuenta",
+      "owner": {
+        "name": "FaceFnd Security",
+        "email": "no-reply@facefnd.com",
+        "image": "http://facefnd.com/assets/logo.png"
+      },
+      "date": "2023-10-01",
+      "hour": "11:40",
+      "content": "<html><body style=\"margin:0;padding:0;font-family: Arial, sans-serif;background-color:#f9f9f9;\"><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse: collapse;background-color:#ffffff;border:1px solid #dddddd;\"><tr><td style=\"padding: 20px; text-align:center;background-color:#ffefef;\"><img src=\"http://facefnd.com/assets/logo.png\" alt=\"FaceFnd\" width=\"140\" style=\"display:block;\"/></td></tr><tr><td style=\"padding: 20px; color:#333333; font-size: 15px; line-height: 22px;\">Estimado usuario,<br/><br/>Hemos detectado una actividad inusual en tu cuenta. Por seguridad, es necesario que verifiques tu identidad cuanto antes para evitar restricciones en el acceso.<br/><br/><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin-top:20px;\"><tr><td align=\"center\"><a href=\"http://facefnd.com/login\" style=\"background-color:#d9534f;color:#ffffff;padding:10px 20px;text-decoration:none;font-weight:bold;border-radius:5px;\">Verificar Cuenta</a></td></tr></table><br/>Si no solicitaste esta verificación, ignora este mensaje o contacta a soporte.<br/><br/>Atentamente,<br/>Equipo de Seguridad FaceFnd</td></tr><tr><td style=\"background-color:#f1f1f1;padding: 15px; text-align:center; font-size:12px; color:#555555;\">Este mensaje es confidencial. FaceFnd se reserva el derecho de actuar en función de actividades sospechosas.</td></tr></table></body></html>",
+      "whyIsAnError": "Este correo ES FALSO: si bien el formato es profesional, el dominio facefnd.com es una imitación sutil del conocido, y el enlace utiliza HTTP en lugar de HTTPS, lo que indica posibles problemas de seguridad.",
+      "isReal": false
+    },
+    {
+      "id": 3,
+      "title": "Resumen Semanal: Conexiones y Mensajes en SocialPulse",
+      "owner": {
+        "name": "SocialPulse Notifications",
+        "email": "info@socialpulse.com",
+        "image": "https://socialpulse.com/assets/logo.png"
+      },
+      "date": "2023-10-02",
+      "hour": "12:30",
+      "content": "<html><body style=\"margin:0;padding:0;font-family: Arial, sans-serif;background-color:#eaeaea;\"><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse: collapse;background-color:#ffffff;\"><tr><td style=\"padding: 20px; text-align:center;background-color:#003366;\"><img src=\"https://socialpulse.com/assets/logo.png\" alt=\"SocialPulse\" width=\"130\" style=\"display:block;\"/></td></tr><tr><td style=\"padding: 20px; color:#333333; font-size:16px; line-height:24px;\">Hola Adan,<br/><br/>Aquí tienes tu resumen semanal en SocialPulse. Descubre nuevas conexiones, revisa mensajes directos y mantente al tanto de lo que se comenta en tus temas de interés.<br/><br/><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:20px 0;\"><tr><td align=\"center\"><a href=\"https://dashboard.socialpulse.com/messages\" style=\"background-color:#28a745;color:#ffffff;padding:10px 25px;text-decoration:none;font-weight:bold;border-radius:4px;\">Revisar Mensajes</a></td></tr></table>Gracias por ser parte activa de nuestra comunidad.<br/><br/>Un cordial saludo,<br/>Equipo SocialPulse</td></tr><tr><td style=\"background-color:#f8f8f8;padding: 15px; text-align:center; font-size:12px; color:#666666;\">© 2023 SocialPulse. Todos los derechos reservados. Para más información sobre privacidad, visita nuestro <a href=\"https://socialpulse.com/privacy\" style=\"color:#28a745;text-decoration:underline;\">Sitio de Privacidad</a>.</td></tr></table></body></html>",
+      "whyIsAnError": "Este correo ES REAL: el mensaje muestra un diseño profesional, enlaces seguros y un dominio legítimo, sin inconsistencias, ofreciendo información clara a los usuarios de la plataforma.",
+      "isReal": true
+    },
+    {
+      "id": 4,
+      "title": "Importante: Actualización requerida de tu perfil de usuario",
+      "owner": {
+        "name": "InstaChat Service",
+        "email": "support@instachatt.com"
+      },
+      "date": "2023-10-02",
+      "hour": "16:05",
+      "content": "<html><body style=\"margin:0;padding:0;font-family: Arial, sans-serif;background-color:#f7f7f7;\"><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse: collapse;background-color:#ffffff;border:1px solid #cccccc;\"><tr><td align=\"center\" style=\"padding: 20px;background-color:#004aad;\"><img src=\"https://instachat.com/assets/logo.png\" alt=\"InstaChat\" width=\"120\" style=\"display:block;\"/></td></tr><tr><td style=\"padding: 20px;color:#333333;font-size:15px;line-height:22px;\">Estimado usuario,<br/><br/>Para garantizar la seguridad y mejorar tu experiencia, te solicitamos actualizar la información de tu perfil. Este paso es obligatorio para continuar utilizando nuestros servicios sin interrupciones.<br/><br/><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin-top:20px;\"><tr><td align=\"center\"><a href=\"http://instachat-support.com/update\" style=\"background-color:#ff6600;color:#ffffff;padding:10px 20px;text-decoration:none;font-weight:bold;border-radius:4px;\">Actualizar Perfil</a></td></tr></table><br/>Si no realizas la actualización, tu cuenta podría ser suspendida temporalmente.<br/><br/>Atentamente,<br/>Soporte de InstaChat</td></tr><tr><td style=\"background-color:#efefef;padding: 15px;text-align:center;font-size:12px;color:#555555;\">Aviso: Este correo contiene información sensible y está dirigido solo a usuarios registrados.</td></tr></table></body></html>",
+      "whyIsAnError": "Este correo ES FALSO: presenta inconsistencias en el dominio del remitente (instachatt.com en vez de instachat.com) y utiliza un enlace HTTP inseguro, lo que genera dudas sobre la legitimidad del mensaje.",
+      "isReal": false
+    },
+    {
+      "id": 5,
+      "title": "Actualiza tus datos para recibir el Bono Especial",
+      "owner": {
+        "name": "Equipo Incentivos",
+        "email": "incentivos@corpupdat3.com",
+        "image": "https://corpupdat3.com/assets/logo.svg"
+      },
+      "date": "2023-10-05",
+      "hour": "10:15",
+      "content": "<html>\n  <head>\n    <meta charset=\"UTF-8\"/>\n    <title>Actualización de Datos</title>\n  </head>\n  <body style=\"margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background-color:#ffffff;\">\n    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-color:#e8f4fc;\">\n      <tr>\n        <td align=\"center\" style=\"padding:20px;\">\n          <table width=\"600\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-color:#ffffff; border:1px solid #cbd7e1;\">\n            <tr>\n              <td style=\"background-color:#0073e6; padding:15px; text-align:center;\">\n                <svg width=\"40\" height=\"40\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                  <circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"#ffffff\" />\n                  <text x=\"50%\" y=\"55%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"#0073e6\" font-size=\"45\">I</text>\n                </svg>\n                <h2 style=\"color:#ffffff; margin:10px 0 0 0; font-size:20px;\">Bono Especial Pendiente</h2>\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:20px; color:#333333; font-size:15px;\">\n                <p>Estimado colaborador,</p>\n                <p>Para procesar su bono especial, es indispensable que actualice sus datos de verificación en nuestro sistema. Esta es una medida de seguridad para garantizar que reciba todos los beneficios a tiempo.</p>\n                <p style=\"text-align:center; margin:30px 0;\">\n                  <a href=\"https://corpupdate-secure.com/verify\" style=\"background-color:#0073e6; color:#ffffff; padding:10px 15px; border-radius:4px; text-decoration:none;\">Actualizar Datos</a>\n                </p>\n                <p style=\"font-size:13px; color:#666666;\">Nota: Esta solicitud debe ser completada en las próximas 24 horas para evitar demoras en el pago.</p>\n              </td>\n            </tr>\n            <tr>\n              <td style=\"background-color:#f0f0f0; text-align:center; padding:10px; font-size:12px; color:#666666;\">\n                <p>Equipo Incentivos | soporte@corpupdate-secure.com</p>\n                <p>© 2023 CorpUpdate Security</p>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>",
+      "whyIsAnError": "Este correo ES FALSO: El dominio del remitente presenta leves inconsistencias y la urgencia para actualizar datos es excesiva; además, el enlace de verificación dirige a un dominio ligeramente alterado.",
+      "isReal": false
+    },
+    {
+      "id": 6,
+      "title": "Invitación a Taller de Desarrollo Profesional e Incentivos",
+      "owner": {
+        "name": "Formación Corporativa",
+        "email": "formacion@corporativo.com",
+        "image": "https://corporativo.com/assets/logo-formacion.svg"
+      },
+      "date": "2023-10-05",
+      "hour": "14:00",
+      "content": "<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <title>Taller de Desarrollo Profesional</title>\n  </head>\n  <body style=\"margin:0; padding:0; font-family: 'Helvetica Neue', sans-serif; background-color:#f7f7f7;\">\n    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-color:#f7f7f7;\">\n      <tr>\n        <td align=\"center\" style=\"padding:20px 0;\">\n          <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background-color:#ffffff; border:1px solid #dedede;\">\n            <tr>\n              <td style=\"padding:20px; text-align:center; background-color:#004b8d;\">\n                <svg width=\"45\" height=\"45\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                  <polygon points=\"50,15 90,85 10,85\" fill=\"#ffffff\" />\n                </svg>\n                <h1 style=\"color:#ffffff; font-size:22px; margin:10px 0 0 0;\">Taller de Desarrollo Profesional</h1>\n              </td>\n            </tr>\n            <tr>\n              <td style=\"padding:20px; color:#333333; font-size:15px;\">\n                <p>Estimado colaborador,</p>\n                <p>Le invitamos cordialmente al Taller de Desarrollo Profesional, donde se presentarán nuevas oportunidades de incentivos y estrategias para su crecimiento laboral.</p>\n                <p>Fecha: 15 de Octubre 2023<br/>Hora: 10:00 AM - 12:00 PM</p>\n                <table width=\"100%\" cellspacing=\"0\" cellpadding=\"10\" style=\"margin:20px 0; border:1px solid #d0d0d0;\">\n                  <tr>\n                    <td style=\"background-color:#e1f5fe; text-align:center;\"><strong>Agenda</strong></td>\n                  </tr>\n                  <tr>\n                    <td style=\"color:#333333; font-size:14px;\">\n                      <ul style=\"padding-left:20px; list-style-type:disc;\">\n                        <li>Presentación de nuevos incentivos</li>\n                        <li>Estrategias de crecimiento</li>\n                        <li>Q&A con ejecutivos</li>\n                      </ul>\n                    </td>\n                  </tr>\n                </table>\n                <p style=\"text-align:center;\">\n                  <a href=\"https://corporativo.com/formacion/taller-incentivos\" style=\"background-color:#004b8d; color:#ffffff; padding:10px 20px; border-radius:4px; text-decoration:none;\">Confirmar Asistencia</a>\n                </p>\n              </td>\n            </tr>\n            <tr>\n              <td style=\"background-color:#f0f0f0; text-align:center; padding:15px; font-size:12px; color:#777777;\">\n                <p>Formación Corporativa | formacion@corporativo.com</p>\n                <p>© 2023 Corporativo Inc. Todos los derechos reservados.</p>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>",
+      "whyIsAnError": "Este correo ES REAL: Se respalda en el dominio corporativo y presenta un diseño estructurado con información clara sobre la capacitación, además de utilizar enlaces seguros y una identidad visual consistente.",
+      "isReal": true
+    },
+    {
+      "id": 7,
+      "title": "Actualización de Envío: Entrega Confirmada",
+      "owner": {
+        "name": "LogisticPro Soporte",
+        "email": "soporte@logisticpro.com",
+        "image": "https://www.logisticpro.com/images/logo.svg"
+      },
+      "date": "2025-05-10",
+      "hour": "09:30",
+      "content": "<html><body style=\"font-family:Arial, sans-serif; margin:0; padding:0; background-color:#f4f4f4;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background-color:#f4f4f4;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"20\" cellspacing=\"0\" style=\"background-color:#ffffff; margin-top:20px; border:1px solid #dddddd;\"><tr><td style=\"text-align:center;\">\n  <div style=\"margin-bottom:20px;\">\n    <svg width='120' height='40' xmlns='http://www.w3.org/2000/svg'>\n      <rect x='0' y='0' width='120' height='40' fill='#004080'/>\n      <text x='60' y='25' font-size='18' fill='#ffffff' text-anchor='middle' font-family='Arial'>LogisticPro</text>\n    </svg>\n  </div>\n  <h2 style=\"color:#004080;\">Entrega Confirmada</h2>\n  <p style=\"color:#333333; font-size:14px;\">Estimado cliente,</p>\n  <p style=\"color:#333333; font-size:14px;\">Nos complace informarle que su envío ha sido entregado con éxito. Puede revisar los detalles de su pedido haciendo clic en el botón a continuación.</p>\n  <div style=\"text-align:center; margin:30px;\">\n    <a href=\"https://www.logisticpro.com/tracking\" style=\"background-color:#004080; color:#ffffff; padding:10px 20px; text-decoration:none; border-radius:4px; font-size:16px;\">Ver Detalles</a>\n  </div>\n  <table width=\"100%\" style=\"margin-top:20px;\">\n    <tr><td style=\"font-size:12px; color:#999999; text-align:center;\">© 2025 LogisticPro. Todos los derechos reservados.</td></tr>\n  </table>\n</td></tr></table></td></tr></table></body></html>",
+      "whyIsAnError": "Este correo ES REAL: La comunicación sigue un formato corporativo profesional con un logo SVG, enlaces seguros y un mensaje claro sin errores gramaticales.",
+      "isReal": true
+    }
+  ],
+  "facil": [
+    {
+      "id": 1,
+      "title": "Actualización sobre entrega de mercancías",
+      "owner": {
+        "name": "Logistica Global",
+        "email": "contacto@logisticaglobal.com",
+        "image": "https://logisticaglobal.com/logo.png"
+      },
+      "date": "2023-10-12",
+      "hour": "15:30",
+      "content": "Estimado Adan,<br><br>Se informa que su paquetería ha salido a ruta. Para más información, visite <a href='https://logisticaglobal.com/seguimiento' style=\"color: blue;\">Seguimiento de Paquetes</a>.<br><br>Saludos cordiales.",
+      "whyIsAnError": "Este correo ES REAL: estructura y redacción profesional, remitente verificado.",
+      "isReal": true
+    },
+    {
+      "id": 2,
+      "title": "Advertensia: Paquete urgente",
+      "owner": {
+        "name": "Envios Rapidos",
+        "email": "no-responder@logisctic.net"
+      },
+      "date": "2023-10-12",
+      "hour": "09:20",
+      "content": "Hola Adan,<br><br>Tu paquete urgite ser entragat, por favor accede al siguiente link para verificar: <a href='http://malicious.net/verify' style=\"color: blue;\">Verifique Aqui</a>.<br><br>Gracias.",
+      "whyIsAnError": "Este correo ES FALSO: errores de ortografía evidentes, remitente sospechoso y link inseguro.",
+      "isReal": false
+    },
+    {
+      "id": 3,
+      "title": "Confirmación de recolección de carga",
+      "owner": {
+        "name": "Distribuciones Eficientes",
+        "email": "info@distribucionese.com"
+      },
+      "date": "2023-10-11",
+      "hour": "11:45",
+      "content": "Estimado Adan,<br><br>Se ha confirmado la recolección de su carga. Para detalles, visite <a href='https://distribucionese.com/confirmacion' style=\"color: blue;\">Estado de la Carga</a>.<br><br>Atentamente.",
+      "whyIsAnError": "Este correo ES REAL: contiene datos precisos y verificados sin errores.",
+      "isReal": true
+    },
+    {
+      "id": 4,
+      "title": "Actualización de Política en Redes Sociales",
+      "owner": {
+        "name": "Equipo de Seguridad",
+        "email": "soporte@redes-sociales-seguras.com"
+      },
+      "date": "2023-10-05",
+      "hour": "10:15",
+      "content": "Estimado Adan,<br><br>Le informamos que hemos actualizado nuestras políticas de privacidad y uso en redes sociales. Por favor, revise los detalles en el siguiente enlace: <a href='https://www.redes-sociales-seguras.com/politica' style=\"color: blue;\">Ver Política Actualizada</a>.<br><br>Gracias por confiar en nosotros.<br>Atentamente,<br>Equipo de Seguridad",
+      "whyIsAnError": "Este correo ES REAL, enviado desde nuestro dominio verificado y sin errores evidentes.",
+      "isReal": true
+    },
+    {
+      "id": 5,
+      "title": "Notifcación de Solicitud de Amistad en socila media",
+      "owner": {
+        "name": "Soporte de Redes",
+        "email": "soporte@amistad-sospechosa.net"
+      },
+      "date": "2023-10-04",
+      "hour": "14:20",
+      "content": "Hola Adan,<br><br>Recibiste una solicitud de amistad en tu cuenta de socila media. Haz clic en el siguiente enlace para confirmar: <a href='http://www.amistad-sospechosa.net/confirmar' style=\"color: blue;\">Confirmar Solicitud</a>.<br><br>Saludos,<br>Soporte de Redes",
+      "whyIsAnError": "Este correo ES FALSO, presenta errores ortográficos (e.g., 'socila') y un enlace sospechoso que redirige a un dominio no confiable.",
+      "isReal": false
+    },
+    {
+      "id": 6,
+      "title": "Urgente: Restablecimiento de Cuenta en RedSocs",
+      "owner": {
+        "name": "Equipo de Soporte",
+        "email": "soporte@seguridad-redsoc.fake"
+      },
+      "date": "2023-10-03",
+      "hour": "08:45",
+      "content": "Estimado Usuario,<br><br>Hemos detectado actividad inusual en su cuenta de RedSocs. Para evitar bloqueos permanentes, por favor restablezca su cuenta inmediatamente ingresando a: <a href='http://seguridad-redsoc.fake/reset' style=\"color: blue;\">Restablecer Cuenta</a>.<br><br>Atencion Urgente,<br>Equipo de Soporte",
+      "whyIsAnError": "Este correo ES FALSO, contiene errores en la denominación ('RedSocs'), formato inconsistente y el enlace dirige a un dominio no familiar.",
+      "isReal": false
+    },
+    {
+      "id": 7,
+      "title": "Nuevas Funciones en tus Plataformas Sociales",
+      "owner": {
+        "name": "Equipo de Innovación",
+        "email": "contacto@nuevasfunciones.com"
+      },
+      "date": "2023-10-02",
+      "hour": "11:30",
+      "content": "Hola Adan,<br><br>Nos complace anunciar nuevas funciones para mejorar tu experiencia en nuestras plataformas sociales. Descubre más detalles y tutoriales en nuestro blog: <a href='https://www.nuevasfunciones.com/blog' style=\"color: blue;\">Visitar Blog</a>.<br><br>Esperamos que disfrutes de estas mejoras.<br>Saludos cordiales,<br>Equipo de Innovación",
+      "whyIsAnError": "Este correo ES REAL, con una estructura y contenido adecuado verificados.",
+      "isReal": true
+    },
+    {
+      "id": 8,
+      "title": "Actualisacion de Seguridad en Redes",
+      "owner": {
+        "name": "Adan",
+        "email": "andan@email.com"
+      },
+      "date": "2023-10-01",
+      "hour": "16:05",
+      "content": "Atencion!<br><br>Su cuenta de redes necesita ser verificada por motivos de seguridad. Por favor pasar por este enlace: <a href='http://www.seguridad-verifica-online.biz' style=\"color: blue;\">Verificar Cuenta</a><br><br>No deje de hacerlo.<br>Equipo de Alerta",
+      "whyIsAnError": "Este correo ES FALSO, presenta faltas ortográficas ('Actualisacion'), un formato alarmista y un enlace que lleva a un dominio sospechoso.",
+      "isReal": false
+    },
+    {
+      "id": 9,
+      "title": "Confirmación de Transferencia Bancaria",
+      "owner": {
+        "name": "Adan",
+        "email": "andan@email.com"
+      },
+      "date": "2023-10-10",
+      "hour": "14:30",
+      "content": "Estimado cliente,<br><br>Su transferencia bancaria ha sido procesada con éxito. Para ver el detalle de la transacción, por favor haga click en <a href='https://banco.com/transaccion/123' style=\"color: blue;\">Detalles de Transacción</a>.<br><br>Gracias por confiar en nosotros.",
+      "whyIsAnError": "Este correo ES REAL: Se envió desde una entidad bancaria reconocida y sin errores evidentes.",
+      "isReal": true
+    },
+    {
+      "id": 10,
+      "title": "Notificación de Pago Exitoso",
+      "owner": {
+        "name": "Adan",
+        "email": "andan@email.com"
+      },
+      "date": "2023-10-11",
+      "hour": "09:15",
+      "content": "Estimado cliente,<br><br>Le informamos que su pago ha sido exitosamente procesado. Para revisar el comprobante, haga click en <a href='https://facturas.com/pago/456' style=\"color: blue;\">Ver Comprobante</a>.<br><br>Atentamente, Equipo de Finanzas.",
+      "whyIsAnError": "Este correo ES REAL: La comunicación es profesional y se alinea con prácticas financieras legítimas.",
+      "isReal": true
+    },
+    {
+      "id": 11,
+      "title": "Alerta de Cuenta Pendiente",
+      "owner": {
+        "name": "Adan",
+        "email": "andan@email.com"
+      },
+      "date": "2023-10-12",
+      "hour": "16:45",
+      "content": "Estimado usuario,<br><br>Se detecto que tiene un saldo pendiente. Por favor, acceda a <a href='http://malicioso-link.net/solicitud' style=\"color: blue;\">actualizar cuenta</a> para evitar posibles restricciones en su servicio.<br><br>Saludos.",
+      "whyIsAnError": "Este correo ES FALSO: Enlace sospechoso desde un dominio no reconocido y redacción poco profesional.",
+      "isReal": false
+    },
+    {
+      "id": 12,
+      "title": "Solicitud Urgente de Actualizacion de Informacion",
+      "owner": {
+        "name": "Alerta Financiera",
+        "email": "alertas@urgente-finance-alerta.com"
+      },
+      "date": "2023-10-13",
+      "hour": "11:00",
+      "content": "Estimado cliente,<br><br>Solocitamos que actualice su informacion de seguridad visitando <a href='http://urgente-finance-alerta.com/act' style=\"color: blue;\">Actualizar Ahora</a>. Responda con urgencia para evitar inconvenientes.<br><br>Gracias.",
+      "whyIsAnError": "Este correo ES FALSO: Presenta faltas ortográficas y utiliza un dominio de remitente no verificado, lo que es característico de correos fraudulentos.",
+      "isReal": false
+    },
+    {
+      "id": 13,
+      "title": "Resumen Mensual de Actividad",
+      "owner": {
+        "name": "Departamento Comercial",
+        "email": "comercial@finanzas.com"
+      },
+      "date": "2023-10-14",
+      "hour": "08:50",
+      "content": "Estimado cliente,<br><br>Adjunto encontrará su resumen mensual de actividad financiera. Puede revisar todos los detalles ingresando a <a href='https://finanzas.com/resumen' style=\"color: blue;\">Resumen de Cuenta</a>.<br><br>Cordialmente, Departamento Comercial.",
+      "whyIsAnError": "Este correo ES REAL: La comunicación es clara, con formato adecuado y sin errores, cumpliendo con estándares del sector financiero.",
+      "isReal": true
+    }
+  ],
+  "medio": [
+    {
+      "id": 1,
+      "title": "Oportunidad de Desarrollo Profesional",
+      "owner": {
+        "name": "Recursos Humanos",
+        "email": "rrhh@empresa.com",
+        "image": "https://empresa.com/logo.png"
+      },
+      "date": "2023-10-05",
+      "hour": "09:30",
+      "content": "Estimado Adan,<br><br>Le invitamos a participar en nuestro programa de desarrollo profesional. Esta es una excelente oportunidad para impulsar su carrera. Para inscribirse, visite <a href='https://empresa.com/inscripcion' style=\"color: blue;\">Inscribirse</a>.<br><br>Saludos cordiales,<br>Equipo de Recursos Humanos",
+      "whyIsAnError": "Este correo ES REAL: el remitente está certificado y los enlaces han sido verificados como seguros.",
+      "isReal": true
+    },
+    {
+      "id": 2,
+      "title": "Alerta: Revisión de Incentivos Pendientes",
+      "owner": {
+        "name": "Soporte Incentivos",
+        "email": "soporte@incent1vos.com",
+        "image": "https://incent1vos.com/logo.png"
+      },
+      "date": "2023-10-07",
+      "hour": "11:00",
+      "content": "Hola Adan,<br><br>Hemos detectado irregularidades en su cuenta de incentivos. Por favor, verifique su información de inmediato accediendo a <a href='https://incent1vos.com/verify_account' style=\"color: blue;\">este enlace</a>.<br><br>Atentamente,<br>Soporte Incentivos",
+      "whyIsAnError": "Este correo ES FALSO: el remitente presenta un dominio modificado (uso de '1' en lugar de 'i') y el enlace redirige a un sitio sospechoso.",
+      "isReal": false
+    },
+    {
+      "id": 3,
+      "title": "Invitación a Seminario de Incentivos 2023",
+      "owner": {
+        "name": "Eventos y Capacitación",
+        "email": "eventos@empresa-eventos.com"
+      },
+      "date": "2023-10-08",
+      "hour": "14:20",
+      "content": "Estimado Adan,<br><br>Lo invitamos cordialmente a nuestro seminario anual sobre incentivos, donde se presentarán nuevas oportunidades y estrategias de crecimiento profesional. Confirme su asistencia haciendo clic <a href='https://empresa-eventos.com/registro' style=\"color: blue;\">aquí</a>.<br><br>Saludos,<br>Equipo de Eventos y Capacitación",
+      "whyIsAnError": "Este correo ES REAL: el mensaje y los enlaces corresponden a eventos corporativos programados y verificados.",
+      "isReal": true
+    },
+    {
+      "id": 4,
+      "title": "Verificación de Cuenta en Facebook",
+      "owner": {
+        "name": "Facebook Support",
+        "email": "support@facebook.com",
+        "image": "https://facebook.com/profile.png"
+      },
+      "date": "2023-10-12",
+      "hour": "09:15",
+      "content": "Estimado usuario,<br><br>Por favor, verifique su cuenta accediendo a su perfil en <a href='https://www.facebook.com/verify' style='color: blue;'>Facebook</a>. Gracias por su colaboración.",
+      "whyIsAnError": "Este correo ES REAL: El remitente y el enlace son oficiales y verificables.",
+      "isReal": true
+    },
+    {
+      "id": 5,
+      "title": "Alerta de Seguridad de Twitter",
+      "owner": {
+        "name": "Twitter Alerts",
+        "email": "alerts@twittter.com"
+      },
+      "date": "2023-10-11",
+      "hour": "14:30",
+      "content": "Hola,<br><br>Detectamos actividad inusual en su cuenta. Acceda al siguiente enlace para revisar: <a href='https://twitter-security.com/login' style='color: blue;'>Revisar Cuenta</a>.",
+      "whyIsAnError": "Este correo ES FALSO: El remitente presenta un error tipográfico en el dominio y el enlace dirige a un sitio sospechoso.",
+      "isReal": false
+    },
+    {
+      "id": 6,
+      "title": "Notificación de Instagram",
+      "owner": {
+        "name": "Instagram Security",
+        "email": "security@instagrm.com"
+      },
+      "date": "2023-10-10",
+      "hour": "18:45",
+      "content": "Estimado usuario,<br><br>Para mantener la seguridad de su cuenta, haga clic en el siguiente enlace: <a href='https://www.instagram.com/security' style='color: blue;'>Verificar Actividad</a>.",
+      "whyIsAnError": "Este correo ES FALSO: El dominio del remitente contiene un error ortográfico, comprometiendo la autenticidad del correo.",
+      "isReal": false
+    },
+    {
+      "id": 7,
+      "title": "Mensaje de Snapchat - Actualización de Seguridad",
+      "owner": {
+        "name": "Snapchat Security",
+        "email": "support@snapchatt.com"
+      },
+      "date": "2023-10-08",
+      "hour": "16:20",
+      "content": "Estimado usuario,<br><br>Se ha detectado un acceso no autorizado a su cuenta. Para más detalles, haga clic en: <a href='https://snapchat-logins.com/update' style='color: blue;'>Actualizar Seguridad</a>.",
+      "whyIsAnError": "Este correo ES FALSO: El remitente utiliza un dominio modificado y el enlace redirige a un sitio de aspecto inseguro.",
+      "isReal": false
+    },
+    {
+      "id": 8,
+      "title": "Oferta exclusiva de crédito para Adan",
+      "owner": {
+        "name": "Banco Central",
+        "email": "soporte@bancocentral.com",
+        "image": "https://www.bancocentral.com/logo.png"
+      },
+      "date": "2023-10-15",
+      "hour": "09:30",
+      "content": "Estimado Adan,<br><br>Aproveche nuestra oferta exclusiva de crédito con tasas preferenciales.<br>Para más detalles, visite <a href='https://www.bancocentral.com/oferta' style='color: blue;'>Oferta Crédito</a>.<br><br>Atentamente,<br>Banco Central.",
+      "whyIsAnError": "Este correo ES REAL: La dirección de correo y el enlace conducen a dominios verificados y confiables.",
+      "isReal": true
+    },
+    {
+      "id": 9,
+      "title": "Actualización en su cuenta de ahorros",
+      "owner": {
+        "name": "Banco Nacional",
+        "email": "alerta@banconacional.com",
+        "image": "https://www.banconacional.com/logo.png"
+      },
+      "date": "2023-10-17",
+      "hour": "14:20",
+      "content": "Estimado Adan,<br><br>Le informamos que se ha realizado una actualización en su cuenta de ahorros.<br>Para ver los cambios, ingrese a <a href='https://www.banconacional.com/cuenta' style='color: blue;'>Mi cuenta</a>.<br><br>Gracias por confiar en nosotros,<br>Banco Nacional.",
+      "whyIsAnError": "Este correo ES REAL: El contenido es coherente, el enlace es seguro y proviene de un dominio reconocido.",
+      "isReal": true
+    },
+    {
+      "id": 10,
+      "title": "Campaña promocional: Descuentos en seguros",
+      "owner": {
+        "name": "Seguros Unidos",
+        "email": "promociones@segurosunidos.com",
+        "image": "https://www.segurosunidos.com/assets/logo.png"
+      },
+      "date": "2023-10-19",
+      "hour": "16:00",
+      "content": "Estimado Adan,<br><br>Aproveche los descuentos exclusivos en seguros de vida y salud durante nuestra campaña promocional.<br>Para conocer más, visite <a href='https://www.segurosunidos.com/descuentos' style='color: blue;'>Ver promociones</a>.<br><br>Saludos cordiales,<br>Seguros Unidos.",
+      "whyIsAnError": "Este correo ES REAL: El contenido y los enlaces son consistentes con las prácticas legítimas del sector financiero y comercial.",
+      "isReal": true
+    }
+  ]
+}

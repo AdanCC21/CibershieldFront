@@ -112,7 +112,7 @@ export default function Exercises() {
     )
 
     return (
-        <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin'>
+        <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin overflow-y-auto'>
             <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} />
 
             <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="flex flex-col gap-4 max-w-1/6 max-h-[75vh]">

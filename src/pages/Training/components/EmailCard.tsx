@@ -33,7 +33,7 @@ export default function EmailCard({ ex }: Prompts) {
             <div className="h-px my-2 mx-20 bg-black/40"></div>
 
             <section className="flex flex-col px-8 py-4">
-                <p className="text-sm whitespace-pre-line ">{ex.content}</p>
+                <div dangerouslySetInnerHTML={{ __html: ex.content }}></div>
             </section>
         </div>
     )
