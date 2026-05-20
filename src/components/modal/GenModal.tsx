@@ -7,16 +7,21 @@ interface Prompts {
     active: boolean
     setActive: Dispatch<SetStateAction<boolean>>
 
-    item: ModalData
+    item?: ModalData
+    headerStyle: 'default' | 'primary'
     children: ReactNode
 }
 
 export interface ModalData {
-    id: number
+    id?: number
     title?: string
+    titleClass?: string
+    titleSize?: string
+
     icon?: string
+    iconAlt?: string
 }
-export default function GenModal({ active, setActive, item, children }: Prompts) {
+export default function GenModal({ active, setActive, item, headerStyle='primary', children }: Prompts) {
     useEffect(() => {
         active ?
             document.documentElement.style.overflowY = "hidden" :
@@ -39,29 +44,31 @@ export default function GenModal({ active, setActive, item, children }: Prompts)
     if (!active) return <></>
 
     return (
-        <div className="fixed top-0 left-0 flex w-screen h-screen bg-black/40" onClick={(e) => { setActive(false); e.stopPropagation(); }}>
-            <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto p-4 overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
-                <header className="flex items-center gap-4 bg-(--primary-secundary) py-2">
+        <div className="fixed top-0 left-0 flex w-screen h-screen bg-black/40 z-90" onClick={(e) => { setActive(false); e.stopPropagation(); }}>
+            <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
+                <header className={`flex items-center gap-4 ${headerStyle === 'primary' ? 'bg-(--primary-color) text-white' : 'bg-white'}  p-4`}>
                     <div className="flex items-center gap-4">
-                        {item.icon &&
-                            <img src={item.icon} className="h-8" />
+                        {item && item.icon &&
+                            <img src={item.icon} className={`h-8 ${headerStyle === 'primary' && 'invert'}`} />
                         }
-                        {item.title &&
-                            <span className="text-2xl font-medium">
+                        {item && item.title &&
+                            <span className={`${item.titleClass ?? ''} ${item.titleSize ?? 'text-2xl'} font-medium`}>
                                 {item.title}
                             </span>
                         }
                     </div>
                     <button onClick={() => { setActive(false); }} className="flex items-center justify-center size-fit ml-auto cursor-pointer">
-                        <img src={Icons.close} alt="close" className="h-8" />
+                        <img src={Icons.close} alt="close" className={`h-8 ${headerStyle === 'primary' && 'invert'}`} />
                     </button>
                 </header>
 
-                {typeof children === 'string' ?
-                    <span className="text-lg">{children}</span>
-                    :
-                    children
-                }
+                <main className="p-4">
+                    {typeof children === 'string' ?
+                        <span className="text-lg">{children}</span>
+                        :
+                        children
+                    }
+                </main>
             </motion.div>
         </div>
     )
