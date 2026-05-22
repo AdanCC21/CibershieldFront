@@ -22,7 +22,7 @@ export default function Form() {
   const [curStep, setCurStep] = useState<number>(0)
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
   const [formFinish, setFinishForm] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(true);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     const localForm = LoadFormFromLocal(form, setCurStep);
@@ -119,10 +119,12 @@ export default function Form() {
 
   const initTest = () => {
     localStorage.setItem('formInfo', JSON.stringify(form));
+    localStorage.setItem('showTutorial', 'false');
     setFinishForm(true);
     setTimeout(() => {
       navigate('exercises')
-    }, 400)
+    }, 400);
+
   }
 
   return (

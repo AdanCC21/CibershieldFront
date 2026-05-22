@@ -4,6 +4,7 @@ import type { AuthForm } from "@/dto/authform.dto"
 import { E_Pages } from "@/entities/enums"
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react"
 import { useNavigate } from "react-router-dom"
+import Button from "../Button"
 
 interface Prompts {
   curPage: E_Pages
@@ -21,10 +22,10 @@ export default function Header({ curPage, setPage }: Prompts) {
     const loadUser = async () => {
       const usRaw = sessionStorage.getItem('user');
       if (!usRaw) return;
-      
+
       const us = JSON.parse(usRaw);
       if (!us) return;
-      
+
       setUser(us);
     }
     loadUser();
@@ -38,7 +39,7 @@ export default function Header({ curPage, setPage }: Prompts) {
   return (
     <header className="sticky top-0 left-0 flex justify-between items-center gap-4 p-2 shadow-sm w-screen h-[6vh] px-[10vh] bg-white/10 backdrop-blur-xl z-100">
 
-      <button className="text-lg text-(--primary-color) font-bold cursor-pointer" onClick={()=>{navigator('/')}}>Cibershield</button>
+      <button className="text-lg text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>Cibershield</button>
 
       <nav className="absolute bottom-1/2 right-1/2 translate-1/2 flex gap-4">
         <HeaderItem title={E_Pages.HOME} active={curPage === E_Pages.HOME} page={E_Pages.HOME} setPage={setPage} href="/" goTo={goTo} />
@@ -49,7 +50,7 @@ export default function Header({ curPage, setPage }: Prompts) {
       <div className="flex gap-4 items-center">
         {!user ?
           <>
-            <button className="text-base cursor-pointer" onClick={() => { navigator('/auth') }}>Iniciar sesión</button>
+            <Button title="Iniciar sesión" onClick={() => { navigator('/auth') }} btnStyle="outline" icon={Icons.person} iconAlt="person" iconRight />
           </>
           :
           <div className="relative">
