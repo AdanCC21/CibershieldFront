@@ -92,10 +92,10 @@ function ToggleAction({ authAction, setAction }: TogPrompts) {
 
     return (
         <div className="flex gap-2 items-center justify-center text-sm">
-            <span>{spMsg}</span>
+            <span >{spMsg}</span>
 
             <button
-                className={`border-b border-b-[#0000] hover:text-(--secundary-color) hover:border-b-(--secundary-color) ${tailwindcssDuration} cursor-pointer`}
+                className={`border-b border-b-[#0000] text-(--primary-color) hover:text-(--secundary-color) hover:border-b-(--secundary-color) ${tailwindcssDuration} cursor-pointer`}
                 onClick={() => {
                     setAction(prev =>
                         prev === 'login' ? 'register' : 'login'

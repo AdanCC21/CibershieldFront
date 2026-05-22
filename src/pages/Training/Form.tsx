@@ -13,6 +13,7 @@ import { GetUser } from "@/scripts/user";
 import { LoadFormFromLocal } from "@/scripts/form";
 import { AnimatePresence, motion } from "framer-motion";
 import { showUp, showUpContainer } from "@/constants/animations";
+import GenModal from "@/components/modal/GenModal";
 
 export default function Form() {
   const steps: Step[] = [{ label: "Tipo de usuario", id: 0 }, { label: "Datos del usuario", id: 1 }, { label: "Categoría", id: 2 }, { label: "Dificultad", id: 3 }]
@@ -21,9 +22,16 @@ export default function Form() {
   const [curStep, setCurStep] = useState<number>(0)
   const [form, setForm] = useState<TrainingForm>({ userType: null, name: '', email: '', category: null, dificulty: null })
   const [formFinish, setFinishForm] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     const localForm = LoadFormFromLocal(form, setCurStep);
+
+    const localTutorial = localStorage.getItem('showTutorial');
+    if (localTutorial === null || localTutorial === 'true') {
+      setShowTutorial(true);
+      localStorage.setItem('showTutorial', 'true');
+    }
 
     if (formFinish)
       setFinishForm(false);
@@ -111,16 +119,32 @@ export default function Form() {
 
   const initTest = () => {
     localStorage.setItem('formInfo', JSON.stringify(form));
+    localStorage.setItem('showTutorial', 'false');
     setFinishForm(true);
     setTimeout(() => {
       navigate('exercises')
-    }, 400)
+    }, 400);
+
   }
 
   return (
     <AnimatePresence mode="wait">
+      <GenModal active={showTutorial} setActive={setShowTutorial} item={{ id: 0, title: "Bienvenidos al sistema de entrenamiento", icon: Icons.email, iconAlt: "email" }} headerStyle="primary">
+        <main className="flex flex-col gap-2">
+          <div className="flex gap-2 mb-8">
+            <p className="text-base flex-2">
+              Estos entrenamientos están diseñados para ayudarte a mejorar tus habilidades de detección de phishing. A lo largo de esta sección, te guiaremos a través de una serie de ejercicios prácticos que simulan situaciones reales de phishing. <br /> <br /> Primero deberás especificar algunos datos para personalizar tu experiencia de entrenamiento, como el usuario, tipo de phishing, y la dificultad. <br /> <br /> Te guiaremos a personalizar tu entrenamiento.
+            </p>
+            <img src='/phishing/talking_about_phishing.webp' alt="Phishing Email" className=" max-h-60 mx-auto rounded-lg shadow-lg" />
+          </div>
+          <Button title="Comenzar" onClick={() => setShowTutorial(false)} btnStyle="fill" btnClass="w-fit mx-auto" icon={Icons.arrowRight} iconRight iconInvert />
+        </main>
+      </GenModal>
+
       {!formFinish &&
-        <motion.div className="flex w-full h-full gap-4">
+        <motion.div className="flex w-full h-full gap-4 z-1">
+
+
           <section className="flex flex-col flex-1 p-4 gap-4">
             <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
           </section>
