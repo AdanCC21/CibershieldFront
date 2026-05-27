@@ -196,7 +196,7 @@
       "title": "Actualisacion de Seguridad en Redes",
       "owner": {
         "name": "Usuario",
-        "email": "andan@email.com"
+        "email": "entidad@email.com"
       },
       "date": "2023-10-01",
       "hour": "16:05",
@@ -209,7 +209,7 @@
       "title": "Confirmación de Transferencia Bancaria",
       "owner": {
         "name": "Usuario",
-        "email": "andan@email.com"
+        "email": "entidad@email.com"
       },
       "date": "2023-10-10",
       "hour": "14:30",
@@ -222,7 +222,7 @@
       "title": "Notificación de Pago Exitoso",
       "owner": {
         "name": "Usuario",
-        "email": "andan@email.com"
+        "email": "entidad@email.com"
       },
       "date": "2023-10-11",
       "hour": "09:15",

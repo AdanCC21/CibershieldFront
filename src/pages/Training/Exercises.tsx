@@ -150,16 +150,16 @@ export default function Exercises() {
                     }
 
                     <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
-                        <button title="Es verdadero"  className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:border-green-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
+                        <button title="Es un mensaje legitimo"  className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
                             onClick={() => { handleResult(true) }}>
                             <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>No es phishing</span>
-                            <img src={Icons.close} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
+                            <img src={Icons.check} alt="wrong" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                         </button>
 
-                        <button title="Es un mensaje falso" className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:red-800 bg-red-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
+                        <button title="Es un mensaje falso" className="group flex items-center gap-2 px-3 py-1 border-t-3 border-red-600 hover:border-red-800 bg-red-50 hover:bg-red-400 rounded-lg cursor-pointer shadow-md"
                             onClick={() => { handleResult(false) }}>
                             <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>Es phishing</span>
-                            <img src={Icons.check} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
+                            <img src={Icons.warning} alt="check" className={`group-hover:invert h-5 ${tailwindcssDuration}`} />
                         </button>
                     </article>
                 </motion.section>

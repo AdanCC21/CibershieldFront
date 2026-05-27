@@ -15,6 +15,7 @@ import Call from '@/assets/icons/call.svg'
 import Mood from '@/assets/icons/mood.svg'
 import Target from '@/assets/icons/target.svg'
 import Web from '@/assets/icons/web.svg'
+import Warning from '@/assets/icons/warning.svg'
 
 export const Icons = {
     person: Person,
@@ -24,7 +25,7 @@ export const Icons = {
 
     email: Mail,
     sms: SMS,
-    call:Call,
+    call: Call,
 
     startEmpty: StarEmpty,
     star: Star,
@@ -33,12 +34,13 @@ export const Icons = {
     check: Check,
 
     incorrect: Incorrect,
-    info:Info,
-    
+    info: Info,
+
     logIn: LogIn,
     logOut: LogOut,
-    
+
     mood: Mood,
     web: Web,
     target: Target,
+    warning: Warning
 }
