@@ -73,7 +73,7 @@ export default function Modal({ active, setActive, title, message, color, modalT
                         <img className={`h-8 ${color && 'invert'}`} src={Icons.close} alt="close" onClick={() => {
                             setActive(false)
                             if (modalType === 'finish')
-                                navigator("/testing");
+                                navigator("/training");
                         }} />
                     </button>
                 </header>

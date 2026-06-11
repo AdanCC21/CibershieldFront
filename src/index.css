@@ -29,6 +29,11 @@ html {
   margin-left: 8vw;
 }
 
+.page-padding {
+  padding-right: 8vw;
+  padding-left: 8vw;
+}
+
 .card-shadow {
   box-shadow:
     0 -4px 0px var(--secundary-color),

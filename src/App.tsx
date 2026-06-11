@@ -20,11 +20,11 @@ export default function App() {
           </Layout>
         } />
         <Route path='/' element={
-          <Layout header footer>
+          <Layout header footer padding={false}>
             <Home />
           </Layout>
         } />
-        <Route path='/testing' element={
+        <Route path='/training' element={
           <Layout header footer headerPage={E_Pages.TESTING}>
             <Form />
           </Layout>
@@ -34,7 +34,7 @@ export default function App() {
             <Info />
           </Layout>
         } />
-        <Route path='/testing/exercises' element={
+        <Route path='/training/exercises' element={
           <Layout header padding={false} headerPage={E_Pages.TESTING}>
             <Exercises />
           </Layout>

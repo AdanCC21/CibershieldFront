@@ -39,7 +39,7 @@ export default function Header({ curPage, setPage }: Prompts) {
   return (
     <header className="sticky top-0 left-0 flex justify-between items-center gap-4 p-2 shadow-sm w-screen h-[6vh] px-[10vh] bg-white/10 backdrop-blur-xl z-100">
 
-      <button className="text-lg text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>Cibershield</button>
+      <button className="text-2xl text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>Cibershield</button>
 
       <nav className="absolute bottom-1/2 right-1/2 translate-1/2 flex gap-4">
         <HeaderItem title={E_Pages.HOME} active={curPage === E_Pages.HOME} page={E_Pages.HOME} setPage={setPage} href="/" goTo={goTo} />

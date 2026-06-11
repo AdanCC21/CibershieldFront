@@ -12,7 +12,7 @@ interface Prompts {
     iconClass?: string
 
     onClick: () => void
-    btnStyle: BtnStyle
+    btnStyle?: BtnStyle
     btnClass?: string
 }
 

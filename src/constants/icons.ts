@@ -16,6 +16,12 @@ import Mood from '@/assets/icons/mood.svg'
 import Target from '@/assets/icons/target.svg'
 import Web from '@/assets/icons/web.svg'
 import Warning from '@/assets/icons/warning.svg'
+import Skull from '@/assets/icons/skull.svg'
+import Phishing from '@/assets/icons/phishing.svg'
+import ShieldLock from '@/assets/icons/shield_lock.svg'
+import Eye from '@/assets/icons/eye.svg'
+import Troyan from '@/assets/icons/troyan.svg'
+import ErrorIc from '@/assets/icons/error.svg'
 
 export const Icons = {
     person: Person,
@@ -32,6 +38,7 @@ export const Icons = {
 
     close: Close,
     check: Check,
+    error: ErrorIc,
 
     incorrect: Incorrect,
     info: Info,
@@ -42,5 +49,11 @@ export const Icons = {
     mood: Mood,
     web: Web,
     target: Target,
-    warning: Warning
+    warning: Warning,
+
+    skull: Skull,
+    phishing: Phishing,
+    shieldLock: ShieldLock,
+    eye: Eye,
+    troyan: Troyan,
 }

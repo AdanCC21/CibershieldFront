@@ -3,6 +3,7 @@ import { showUp, tailwindcssDuration } from "@/constants/animations"
 import type { InfoArticle } from "@/entities/virus"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState, type ReactNode } from "react"
+import TypeCard from "./TypeCard"
 
 interface Prompts {
     title: string
@@ -12,7 +13,7 @@ interface Prompts {
     imgAlt?: string
     child?: ReactNode
 }
-export default function TitleDescription({ title, desc, img, imgDown, imgAlt, child }: Prompts) {
+export default function InfoSections({ title, desc, img, imgDown, imgAlt, child }: Prompts) {
     const [modalActive, showModal] = useState(false);
     const [curModalChild, setModChild] = useState<{ children: ReactNode } & ModalData | null>(null);
 
@@ -30,35 +31,25 @@ export default function TitleDescription({ title, desc, img, imgDown, imgAlt, ch
 
     const switchItem = () => {
         if (typeof desc === 'string') {
+            // Puro texto
             return <p className='text-base whitespace-pre-line'>{desc}</p>
         } else if (desc.every(item => typeof item === 'string')) {
+            // Un array de puro texto
             return (
                 <ul className="flex flex-col gap-2 w-full">
                     {(desc as string[]).map((cur, i) =>
-                        <li key={i} className="list-disc list-inside text-sm">
-                            {cur}
+                        <li key={i} className="list-disc list-inside">
+                            <span className="text-sm">{cur}</span>
                         </li>
                     )}
                 </ul>
             )
-
         } else {
+            // Un array de 'tipos de'
             return (
                 <ul className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 4xl:grid-cols-6 gap-4 my-2">
                     {(desc as InfoArticle[]).map((article) =>
-                        <li key={article.id} className={`group bg-white hover:bg-(--secundary-color) hover:text-white hover:scale-102 card-shadow rounded-lg ${tailwindcssDuration}`}>
-                            <button className="flex flex-col h-full text-start w-full px-4 py-2 cursor-pointer" onClick={() => { openModal(article) }}>
-                                <div className="flex gap-2 items-center">
-                                    {article.icon &&
-                                        <img src={article.icon} className={`group-hover:invert h-4 w-fit ${tailwindcssDuration}`} alt="icon" />
-                                    }
-                                    <h5 className="font-semibold text-lg">{article.title}</h5>
-                                </div>
-                                {article.summary && (
-                                    <p className={`text-sm text-(--text-gray) group-hover:text-white/60 ${tailwindcssDuration}`}>{article.summary}</p>
-                                )}
-                            </button>
-                        </li>
+                        <TypeCard key={article.id} article={article} onClick={() => { openModal(article) }} />
                     )}
                 </ul>
             )

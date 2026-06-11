@@ -70,10 +70,10 @@ const LetsPractice: InfoArticle = {
     img: '/phishing/you_identify.webp',
     imgAlt: '¿Reconoces bien el phishing?',
     imgDown: true,
-    child: <Link label="Practicar" href="/testing" icon={Icons.arrowRight} labelSize="text-xl" labelClass="font-medium" />
+    child: <Link label="Practicar" href="/training" icon={Icons.arrowRight} labelSize="text-xl" labelClass="font-medium" />
 }
 
-const PhishingTypes: InfoArticle = {
+export const PhishingTypes: InfoArticle = {
     id: 5,
     title: "Phishing types",
     content: [
