@@ -38,19 +38,17 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
             <div className="flex flex-col gap-4 items-center justify-center w-full">
                 <div className="flex flex-col gap-4 w-fit">
                     <img src={Icons.person} alt="person" className="h-28 w-fit" />
-                    <span className="text-2xl">Usuario</span>
+                    <span className="text-2xl text-center">{form.name.trim() !== "" ? form.name : 'Usuario'}</span>
                 </div>
 
-                <div className="w-3/4">
+                <fieldset className="flex flex-col w-full lg:w-3/4 gap-4">
                     <InputLabel
                         label="Nombre"
                         value={form.name}
                         atribute="name"
                         handleForm={handleForm}
                     />
-                </div>
 
-                <div className="w-3/4">
                     <InputLabel
                         label="Correo"
                         value={form.email}
@@ -58,7 +56,7 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
                         handleForm={handleForm}
                         inpType="email"
                     />
-                </div>
+                </fieldset>
             </div>
         )
     }
@@ -66,11 +64,7 @@ export default function StUserReg({ form, handleForm, setForm }: Prompts) {
     return (
         <>
             <div className="flex flex-col gap-4">
-                <h2 className="text-4xl">Usuario</h2>
-
-                <span className="text-lg">
-                    Este será el usuario con el que entrarás.
-                </span>
+                <h2 className="text-2xl lg:text-4xl">Usuario</h2>
 
                 {form.userType === 'guest' ? (
                     <>

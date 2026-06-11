@@ -53,7 +53,7 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] sm:h-[50vh] lg:h-7/10 drop-shadow-xl w-fit' alt="logo" />
+        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] sm:h-[50vh] lg:h-7/10 w-fit drop-shadow-xl w-fit' alt="logo" />
       </section>
 
       <section className="flex flex-col h-[60vh] justify-center gap-8 page-padding" ref={malwareRef}>
@@ -104,7 +104,7 @@ export default function Home() {
             </div>
           </div>
 
-          <ul className='flex-3 grid grid-cols-2 md:grid-cols-3 gap-4 self-center'>
+          <ul className='flex-3 grid grid-cols-2 lg:grid-cols-3 gap-4 self-center'>
             {(typeof PhishingTypes.content !== 'string' && PhishingTypes.content.every(cur => typeof cur !== 'string')) && PhishingTypes.content.map((article) => <TypeCard article={article} onClick={() => { openModal(article) }} />)}
           </ul>
         </article>

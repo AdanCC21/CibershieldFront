@@ -11,14 +11,14 @@ export default function StCateg({ form, setForm }: Prompts) {
     return (
         <>
             <div className="flex flex-col gap-4 mb-4">
-                <h1 className="text-4xl">Categoría</h1>
+                <h1 className="text-2xl lg:text-4xl">Categoría</h1>
 
-                <span className="text-lg">
-                    Selecciona una categoría para llevar a cabo las pruebas.
+                <span className="text-sm lg:text-lg">
+                    Selecciona que tipo de mensajes quieres probar
                 </span>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
                 <UserCard
                     title="SMS"
                     active={form.category === 'sms'}

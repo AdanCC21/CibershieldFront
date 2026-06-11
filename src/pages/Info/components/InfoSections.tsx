@@ -59,7 +59,7 @@ export default function InfoSections({ title, desc, img, imgDown, imgAlt, child 
     return (
         <AnimatePresence mode='wait'>
             <motion.div variants={showUp} className='flex flex-col gap-2 h-fit w-full'>
-                <div className={`flex ${imgDown ? 'flex-col' : 'flex-row'} gap-2 w-full`}>
+                <div className={`flex ${imgDown ? 'flex-col' : 'flex-col lg:flex-row'} gap-2 w-full`}>
                     <div className={`flex flex-col gap-2 ${!imgDown && 'flex-2'}`}>
                         <h3 className='text-2xl font-semibold'>{title}</h3>
                         {switchItem()}

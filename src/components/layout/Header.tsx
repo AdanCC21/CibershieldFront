@@ -90,7 +90,7 @@ export default function Header({ curPage, setPage }: Prompts) {
           {headerItems()}
         </nav>
 
-        <div className="hidden lg:flex gap-4 items-center">
+        {/* <div className="hidden lg:flex gap-4 items-center">
           {!user ?
             <>
               <Button title="Iniciar sesión" onClick={() => { navigator('/auth') }} btnStyle="outline" icon={Icons.person} iconAlt="person" iconRight />
@@ -106,7 +106,7 @@ export default function Header({ curPage, setPage }: Prompts) {
               }
             </div>
           }
-        </div>
+        </div> */}
       </header>
     </>
   )

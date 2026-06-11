@@ -142,15 +142,13 @@ export default function Form() {
       </GenModal>
 
       {!formFinish &&
-        <motion.div className="flex w-full h-full gap-4 z-1">
-
-
-          <section className="flex flex-col flex-1 p-4 gap-4">
+        <motion.div className="flex flex-col lg:flex-row size-full gap-4 bg-white my-4 lg:my-0 border-t border-(--primary-color) shadow-sm rounded-xl z-1">
+          <section className="flex flex-1 justify-center p-4 gap-4">
             <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
           </section>
 
           <motion.section key={curStep} variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-5 p-4 gap-4">
-            <motion.section variants={showUp}>
+            <motion.section variants={showUp} className="min-h-[60vh]">
               {handleScreen()}
             </motion.section>
             <motion.div variants={showUp} className="flex justify-end gap-4 mt-auto">
@@ -162,7 +160,7 @@ export default function Form() {
           </motion.section>
 
 
-          <section className="flex flex-col flex-1 p-4">
+          <section className={`hidden lg:flex flex-col flex-1 p-4`}>
             <motion.h2 variants={showUp} initial="hidden" animate="show" exit="exit" className="text-2xl mb-2 font-semibold">Resumen</motion.h2>
             <motion.ul variants={showUpContainer} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-2">
               <SummaryTest title="Tipo de usuario" desc={form.userType ? form.userType === 'guest' ? 'invitado' : 'cuenta' : null} />

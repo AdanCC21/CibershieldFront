@@ -4,6 +4,7 @@ import invitado from '@/assets/icons/person.svg';
 import type { Dispatch, SetStateAction } from 'react';
 import { motion } from 'framer-motion';
 import { showUp, showUpContainer } from '@/constants/animations';
+import { Icons } from '@/constants/icons';
 
 
 interface Prompts {
@@ -21,14 +22,14 @@ export default function StUserType({ form, setForm }: Prompts) {
     return (
         <motion.div variants={showUpContainer} initial='hidden' animate='showShort'>
             <motion.div variants={showUp} className="flex flex-col gap-4 mb-4">
-                <h1 className="text-4xl">Tipo de usuario</h1>
+                <h1 className="text-2xl lg:text-4xl">Tipo de usuario</h1>
 
-                <span className="text-base">
+                <span className="text-sm lg:text-base">
                     Selecciona la forma en la cual vas a simular una práctica de phishing.
                 </span>
             </motion.div>
 
-            <motion.div variants={showUp} className="flex gap-4 my-4">
+            <motion.div variants={showUp} className="flex flex-col md:flex-row gap-4 my-4">
                 <UserCard
                     title="Entrar como invitado"
                     active={form.userType === 'guest'}
@@ -49,9 +50,12 @@ export default function StUserType({ form, setForm }: Prompts) {
             </motion.div>
 
             {form.userType &&
-                <motion.span variants={showUp} className='text-base'>
-                    {form.userType === 'guest' ? guestExplain : accountExplain}
-                </motion.span>
+                <motion.div variants={showUp} className='flex gap-2'>
+                    <img src={Icons.info} alt='Info' className='h-4 opacity-40 my-1'/>
+                    <span className='text-sm lg:text-base text-(--text-gray)'>
+                        {form.userType === 'guest' ? guestExplain : accountExplain}
+                    </span>
+                </motion.div>
             }
         </motion.div>
     )

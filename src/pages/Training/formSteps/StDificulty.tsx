@@ -19,19 +19,19 @@ export default function StDificulty({ form, setForm }: Prompts) {
     return (
         <>
             <div className="flex flex-col gap-4 mb-4">
-                <h1 className="text-4xl">Categoría</h1>
-                <span className="text-lg">
-                    Selecciona una categoría para llevar a cabo las pruebas.
+                <h1 className="text-2xl lg:text-4xl">Categoría</h1>
+                <span className="text-sm lg:text-lg">
+                    Selecciona que tan complejos serán los mensajes que recibas
                 </span>
             </div>
 
-            <div className="flex gap-4 mb-4">
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
                 <Dificulty level="facil" form={form} setForm={setForm} />
                 <Dificulty level="medio" form={form} setForm={setForm} />
                 <Dificulty level="dificil" form={form} setForm={setForm} />
             </div>
 
-            <span className="text-base">
+            <span className="text-sm lg:text-base text-(--text-gray)">
                 {msg}
             </span>
         </>
