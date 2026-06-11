@@ -19,7 +19,7 @@ export default function Layout({ children, header, footer, padding = true, heade
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname.includes('testing')) {
+        if (location.pathname.includes('training')) {
             setPage(E_Pages.TESTING)
             return
         }
