@@ -5,7 +5,6 @@ import { E_Pages } from "@/entities/enums"
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../Button"
-import { menu } from "framer-motion/client"
 
 interface Prompts {
   curPage: E_Pages
