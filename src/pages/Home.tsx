@@ -33,11 +33,11 @@ export default function Home() {
 
   return (
     <div className='flex flex-col w-full h-full gap-20 my-[2vh]'>
-      <section className="flex w-full h-[85vh] justify-between items-center page-padding">
-        <motion.div variants={showUpContainer} initial="hidden" animate="show" className="flex flex-col w-fit gap-4">
-          <motion.h1 variants={showDown} className="text-8xl text-(--primary-color) font-bold">Cibershield</motion.h1>
+      <section className="flex flex-col-reverse lg:flex-row w-full min-h-[90vh] lg:min-h-[85vh] lg:h-[85vh] justify-center lg:justify-between items-center page-padding gap-4">
+        <motion.div variants={showUpContainer} initial="hidden" animate="show" className="flex flex-col w-fit gap-4 items-center text-center lg:text-start lg:items-start">
+          <motion.h1 variants={showDown} className="text-4xl sm:text-6xl lg:text-8xl text-(--primary-color) font-bold">Cibershield</motion.h1>
 
-          <motion.p variants={showDown} className="text-2xl text-(--text-gray)">Aprende a como proteger tu privacidad digital</motion.p>
+          <motion.p variants={showDown} className="text-lg sm:text-xl lg:text-2xl text-(--text-gray)">Aprende a como proteger tu privacidad digital</motion.p>
 
           <motion.button variants={showDown} className="relative group flex gap-2 items-center justify-center w-fit border-(--primary-color) cursor-pointer"
             onClick={() => {
@@ -51,8 +51,8 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-7/10 drop-shadow-xl' alt="logo" />
-        <img src='/armadillo.webp' className='absolute right-0 top-0 translate-x-1/2 -translate-y-1/5 h-4/10 -z-1 opacity-20 -rotate-20' alt="logo fondo" />
+        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] sm:h-[50vh] lg:h-7/10 drop-shadow-xl w-fit' alt="logo" />
+
       </section>
 
       <section className="flex flex-col h-[60vh] justify-center gap-8 page-padding" ref={malwareRef}>

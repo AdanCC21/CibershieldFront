@@ -22,6 +22,7 @@ import ShieldLock from '@/assets/icons/shield_lock.svg'
 import Eye from '@/assets/icons/eye.svg'
 import Troyan from '@/assets/icons/troyan.svg'
 import ErrorIc from '@/assets/icons/error.svg'
+import Menu from '@/assets/icons/menu.svg'
 
 export const Icons = {
     person: Person,
@@ -42,6 +43,7 @@ export const Icons = {
 
     incorrect: Incorrect,
     info: Info,
+    menu: Menu,
 
     logIn: LogIn,
     logOut: LogOut,
