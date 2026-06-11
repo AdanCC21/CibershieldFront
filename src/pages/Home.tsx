@@ -19,6 +19,8 @@ export default function Home() {
   const [modalActive, showModal] = useState(false);
   const [curModalChild, setModChild] = useState<{ children: ReactNode } & ModalData | null>(null);
 
+  const [activeMalwareItem, setActiveMalwareItem] = useState<string | null>(null);
+
   const openModal = (data: InfoArticle) => {
     showModal(true);
     if (typeof data.content === 'string') {
@@ -52,7 +54,6 @@ export default function Home() {
         </motion.div>
 
         <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] sm:h-[50vh] lg:h-7/10 drop-shadow-xl w-fit' alt="logo" />
-
       </section>
 
       <section className="flex flex-col h-[60vh] justify-center gap-8 page-padding" ref={malwareRef}>
@@ -61,49 +62,49 @@ export default function Home() {
           <h3 className="text-3xl">Malware</h3>
         </div>
 
-        <div className="flex gap-4" >
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-4" >
           <div className='flex flex-col gap-4 flex-2'>
-            <p className='text-base'>El malware es cualquier software creado con fines maliciosos. Estas amenazas pueden afectar computadoras, teléfonos y otros dispositivos, poniendo en riesgo la información y la privacidad de los usuarios. En esta sección aprenderás a reconocer los tipos de malware más comunes, cómo se propagan y qué medidas puedes tomar para protegerte.</p>
+            <p className='text-sm lg:text-base'>El malware es cualquier software creado con fines maliciosos. Estas amenazas pueden afectar computadoras, teléfonos y otros dispositivos, poniendo en riesgo la información y la privacidad de los usuarios. En esta sección aprenderás a reconocer los tipos de malware más comunes, cómo se propagan y qué medidas puedes tomar para protegerte.</p>
 
-            <span>Existen multiples <button className='underline cursor-pointer' onClick={() => {
+            <span className='text-sm lg:text-base'>Existen multiples <button className='underline cursor-pointer' onClick={() => {
               if (malwareTypes.current) {
                 window.scrollTo({ top: malwareTypes.current.offsetTop * .8, behavior: 'smooth' })
               }
             }}>tipos de malwares</button></span>
           </div>
 
-          <div className='flex-1'>
+          <div className='flex-1 my-4'>
             <img src="/laptop_infected.webp" alt='laptop_infected' className='max-h-[60vh] w-fit object-cover' />
           </div>
         </div>
       </section>
 
-      <section ref={malwareTypes} className='relative flex flex-col justify-center gap-4 h-[60vh] bg-(--primary-color) page-padding text-white'>
-        <h2 className="absolute top-1/10 right-1/2 translate-x-1/2 text-3xl font-bold text-center">Tipos de malware</h2>
-        <ul className="flex gap-8 items-start">
-          <MalwareItem title='Virus' img={Icons.skull} imgAlt='Virus' desc='Malware que se replica infectando archivos y programas.' />
-          <MalwareItem title='Troyano' img={Icons.troyan} imgAlt='troyano' desc='Malware que se disfraza de software legítimo para engañar al usuario y robar información o controlar el sistema.' />
-          <MalwareItem title='Spyware' img={Icons.eye} imgAlt='Eye' desc='Malware que espía tus actividades, registra datos y los envía a terceros sin permiso.' />
+      <section ref={malwareTypes} className='md:relative flex flex-col justify-center gap-4 min-h-[60vh] bg-(--primary-color) page-padding text-white md:py-0 py-8'>
+        <h2 className="md:absolute md:top-1/10 md:right-1/2 md:translate-x-1/2 text-3xl font-bold text-center">Tipos de malware</h2>
+        <ul className="flex flex-col md:flex-row gap-4 items-start">
+          <MalwareItem title='Virus' img={Icons.skull} imgAlt='Virus' desc='Malware que se replica infectando archivos y programas.' active={activeMalwareItem === 'Virus'} onToggle={() => setActiveMalwareItem(prev => prev === 'Virus' ? null : 'Virus')} />
+          <MalwareItem title='Troyano' img={Icons.troyan} imgAlt='troyano' desc='Malware que se disfraza de software legítimo para engañar al usuario y robar información o controlar el sistema.' active={activeMalwareItem === 'Troyano'} onToggle={() => setActiveMalwareItem(prev => prev === 'Troyano' ? null : 'Troyano')} />
+          <MalwareItem title='Spyware' img={Icons.eye} imgAlt='Eye' desc='Malware que espía tus actividades, registra datos y los envía a terceros sin permiso.' active={activeMalwareItem === 'Spyware'} onToggle={() => setActiveMalwareItem(prev => prev === 'Spyware' ? null : 'Spyware')} />
         </ul>
-        <span className='absolute bottom-1/10 right-1/2 translate-x-1/2 text-sm'>Y muchos mas...</span>
+        <span className='md:absolute md:bottom-1/10 md:right-1/2 md:translate-x-1/2 text-sm text-center'>Y muchos mas...</span>
       </section>
 
-      <section className='flex flex-col gap-8 h-[60vh] justify-center page-padding my-[6vh]'>
+      <section className='flex flex-col gap-8 min-h-[60vh] justify-center page-padding my-[6vh]'>
         <div className="flex gap-4 items-center ">
           <img src={Icons.phishing} alt='Phishing' className='h-16 w-fit' />
           <h2 className='text-5xl font-semibold'>Phishing</h2>
         </div>
 
-        <article className='flex gap-8'>
+        <article className='flex flex-col md:flex-row gap-8'>
           <div className='flex flex-col flex-2 gap-4'>
             <p className='text-lg mb-2'>El phsihign es un método de ataque o engaño que busca obtener información sensible haciéndose pasar por alguien o algo de confianza.</p>
             <div className="flex items-center gap-4">
               <p className='text-lg'>Existen varios tipos de phishing</p>
-              <img src={Icons.arrowRight} alt='arrow right' className='h-4' />
+              <img src={Icons.arrowRight} alt='arrow right' className='h-4 rotate-90 md:rotate-0' />
             </div>
           </div>
 
-          <ul className='flex-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 self-center'>
+          <ul className='flex-3 grid grid-cols-2 md:grid-cols-3 gap-4 self-center'>
             {(typeof PhishingTypes.content !== 'string' && PhishingTypes.content.every(cur => typeof cur !== 'string')) && PhishingTypes.content.map((article) => <TypeCard article={article} onClick={() => { openModal(article) }} />)}
           </ul>
         </article>
@@ -134,7 +135,7 @@ export default function Home() {
       </section>
 
       <section className='flex flex-col gap-8 page-padding py-[6vh]'>
-        <article className='flex gap-8'>
+        <article className='flex flex-col md:flex-row gap-8'>
           <div className='flex flex-2 flex-col gap-8'>
             <div className="flex gap-4 items-center">
               <img src="armadillo.webp" className='h-8' />
@@ -178,13 +179,22 @@ interface Prompts {
 
   img: string
   imgAlt: string
+  active?: boolean
+  onToggle?: () => void
 }
-function MalwareItem({ title, desc, img, imgAlt }: Prompts) {
+function MalwareItem({ title, desc, img, imgAlt, active = false, onToggle }: Prompts) {
   return (
-    <li className='flex flex-col flex-1 justify-center items-center text-center '>
-      <img src={img} alt={imgAlt} className='h-20 w-fit invert mb-4' />
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-sm">{desc}</p>
+    <li className={`flex flex-col flex-1 w-full justify-center items-center text-center rounded-xl border border-white/20 bg-white/10 md:bg-white/0 md:border-0 p-4 shadow-sm md:shadow-none ${tailwindcssDuration}`}>
+      <button type='button' onClick={onToggle} className='flex flex-col items-center gap-3 w-full text-white'>
+        <img src={img} alt={imgAlt} className='h-20 w-fit invert mb-2' />
+        <h3 className="text-lg font-semibold">{title}</h3>
+      </button>
+      <p className="hidden md:block text-sm  max-h-40 mt-3">
+        {desc}
+      </p>
+      <p className={`md:hidden text-sm transition-all duration-200 overflow-hidden ${active ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0 mt-0'}`}>
+        {desc}
+      </p>
     </li>
   )
 }
