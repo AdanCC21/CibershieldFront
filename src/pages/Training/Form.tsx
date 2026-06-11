@@ -142,7 +142,7 @@ export default function Form() {
       </GenModal>
 
       {!formFinish &&
-        <motion.div className="flex flex-col lg:flex-row size-full gap-4 bg-white my-4 lg:my-0 border-t border-(--primary-color) shadow-sm rounded-xl z-1">
+        <motion.div className="flex flex-col lg:flex-row size-full gap-4 bg-white lg:border-t-0 border-t-4 border-(--primary-color) shadow-sm rounded-xl z-1 my-auto p-2 lg:p-4">
           <section className="flex flex-1 justify-center p-4 gap-4">
             <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
           </section>

@@ -1,10 +1,10 @@
 import { tailwindcssDuration } from "@/constants/animations"
 import { Icons } from "@/constants/icons"
-import type { AuthForm } from "@/dto/authform.dto"
+// import type { AuthForm } from "@/dto/authform.dto"
 import { E_Pages } from "@/entities/enums"
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react"
 import { useNavigate } from "react-router-dom"
-import Button from "../Button"
+// import Button from "../Button"
 
 interface Prompts {
   curPage: E_Pages
@@ -14,8 +14,8 @@ interface Prompts {
 export default function Header({ curPage, setPage }: Prompts) {
   const navigator = useNavigate();
 
-  const [user, setUser] = useState<AuthForm | null>(null);
-  const [userModal, showUser] = useState(false);
+  // const [user, setUser] = useState<AuthForm | null>(null);
+  // const [userModal, showUser] = useState(false);
 
   const [viewMenu, showMenu] = useState<boolean>(false)
 
@@ -27,7 +27,7 @@ export default function Header({ curPage, setPage }: Prompts) {
       const us = JSON.parse(usRaw);
       if (!us) return;
 
-      setUser(us);
+      // setUser(us);
     }
     loadUser();
   }, [])
@@ -44,10 +44,10 @@ export default function Header({ curPage, setPage }: Prompts) {
 
   const goTo = (href: string) => { navigator(href); showMenu(false); }
 
-  const logOut = () => {
-    sessionStorage.removeItem('user');
-    navigator('/auth');
-  }
+  // const logOut = () => {
+  //   sessionStorage.removeItem('user');
+  //   navigator('/auth');
+  // }
 
   const headerItems = () => (
     <>
@@ -112,33 +112,33 @@ export default function Header({ curPage, setPage }: Prompts) {
   )
 }
 
-interface UsPrompts {
-  user: AuthForm
-  logOut: () => void
-  active: boolean
-  setActive: Dispatch<SetStateAction<boolean>>
-}
-function UserDropDown({ user, active, setActive, logOut }: UsPrompts) {
-  if (!active) return
+// interface UsPrompts {
+//   user: AuthForm
+//   logOut: () => void
+//   active: boolean
+//   setActive: Dispatch<SetStateAction<boolean>>
+// }
+// function UserDropDown({ user, active, setActive, logOut }: UsPrompts) {
+//   if (!active) return
 
-  return (
-    <div className="absolute bottom-0 left-0 -translate-x-full translate-y-full flex flex-col text-start min-w-100 bg-white text-sm card-shadow rounded-lg z-10">
+//   return (
+//     <div className="absolute bottom-0 left-0 -translate-x-full translate-y-full flex flex-col text-start min-w-100 bg-white text-sm card-shadow rounded-lg z-10">
 
-      <main className="flex flex-col gap-2 p-4">
-        <span>Nombre : {user.name}</span>
-        <div className="h-px bg-[#0002] mx-4"></div>
-        <span>Correo :  {user.email}</span>
-      </main>
+//       <main className="flex flex-col gap-2 p-4">
+//         <span>Nombre : {user.name}</span>
+//         <div className="h-px bg-[#0002] mx-4"></div>
+//         <span>Correo :  {user.email}</span>
+//       </main>
 
-      <footer className="flex justify-end items-center bg-(--secundary-color) px-2 py-1 rounded-b-lg">
-        <button className="flex gap-2 items-center cursor-pointer w-fit h-fit" onClick={() => { logOut(); setActive(false) }}>
-          <span className="text-white text-sm">Cerrar sesión</span>
-          <img src={Icons.logOut} className="h-4 invert" alt="logout" />
-        </button>
-      </footer>
-    </div>
-  )
-}
+//       <footer className="flex justify-end items-center bg-(--secundary-color) px-2 py-1 rounded-b-lg">
+//         <button className="flex gap-2 items-center cursor-pointer w-fit h-fit" onClick={() => { logOut(); setActive(false) }}>
+//           <span className="text-white text-sm">Cerrar sesión</span>
+//           <img src={Icons.logOut} className="h-4 invert" alt="logout" />
+//         </button>
+//       </footer>
+//     </div>
+//   )
+// }
 
 interface ItemPrompts {
   title: E_Pages
