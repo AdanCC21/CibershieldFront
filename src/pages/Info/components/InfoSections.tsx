@@ -1,5 +1,5 @@
 import GenModal, { type ModalData } from "@/components/modal/GenModal"
-import { showUp, tailwindcssDuration } from "@/constants/animations"
+import { showUp } from "@/constants/animations"
 import type { InfoArticle } from "@/entities/virus"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState, type ReactNode } from "react"
