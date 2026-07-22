@@ -89,7 +89,7 @@ export default function Home() {
         <span className='md:absolute md:bottom-1/10 md:right-1/2 md:translate-x-1/2 text-sm text-center'>Y muchos mas...</span>
       </section>
 
-      <section className='flex flex-col gap-8 min-h-[60vh] justify-center page-padding my-[6vh]'>
+      <section className='flex flex-col gap-8 min-h-[60vh] justify-center page-padding my-[3vh]'>
         <div className="flex gap-4 items-center ">
           <img src={Icons.phishing} alt='Phishing' className='h-16 w-fit' />
           <h2 className='text-5xl font-semibold'>Phishing</h2>
@@ -146,8 +146,6 @@ export default function Home() {
             <p className='text-lg  '>Tu privacidad digital es muy importante. No esperes a ser hackeado para comenzar a tener mejores hábitos de seguridad dentro de la web. La mejor defensa es la educación y la prevención.</p>
 
             <p className='text-lg  '>Te enseñaremos a identificar los peligros más comunes como el phishing, malware y otros ataques. Aprenderás a reconocer señales de alerta, proteger tus datos y navegar de forma segura.</p>
-
-            <p className='text-base   italic'>Recuerda: tu seguridad digital no es algo que pueda esperar. Hoy es el día perfecto para aprender y protegerte.</p>
           </div>
 
           <div className='flex flex-1'>
@@ -155,8 +153,8 @@ export default function Home() {
           </div>
         </article>
 
-        <div className="flex flex-col gap-2 text-end items-end mt-4 ml-auto">
-          <Button title="Comienza tus practicas" icon={Icons.arrowRight} iconAlt='arrow right' iconRight iconInvert onClick={() => { navigator('/training') }} btnClass='w-fit' />
+        <div className="flex flex-col gap-2 text-center items-center mt-10">
+          <Button titleSize='text-xl' title="Comienza tus practicas" icon={Icons.arrowRight} iconAlt='arrow right' iconRight iconInvert onClick={() => { navigator('/training') }} btnClass='w-fit' />
 
           <p className='text-sm text-(--text-gray)'>O continúa explorando la <a className={`underline hover:text-(--primary-color) ${tailwindcssDuration}`} href='/info'>información sobre malware y phishing</a></p>
         </div>

@@ -46,12 +46,13 @@ export default function StUserType({ form, setForm }: Prompts) {
                     atribute='userType'
                     setForm={setForm}
                     value="account"
+                    disabled
                 />
             </motion.div>
 
             {form.userType &&
                 <motion.div variants={showUp} className='flex gap-2'>
-                    <img src={Icons.info} alt='Info' className='h-4 opacity-40 my-1'/>
+                    <img src={Icons.info} alt='Info' className='h-4 opacity-40 my-1' />
                     <span className='text-sm lg:text-base text-(--text-gray)'>
                         {form.userType === 'guest' ? guestExplain : accountExplain}
                     </span>
