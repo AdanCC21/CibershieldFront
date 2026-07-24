@@ -17,11 +17,14 @@ html {
   margin: 0px;
   overflow-x: hidden;
 
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal; */
+  font-family: "Hanken Grotesk", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .page-margin {

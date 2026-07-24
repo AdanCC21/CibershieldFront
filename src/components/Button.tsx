@@ -20,8 +20,8 @@ export type BtnStyle = 'fill' | 'outline';
 
 export default function Button({ title, titleClass, titleSize, icon, iconAlt, iconClass, iconInvert, iconRight, onClick, btnStyle = 'fill', btnClass }: Prompts) {
     const btnFill = btnStyle === 'fill' ?
-        `bg-(--primary-color) text-white hover:shadow-md ${tailwindcssDuration}` :
-        `border border-(--primary-color) hover:bg-(--primary-color)/10 ${tailwindcssDuration}`;
+        `bg-(--primary-color) text-white hover:shadow-md hover:scale-105 ${tailwindcssDuration}` :
+        `border border-(--primary-color) hover:bg-(--primary-color)/10 hover:scale-105 ${tailwindcssDuration}`;
     return (
         <button className={`flex items-center justify-center ${btnFill} ${iconRight && 'flex-row-reverse'} ${btnClass} px-4 py-1 gap-2 cursor-pointer rounded-lg`} onClick={onClick}>
             {icon &&

@@ -86,7 +86,7 @@ export default function Header({ curPage, setPage }: Prompts) {
 
         <button className="hidden lg:block text-2xl text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>Cibershield</button>
 
-        <nav className="hidden lg:flex absolute bottom-1/2 right-1/2 translate-1/2 gap-4">
+        <nav className="hidden lg:flex  gap-4">
           {headerItems()}
         </nav>
 
