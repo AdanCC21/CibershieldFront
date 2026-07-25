@@ -75,7 +75,7 @@ const LetsPractice: InfoArticle = {
 
 export const PhishingTypes: InfoArticle = {
     id: 5,
-    title: "Phishing types",
+    title: "Tipos de phishing",
     content: [
         {
             id: 0,

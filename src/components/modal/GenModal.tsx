@@ -3,7 +3,7 @@ import { Icons } from "@/constants/icons"
 import { motion } from "framer-motion"
 import { showUp } from "@/constants/animations"
 
-export type HeaderStyles = 'default' | 'primary';
+export type HeaderStyles = 'default' | 'primary' | 'red' | 'green';
 
 interface Prompts {
     active: boolean
@@ -24,6 +24,22 @@ export interface ModalData {
     iconAlt?: string
 }
 export default function GenModal({ active, setActive, item, headerStyle='default', children }: Prompts) {
+
+    const handleHeaderStyle = ()=>{
+        switch(headerStyle){
+            case 'default':
+                return "bg-white text-black"
+            case 'primary':
+                return "bg-(--primary-color) text-white"
+            case 'red':
+                return "bg-red-500 text-white"
+            case 'green':
+                return "bg-green-500 text-white"
+            default:
+                return "bg-white text-black"
+        }
+    }
+
     useEffect(() => {
         active ?
             document.documentElement.style.overflowY = "hidden" :
@@ -48,7 +64,7 @@ export default function GenModal({ active, setActive, item, headerStyle='default
     return (
         <motion.div className="fixed top-0 left-0 flex w-screen h-screen z-110" initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }} animate={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }} onClick={(e) => { setActive(false); e.stopPropagation(); }}>
             <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
-                <header className={`flex items-center gap-4 ${headerStyle === 'primary' ? 'bg-(--primary-color) text-white' : 'bg-white'}  p-4`}>
+                <header className={`flex items-center gap-4 ${handleHeaderStyle()} p-4`}>
                     <div className="flex items-center gap-4">
                         {item && item.icon &&
                             <img src={item.icon} className={`h-8 ${headerStyle === 'primary' && 'invert'}`} />

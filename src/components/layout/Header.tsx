@@ -63,7 +63,7 @@ export default function Header({ curPage, setPage }: Prompts) {
         <div className="fixed inset-0 bg-black/60 z-20" onClick={() => { showMenu(false) }}>
         </div>
       }
-      
+
       <header className="sticky top-0 left-0 flex justify-between items-center gap-4 p-2 shadow-sm w-screen h-[6vh] page-padding bg-white z-100">
 
         <button className="block lg:hidden" onClick={() => { showMenu(prev => !prev); }}>
@@ -84,7 +84,11 @@ export default function Header({ curPage, setPage }: Prompts) {
           </>
         }
 
-        <button className="hidden lg:block text-2xl text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>Cibershield</button>
+        
+        <button className="hidden lg:flex gap-2 items-center justify-center text-2xl text-(--primary-color) font-bold cursor-pointer" onClick={() => { navigator('/') }}>
+          <img src="/armadillo.webp" alt="Cibershield" className="h-6"/>
+          <span>Cibershield</span>
+        </button>
 
         <nav className="hidden lg:flex  gap-4">
           {headerItems()}
