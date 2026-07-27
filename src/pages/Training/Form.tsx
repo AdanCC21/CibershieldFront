@@ -147,7 +147,7 @@ export default function Form() {
             <Stepper steps={steps} curStep={curStep} setCurStep={setCurStep} />
           </section>
 
-          <motion.section key={curStep} variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-5 p-4 gap-4">
+          <motion.section variants={showUpContainer} initial="hidden" animate="show" exit="exit" className="flex flex-col flex-5 p-4 gap-4">
             <motion.section variants={showUp} className="min-h-[60vh]">
               {handleScreen()}
             </motion.section>

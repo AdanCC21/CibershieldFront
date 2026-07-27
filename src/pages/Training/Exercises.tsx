@@ -71,6 +71,7 @@ export default function Exercises() {
         }
 
         setResult(newResults);
+        window.scroll({top:0, left:0, behavior:'smooth'})
 
         if (curEx === exercises.length - 1) {
             const msg = exercises[curEx].whyIsAnError ?? "";
@@ -133,8 +134,8 @@ export default function Exercises() {
     return (
         <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin overflow-y-auto'>
             {(modalData.modalType === 'error') ?
-                <GenModal item={{ title: "Incorrecto" }} headerStyle={'red'} active={modalState} setActive={setModalState}>
-                    <div className="flex gap-4 items-center max-w-[30vw]">
+                <GenModal item={{ title: "Incorrecto" }} modalSize="w-md" headerStyle={'red'} active={modalState} setActive={setModalState}>
+                    <div className="flex flex-col md:flex-row gap-4 items-center">
                         <img src={Icons.incorrect} alt="Error" className="h-20 p-4 rounded-full border-2 border-red-500" />
                         <div className="flex flex-col gap-2">
                             <h3 className="text-3xl text-red-600 font-bold">Incorrecto</h3>
@@ -170,7 +171,7 @@ export default function Exercises() {
                 </GenModal>
             }
 
-            <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="flex flex-col gap-4 md:max-w-2/10 max-h-[90vh]">
+            <motion.section variants={showUp} initial="hidden" animate="show" exit="exit" className="hidden lg:flex flex-col gap-4 md:max-w-2/10 max-h-[90vh]">
                 <article className="flex flex-col items-center gap-4 card-shadow border border-black/10 rounded-lg p-4">
                     <img src={Icons.person} alt="person" className="h-12" />
                     <span className="text-base">{formInfo.name}</span>
@@ -181,7 +182,7 @@ export default function Exercises() {
                     <span className="text-lg font-medium">Bandeja de entrada</span>
 
                     <ul className="flex flex-col gap-4 w-full">
-                        {exercises.map((ex, ind) => (<ExerciseItem title={ex.title} owner={ex.owner.email} active={curEx === ind} />))}
+                        {exercises.map((ex, ind) => (<ExerciseItem key={ex.id} title={ex.title} owner={ex.owner.email} active={curEx === ind} />))}
                     </ul>
                 </article>
 
@@ -196,7 +197,7 @@ export default function Exercises() {
             <div className="w-px bg-[#0002]"></div>
 
             <AnimatePresence mode="wait">
-                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex max-h-[90vh] ${formInfo.category === 'email' ? 'flex-col w-full gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex lg:max-h-[90vh] ${formInfo.category === 'email' ? 'flex-col w-full gap-4' : 'justify-center items-center size-fit m-auto'} `}>
                     {formInfo.category === 'email' ?
                         <EmailCard key={curEx} ex={exercises[curEx]} />
                         :

@@ -8,7 +8,7 @@ interface Prompts {
 }
 export default function TipCard({ tip, changeTip }: Prompts) {
     return (
-        <motion.div variants={showUp} initial="hidden" animate="show" exit="exit"  className="flex flex-col w-100 max-h-80 h-fit overflow-y-auto p-4 gap-4 border-t-4 border-yellow-400 bg-white shadow-md rounded-lg animate-fade-in">
+        <motion.div variants={showUp} initial="hidden" animate="show" exit="exit"  className="flex flex-col w-100 max-w-[80vw] max-h-80 h-fit overflow-y-auto p-4 gap-4 border-t-4 border-yellow-400 bg-white shadow-md rounded-lg animate-fade-in">
             <h5 className="text-lg">{tip.title}</h5>
             <p className="text-base">{tip.desc}</p>
             <div className="flex justify-end w-full mt-auto">

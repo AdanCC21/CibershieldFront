@@ -36,13 +36,12 @@ export default function Home() {
 
   return (
     <div className='flex flex-col w-full h-full gap-20 my-[2vh]'>
-      <section className="flex flex-col-reverse lg:flex-row w-full min-h-[90vh] lg:min-h-[85vh] lg:h-[85vh] justify-center lg:justify-between items-center page-padding gap-4">
-        <motion.div variants={showUpContainer} initial="hidden" animate="show" className="flex flex-col w-fit max-w-3/5 gap-4 items-center text-center lg:text-start lg:items-start">
+      <section className="flex flex-col-reverse md:flex-row w-full min-h-[90vh] lg:min-h-[85vh] lg:h-[85vh] justify-center md:justify-between items-center page-padding gap-4">
+        <motion.div variants={showUpContainer} initial="hidden" animate="show" className="flex flex-col w-fit md:max-w-3/5 gap-4 items-center text-center md:text-start md:items-start">
           <motion.h3 variants={showDown} className="text-xl text-(--text-gray) uppercase tracking-wider font-semibold">Bienvenido a</motion.h3>
           <motion.h1 variants={showDown} className="text-4xl sm:text-6xl lg:text-8xl text-(--primary-color) font-bold border-b-4 border-b-(--primary-color)">Cibershield</motion.h1>
 
-          <motion.p variants={showDown} className="text-base sm:text-xl text-(--text-gray)">Aquí aprenderás a como proteger tu privacidad en el mundo digital y a evitar exponerte a riesgos comunes que pueden costarte tu información personal</motion.p>
-          {/* <motion.p variants={showDown} className="text-lg sm:text-xl lg:text-2xl text-(--text-gray)">Aprende a como proteger tu privacidad digital</motion.p> */}
+          <motion.p variants={showDown} className="text-sm sm:text-base text-(--text-gray)">Aquí aprenderás a como proteger tu privacidad en el mundo digital y a evitar exponerte a riesgos comunes que pueden costarte tu información personal</motion.p>
 
           <motion.div variants={showDown} className='absolute flex bottom-1/10'>
 
@@ -54,7 +53,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] sm:h-[50vh] lg:h-7/10 w-fit drop-shadow-xl w-fit' alt="logo" />
+        <motion.img variants={showUpLarge} initial="hidden" animate="show" src='/armadillo.webp' className='h-[30vh] lg:h-[50vh] xl:h-7/10 w-fit drop-shadow-xl w-fit' alt="logo" />
       </section>
 
       <section className="flex flex-col min-h-[60vh] justify-center gap-8 page-padding bg-(--primary-color) text-white py-4" ref={malwareRef}>
