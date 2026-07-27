@@ -77,7 +77,7 @@ export default function GenModal({ active, setActive, onClose, item, headerStyle
     if (!active) return <></>
 
     return (
-        <motion.div className="fixed top-0 left-0 flex w-screen h-screen z-110" initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }} animate={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }} onClick={(e) => { setActive(false); e.stopPropagation(); }}>
+        <motion.div className="fixed top-0 left-0 flex w-screen h-screen z-110" initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }} animate={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }} onClick={(e) => { setActive(false); onClose?.(); e.stopPropagation(); }}>
 
             <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className={`flex flex-col gap-4 bg-white ${modalSize} max-w-[80vw] max-h-[90vh] md:max-h-[60vh] m-auto overflow-hidden rounded-lg ${modalClassName}`} onClick={(e) => { e.stopPropagation() }}>
                 <header className={`flex items-center gap-4 ${handleHeaderStyle()} px-4 py-2`}>
