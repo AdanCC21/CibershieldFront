@@ -15,6 +15,7 @@ export default function Home() {
   const malwareRef = useRef<HTMLElement>(null);
   const malwareTypes = useRef<HTMLElement>(null);
   const navigator = useNavigate()
+  
   const [modalActive, showModal] = useState(false);
   const [curModalChild, setModChild] = useState<{ children: ReactNode } & ModalData | null>(null);
 
@@ -23,6 +24,7 @@ export default function Home() {
   const openModal = (data: InfoArticle) => {
     showModal(true);
     if (typeof data.content === 'string') {
+      
       setModChild({
         id: data.id,
         icon: data.icon,
@@ -44,7 +46,7 @@ export default function Home() {
 
           <motion.div variants={showDown} className='absolute flex bottom-1/10'>
 
-            <Button title='Descubre Mas' icon={Icons.arrowRight} iconAlt='Arrow' iconInvert iconRight onClick={() => {
+            <Button title='Descubre Mas' btnStyle='fill' icon={Icons.arrowRight} iconAlt='Arrow' iconInvert iconRight onClick={() => {
               if (malwareRef.current) {
                 window.scrollTo({ top: malwareRef.current.offsetTop * .8, behavior: 'smooth' })
               }
@@ -165,7 +167,7 @@ export default function Home() {
         </article>
 
         <div className="flex flex-col gap-2 text-center items-center md:mt-20">
-          <Button  title="Comienza tus practicas" icon={Icons.arrowRight} iconAlt='arrow right' iconRight iconInvert onClick={() => { navigator('/training') }} btnClass='w-fit' />
+          <Button  title="Comienza tus practicas" icon={Icons.arrowRight} iconAlt='arrow right' iconRight iconInvert onClick={() => { navigator('/training') }} btnClass='w-fit' btnStyle='fill' />
 
           <p className='text-sm text-(--text-gray)'>O continúa explorando la <a className={`underline hover:text-(--primary-color) ${tailwindcssDuration}`} href='/info'>información sobre malware y phishing</a></p>
         </div>
@@ -173,9 +175,9 @@ export default function Home() {
 
       {curModalChild && curModalChild.children &&
         <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
-          <main>
+          <>
             {curModalChild.children}
-          </main>
+          </>
         </GenModal>
       }
     </div>

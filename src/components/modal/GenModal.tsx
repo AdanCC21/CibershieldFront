@@ -8,10 +8,14 @@ export type HeaderStyles = 'default' | 'primary' | 'red' | 'green';
 interface Prompts {
     active: boolean
     setActive: Dispatch<SetStateAction<boolean>>
+    children: ReactNode
 
     item?: ModalData
+    onClose?: () => void
     headerStyle: HeaderStyles
-    children: ReactNode
+
+    modalClassName?: string
+    modalSize?: "w-sm" | "w-md" | "w-lg" | "w-xl"
 }
 
 export interface ModalData {
@@ -23,10 +27,10 @@ export interface ModalData {
     icon?: string
     iconAlt?: string
 }
-export default function GenModal({ active, setActive, item, headerStyle='default', children }: Prompts) {
+export default function GenModal({ active, setActive, onClose, item, headerStyle = 'default', children, modalClassName, modalSize }: Prompts) {
 
-    const handleHeaderStyle = ()=>{
-        switch(headerStyle){
+    const handleHeaderStyle = () => {
+        switch (headerStyle) {
             case 'default':
                 return "bg-white text-black"
             case 'primary':
@@ -37,6 +41,17 @@ export default function GenModal({ active, setActive, item, headerStyle='default
                 return "bg-green-500 text-white"
             default:
                 return "bg-white text-black"
+        }
+    }
+
+    const handleIconInvert = () => {
+        switch (headerStyle) {
+            case 'red':
+                return "invert"
+            case 'primary':
+                return "invert"
+            default:
+                return ""
         }
     }
 
@@ -63,20 +78,21 @@ export default function GenModal({ active, setActive, item, headerStyle='default
 
     return (
         <motion.div className="fixed top-0 left-0 flex w-screen h-screen z-110" initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }} animate={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }} onClick={(e) => { setActive(false); e.stopPropagation(); }}>
-            <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className="flex flex-col gap-4 bg-white max-w-3/5 max-h-[60vh] m-auto overflow-hidden rounded-lg" onClick={(e) => { e.stopPropagation() }}>
-                <header className={`flex items-center gap-4 ${handleHeaderStyle()} p-4`}>
+
+            <motion.div variants={showUp} initial="hidden" animate="showShort" exit="exit" className={`flex flex-col gap-4 bg-white ${modalSize ?? 'max-w-3/5'} max-h-[60vh] m-auto overflow-hidden rounded-lg ${modalClassName}`} onClick={(e) => { e.stopPropagation() }}>
+                <header className={`flex items-center gap-4 ${handleHeaderStyle()} px-4 py-2`}>
                     <div className="flex items-center gap-4">
                         {item && item.icon &&
-                            <img src={item.icon} className={`h-8 ${headerStyle === 'primary' && 'invert'}`} />
+                            <img src={item.icon} className={`h-8 ${handleIconInvert()}`} />
                         }
                         {item && item.title &&
-                            <span className={`${item.titleClass ?? ''} ${item.titleSize ?? 'text-2xl'} font-medium`}>
+                            <span className={`${item.titleClass ?? ''} ${item.titleSize ?? 'text-xl'} font-bold`}>
                                 {item.title}
                             </span>
                         }
                     </div>
-                    <button onClick={() => { setActive(false); }} className="flex items-center justify-center size-fit ml-auto cursor-pointer">
-                        <img src={Icons.close} alt="close" className={`h-8 ${headerStyle === 'primary' && 'invert'}`} />
+                    <button onClick={() => { onClose?.(); setActive(false); }} className="flex items-center justify-center size-fit ml-auto cursor-pointer">
+                        <img src={Icons.close} alt="close" className={`h-8 ${handleIconInvert()}`} />
                     </button>
                 </header>
 
@@ -88,6 +104,7 @@ export default function GenModal({ active, setActive, item, headerStyle='default
                     }
                 </main>
             </motion.div>
+
         </motion.div>
     )
 }

@@ -5,13 +5,18 @@ import { useEffect, useState } from "react"
 import type { TrainingForm } from "@/entities/form.entity"
 import toast from "react-hot-toast"
 import { showUp, showUpDown, tailwindcssDuration } from "@/constants/animations"
-import Modal, { type ModalPrompts } from "@/components/modal/Modal"
+import { type ModalPrompts } from "@/components/modal/Modal"
 import { useNavigate } from "react-router-dom"
 import { getExamples } from "@/scripts/examples"
 import TipsCarrusel from "./components/TipsCarrusel"
 import { AnimatePresence, motion } from "framer-motion"
 import type { EmailExercises } from "@/entities/email"
 import GenModal from "@/components/modal/GenModal"
+import Button from "@/components/Button"
+import { PieChart } from "@mui/x-charts-pro/PieChart"
+import { handleResultMessage } from "@/scripts/exercise"
+import ExerciseItem from "./components/ExerciseItem"
+import DonutChart from "@/components/DonutChart"
 
 
 export default function Exercises() {
@@ -30,28 +35,42 @@ export default function Exercises() {
 
     const handleResult = (isReal: boolean) => {
         const newResults = { ...results }
+
         if (exercises[curEx].isReal === isReal) {
             toast.success("Correcto");
+
             newResults.correct += 1;
-            if (curEx > 1) {
+
+            if (curEx > 1 && curEx < 3) {
+                console.log("Eliminando formInfo")
                 localStorage.removeItem('formInfo');
             }
         } else {
             if (curEx < exercises.length - 1) {
                 if (exercises[curEx].whyIsAnError) {
                     const msg = exercises[curEx].whyIsAnError;
+                    console.log(msg);
+
                     setModalData({
                         message: msg,
                         modalType: 'error',
-                        color: 'red'
                     })
+
                     setModalState(true);
                 } else {
+                    setModalData({
+                        message: "El correo es un intento de phishing. (Hubo un error extrayendo el motivo)",
+                        modalType: 'error',
+                    })
+                    setModalState(true);
+
+                    console.log("error sin feedback");
                     toast.error("Incorrecto");
                 }
             }
             newResults.incorrect += 1;
         }
+
         setResult(newResults);
 
         if (curEx === exercises.length - 1) {
@@ -114,19 +133,41 @@ export default function Exercises() {
 
     return (
         <div className='flex flex-col md:flex-row justify-between py-[2vh] gap-4 flex-1 my-[2vh] page-margin overflow-y-auto'>
-            {/* <Modal active={modalState} setActive={setModalState} title={modalData.title} message={modalData.message} modalType={modalData.modalType} color={modalData.color} results={modalData.results} /> */}
-
-            {modalData.message &&
-                <GenModal headerStyle={modalData.modalType === 'error' ? 'red' : 'default'} active={modalState} setActive={setModalState}>
+            {(modalData.modalType === 'error') ?
+                <GenModal item={{ title: "Incorrecto" }} headerStyle={'red'} active={modalState} setActive={setModalState}>
                     <div className="flex gap-4 items-center max-w-[30vw]">
-                        <div className="rounded-full p-4 border border-red-500">
-                            <img src={Icons.incorrect} alt="Error" className="h-20" />
-                        </div>
+                        <img src={Icons.incorrect} alt="Error" className="h-20 p-4 rounded-full border-2 border-red-500" />
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-3xl">Incorrecto</h3>
+                            <h3 className="text-3xl text-red-600 font-bold">Incorrecto</h3>
                             <p className="text-base">{modalData.message}</p>
                         </div>
                     </div>
+                    <Button title="Cerar" btnStyle="default" btnClass="mt-8 ml-auto" onClick={() => { setModalState(false) }} />
+                </GenModal>
+                :
+                <GenModal item={{ title: "Resultados" }} modalSize="w-sm" headerStyle={'default'} active={modalState} setActive={setModalState} onClose={() => { navigate("/training") }}>
+                    <section className="flex flex-col items-center justify-center mb-4">
+                        <DonutChart percentage={(results.correct / (results.correct + results.incorrect)) * 100} />
+                        <p className="text-base text-center mt-4">{handleResultMessage(results)}</p>
+                    </section>
+                    <section className="flex gap-2">
+
+                        <div className="flex flex-1 items-center gap-4 bg-green-200/40 p-2 rounded-xl">
+                            <img src={Icons.checkCircle} className="" />
+                            <div className="flex flex-col">
+                                <span className="text-lg">{results.correct}</span>
+                                <span className="text-sm text-green-600">Aciertos</span>
+                            </div>
+                        </div>
+                        <div className="flex flex-1 items-center gap-4 bg-red-200/40 p-2 rounded-xl">
+                            <img src={Icons.cancel} className="" />
+                            <div className="flex flex-col ">
+                                <span className="text-xl">{results.incorrect}</span>
+                                <span className="text-xs text-red-600">Errores</span>
+                            </div>
+                        </div>
+
+                    </section>
                 </GenModal>
             }
 
@@ -150,7 +191,6 @@ export default function Exercises() {
                     navigate('/')
                 }}>
                     <span className="text-base">Salir</span>
-                    {/* <img src={Icons.close} className={`group-hover:invert h-4 ${tailwindcssDuration}`} alt="exit" /> */}
                 </button>
             </motion.section>
 
@@ -183,22 +223,3 @@ export default function Exercises() {
     )
 }
 
-interface ExPrompts {
-    title: string
-    owner: string
-    active: boolean
-}
-function ExerciseItem({ title, owner, active }: ExPrompts) {
-    return (
-        <li className={`flex gap-2 items-center overflow-hidden ${active && 'bg-black/3 shadow-sm rounded-lg p-2'}`}>
-            <div className={`flex flex-col w-full `}>
-                <span className={`text-base truncate ${active && 'font-bold'}`}>
-                    {active && '- '}
-                    {title}
-                </span>
-                <span className={`text-xs text-(--text-gray) truncate`}>{owner}</span>
-            </div>
-
-        </li>
-    )
-}

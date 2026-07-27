@@ -23,6 +23,8 @@ import Eye from '@/assets/icons/eye.svg'
 import Troyan from '@/assets/icons/troyan.svg'
 import ErrorIc from '@/assets/icons/error.svg'
 import Menu from '@/assets/icons/menu.svg'
+import CheckCircle from '@/assets/icons/check_circle.svg'
+import Cancel from '@/assets/icons/cancel.svg'
 
 export const Icons = {
     person: Person,
@@ -39,6 +41,8 @@ export const Icons = {
 
     close: Close,
     check: Check,
+    checkCircle: CheckCircle,
+    cancel: Cancel,
     error: ErrorIc,
 
     incorrect: Incorrect,
