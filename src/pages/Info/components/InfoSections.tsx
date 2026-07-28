@@ -24,17 +24,15 @@ export default function InfoSections({ title, desc, img, imgDown, imgAlt, child 
                 id: data.id,
                 icon: data.icon,
                 title: data.title,
-                children: data.content
+                children: data.child ?? data.content
             })
         }
     }
 
     const switchItem = () => {
         if (typeof desc === 'string') {
-            // Puro texto
             return <p className='text-base whitespace-pre-line'>{desc}</p>
         } else if (desc.every(item => typeof item === 'string')) {
-            // Un array de puro texto
             return (
                 <ul className="flex flex-col gap-2 w-full">
                     {(desc as string[]).map((cur, i) =>
@@ -45,7 +43,6 @@ export default function InfoSections({ title, desc, img, imgDown, imgAlt, child 
                 </ul>
             )
         } else {
-            // Un array de 'tipos de'
             return (
                 <ul className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 4xl:grid-cols-6 gap-4 my-2">
                     {(desc as InfoArticle[]).map((article) =>
@@ -76,7 +73,7 @@ export default function InfoSections({ title, desc, img, imgDown, imgAlt, child 
                     </div>
                 }
                 {curModalChild && curModalChild.children &&
-                    <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
+                    <GenModal key={curModalChild.id} modalSize='w-6xl' active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
                         <main>
                             {curModalChild.children}
                         </main>

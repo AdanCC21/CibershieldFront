@@ -24,12 +24,11 @@ export default function Home() {
   const openModal = (data: InfoArticle) => {
     showModal(true);
     if (typeof data.content === 'string') {
-      
       setModChild({
         id: data.id,
         icon: data.icon,
         title: data.title,
-        children: data.content
+        children: data.child ?? data.content
       })
     }
   }
@@ -173,7 +172,7 @@ export default function Home() {
       </section>
 
       {curModalChild && curModalChild.children &&
-        <GenModal key={curModalChild.id} active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
+        <GenModal key={curModalChild.id} modalSize='w-6xl' active={modalActive} setActive={showModal} item={curModalChild} headerStyle="primary">
           <>
             {curModalChild.children}
           </>
