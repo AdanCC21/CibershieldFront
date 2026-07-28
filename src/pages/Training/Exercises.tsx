@@ -194,17 +194,17 @@ export default function Exercises() {
                 </button>
             </motion.section>
 
-            <div className="w-px bg-[#0002]"></div>
+            <div className="hidden lg:block w-px bg-[#0002]"></div>
 
             <AnimatePresence mode="wait">
-                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex lg:max-h-[90vh] ${formInfo.category === 'email' ? 'flex-col w-full gap-4' : 'justify-center items-center size-fit m-auto'} `}>
+                <motion.section key={curEx} variants={showUpDown} initial="hidden" animate="show" exit="exit" className={`flex lg:max-h-[90vh] ${formInfo.category === 'email' ? 'flex-col w-full gap-4' : 'flex-col justify-between lg:justify-center lg:items-center lg:size-fit lg:m-auto flex-1'} `}>
                     {formInfo.category === 'email' ?
                         <EmailCard key={curEx} ex={exercises[curEx]} />
                         :
                         <PhoneCard ex={exercises[curEx]} />
                     }
 
-                    <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'w-fit'} `}>
+                    <article className={`flex gap-8 ${formInfo.category === 'email' ? 'justify-center items-center' : 'justify-center w-full pt-4'} `}>
                         <button title="Es un mensaje legitimo" className="group flex items-center gap-2 px-3 py-1 border-t-3 border-green-600 hover:border-green-800 bg-green-50 hover:bg-green-400 rounded-lg cursor-pointer shadow-md"
                             onClick={() => { handleResult(true) }}>
                             <span className={`group-hover:text-white text-base ${tailwindcssDuration}`}>No es phishing</span>

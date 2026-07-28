@@ -6,8 +6,8 @@ interface Prompts {
 
 export default function PhoneCard({ ex }: Prompts) {
     return (
-        <div className="flex items-center justify-center p-6 h-full flex-1">
-            <div className="relative w-fit max-h-[80vh] aspect-9/16 rounded-[2.5rem] border-10 border-black bg-white shadow-2xl overflow-hidden">
+        <div className="flex items-center justify-center sm:p-6 h-full max-h-[80vh]">
+            <div className="relative w-fit max-h-[80vh] aspect-9/16 rounded-[2.5rem] border-10 border-black bg-white md:shadow-2xl overflow-hidden">
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-20" />
 
                 <div className="flex items-center gap-3 px-4 pt-12 pb-3 border-b border-neutral-200 bg-white">
